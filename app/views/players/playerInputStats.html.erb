@@ -1,12 +1,11 @@
 <html>
-    <h1>Choose A Player</h1>
+<h1>
+    Enter <%Player.first_name Player.last_name%> Statistics against
+    <%Game.against_team%> on date <%Game.date%>
+</h1>
 
-    <form>
-        First Name: <input type="text" name="firstname" /><br/>
-        Last Name: <input type="text" name="lastname"/><br/>
-        
-        <input type="submit" value="Submit">
-    </form>
+<form>
+    <h3>Enter Stats here</h3>
+</form>
 
-    <%= link_to("Home", root_path, :class => 'go back') %>
 </html>

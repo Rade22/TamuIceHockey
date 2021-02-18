@@ -1,0 +1,19 @@
+<html>
+    <h1>Add Player:</h1>
+
+    <form>
+        First Name: <input type="text" name="firstname" /><br/>
+        Last Name: <input type="text" name="lastname"/><br/>
+        Position: 
+        <select id="position" name="position">
+            <option value="center">Center</option>
+            <option value="defenseman">Defenseman</option>
+            <option value="wing">Wing</option>
+            <option value="goalie">Goalie</option>
+        </select><br/>
+        Number: <input type="number" name="number"/ min="0" max ="99"><br/>
+        <input type="submit" value="Submit">
+    </form>
+
+    <%= link_to("Home", root_path, :class => 'go back') %>
+</html>

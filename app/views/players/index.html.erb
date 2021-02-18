@@ -1,2 +1,58 @@
-<h1>Players#index</h1>
-<p>Find me in app/views/players/index.html.erb</p>
+<html>
+	<head>
+		<style>
+			table, th, td {
+			border: 1px solid black;
+			}
+			table.center {
+			margin-left: auto;
+			margin-right: auto;
+			}
+		</style>
+	</head>
+	<body>
+
+		<h2>Players:</h2>
+		<% flash.each do |type, msg| %>
+		<div>
+			<%= msg %>
+		</div>
+		<% end %>
+		<table class="center">
+			<tr>
+				<th>Name</th>
+				<th>Position</th>
+				<th>Number</th>
+				<th>Action</th>
+			</tr>
+			<% @players.each do |player| %>
+			</tr>
+			<td>
+				<%= player.first_name  + " " + player.last_name %>
+			</td>
+			<td>
+				<%= player.position %>
+			</td>
+			<td>
+				<%= player.number %>
+			</td>
+			<td>
+				<ul>
+					<li>
+						<%= link_to "Details", "/" %>
+					</li>
+					<li>
+						<%= link_to "Edit Stats", "/" %>
+					</li>
+					<li>
+						<%= link_to "Delete Player", "/" %>
+					</li>
+				</ul>
+			</td>
+			</tr>
+			<% end %>
+		</table>
+		<a href="/players/playerInputStats">Add Player statistics</a><br/>
+		<a href="/players/createPlayer">Add Player</a><br/>
+		<a href="/games/createGame">Add Game</a>
+</html>

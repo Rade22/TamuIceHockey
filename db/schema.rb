@@ -10,18 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_12_002213) do
+ActiveRecord::Schema.define(version: 2021_02_18_220651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "games", force: :cascade do |t|
-    t.string "against_team"
-    t.datetime "date"
+  create_table "game_stats", force: :cascade do |t|
+    t.string "opposing_team"
+    t.date "date"
     t.string "location"
-    t.integer "score"
+    t.integer "home_score"
     t.integer "opposing_score"
-    t.integer "game_stats_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -29,14 +28,6 @@ ActiveRecord::Schema.define(version: 2021_02_12_002213) do
   create_table "logins", force: :cascade do |t|
     t.string "username"
     t.string "hashed_password"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "participations", force: :cascade do |t|
-    t.integer "player_id"
-    t.integer "game_id"
-    t.integer "player_stats_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -54,6 +45,8 @@ ActiveRecord::Schema.define(version: 2021_02_12_002213) do
     t.integer "powerplay_goals"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "playerid"
+    t.integer "gameid"
   end
 
   create_table "players", force: :cascade do |t|

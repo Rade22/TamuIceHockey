@@ -1,17 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  against_team: MyString
-  date: 2021-02-09 22:46:19
+  opposing_team: MyString
+  date: 2021-02-18
   location: MyString
-  score: 1
+  home_score: 1
   opposing_score: 1
-  game_stats_id: 1
 
 two:
-  against_team: MyString
-  date: 2021-02-09 22:46:19
+  opposing_team: MyString
+  date: 2021-02-18
   location: MyString
-  score: 1
+  home_score: 1
   opposing_score: 1
-  game_stats_id: 1

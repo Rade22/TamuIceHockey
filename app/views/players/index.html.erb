@@ -25,7 +25,7 @@
 				<th>Number</th>
 				<th>Action</th>
 			</tr>
-			<% @players.each do |player| %>
+			<% @player.each do |player| %>
 			</tr>
 			<td>
 				<%= player.first_name  + " " + player.last_name %>
@@ -52,8 +52,6 @@
 			</tr>
 			<% end %>
 		</table>
-		<a href="/players/choosePlayer">Add Player Statistics</a><br/>
-		
-		<a href="/players/createPlayer">Add Player</a><br/>
-		<%= link_to "Add New Game", new_game_path() %>
+		<%= link_to "Add New Game", new_game_path() %><br/>
+		<%= link_to "Add New Player", new_player_path() %>
 </html>

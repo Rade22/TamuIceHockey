@@ -21,7 +21,7 @@
 
         <div>
             <%= form.label :position %><br>
-            <%= form.select :position, ["Center","Defenseman","Wing", "Goalie"]%>
+            <%= form.select :position, ["Center","Defenseman","Goalie", "Wing"]%>
             <% @player.errors.full_messages_for(:position).each do |message| %>
                 <div><%= message %></div>
             <% end %>

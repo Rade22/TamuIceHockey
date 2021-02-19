@@ -18,32 +18,32 @@ ActiveRecord::Schema.define(version: 2021_02_19_011721) do
   create_table "games", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.text "against_team", null: false
-    t.datetime "date", null: false
-    t.text "location", null: false
-    t.integer "score", null: false
-    t.integer "opposing_score", null: false
-    t.integer "game_stats_id", null: false
+    t.text "against_team"
+    t.datetime "date"
+    t.text "location"
+    t.integer "score"
+    t.integer "opposing_score"
+    t.integer "game_stats_id"
   end
 
   create_table "logins", force: :cascade do |t|
-    t.string "username", null: false
-    t.string "hashed_password", null: false
+    t.string "username"
+    t.string "hashed_password"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "participations", force: :cascade do |t|
-    t.integer "player_id", null: false
-    t.integer "game_id", null: false
-    t.integer "player_stats_id", null: false
+    t.integer "player_id"
+    t.integer "game_id"
+    t.integer "player_stats_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "players", force: :cascade do |t|
-    t.string "first_name", null: false
-    t.string "last_name", null: false
+    t.string "first_name"
+    t.string "last_name"
     t.string "position"
     t.integer "number"
     t.datetime "created_at", precision: 6, null: false

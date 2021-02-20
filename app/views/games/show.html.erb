@@ -1,11 +1,12 @@
 <html>
-    <h1>Choose A Game</h1>
+    <h1>Game Statistics</h1>
 
-    <form>
-        Date: <input type="date" name="date" /><br/>
-        
-        <input type="submit" value="Submit">
-    </form>
+	<ul>
+        <li>Opposition: <%= @game.against_team%></li>
+        <li>Location: <%=@game.location%></li>
+        <li>Game Date: <%= @game.date %></li>
+    </ul>
+			
 
-    <%= link_to("Home", root_path, :class => 'go back') %>
+    <%= link_to("Home", games_path, :class => 'go back') %>
 </html>

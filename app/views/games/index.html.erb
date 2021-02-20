@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<style>
+			table, th, td {
+			border: 1px solid black;
+			}
+			table.center {
+			margin-left: auto;
+			margin-right: auto;
+			}
+		</style>
+	</head>
+	<body>
+
+		<h2>Games:</h2>
+		<% flash.each do |type, msg| %>
+		<div>
+			<%= msg %>
+		</div>
+		<% end %>
+		<table class="center">
+			<tr>
+				<th>Opposition</th>
+				<th>Location</th>
+                <th>Game Date</th>
+				<th>Action</th>
+			</tr>
+			<% @game.each do |game| %>
+			</tr>
+			<td>
+				<%= game.against_team %>
+			</td>
+			<td>
+				<%= game.location %>
+			</td>
+			<td>
+				<%= game.date %>
+			</td>
+			<td>
+				<ul>
+					<li>
+						<%= link_to "Details", game_path(game) %>
+					</li>
+					<li>
+						<%= link_to "Edit Stats", edit_game_path(game) %>
+					</li>
+					<li>
+						<%= link_to "Delete Game",game, :confirm => "Are you sure?", :method => :delete %>
+					</li>
+				</ul>
+			</td>
+			</tr>
+			<% end %>
+		</table>
+		<%= link_to "Add New Game", new_game_path() %><br/>
+		<%= link_to "View Players", players_path() %>
+</html>

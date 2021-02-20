@@ -12,7 +12,7 @@
 	</head>
 	<body>
 
-		<h2>Players:</h2>
+		<h2>Games:</h2>
 		<% flash.each do |type, msg| %>
 		<div>
 			<%= msg %>
@@ -20,38 +20,38 @@
 		<% end %>
 		<table class="center">
 			<tr>
-				<th>Name</th>
-				<th>Position</th>
-				<th>Number</th>
+				<th>Opposition</th>
+				<th>Location</th>
+                <th>Game Date</th>
 				<th>Action</th>
 			</tr>
-			<% @player.each do |player| %>
+			<% @game.each do |game| %>
 			</tr>
 			<td>
-				<%= player.first_name  + " " + player.last_name %>
+				<%= game.against_team %>
 			</td>
 			<td>
-				<%= player.position %>
+				<%= game.location %>
 			</td>
 			<td>
-				<%= player.number %>
+				<%= game.date %>
 			</td>
 			<td>
 				<ul>
 					<li>
-						<%= link_to "Details", player_path(player) %>
+						<%= link_to "Details", game_path(game) %>
 					</li>
 					<li>
-						<%= link_to "Edit Stats", edit_player_path(player) %>
+						<%= link_to "Edit Stats", edit_game_path(game) %>
 					</li>
 					<li>
-						<%= link_to "Delete Player", root_path %>
+						<%= link_to "Delete Game",game, :confirm => "Are you sure?", :method => :delete %>
 					</li>
 				</ul>
 			</td>
 			</tr>
 			<% end %>
 		</table>
-		<%= link_to "Add New Player", new_player_path() %><br/>
-		<%= link_to "View Games", games_path() %>
+		<%= link_to "Add New Game", new_game_path() %><br/>
+		<%= link_to "View Players", players_path() %>
 </html>

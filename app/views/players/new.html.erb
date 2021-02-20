@@ -1,0 +1,45 @@
+<html>
+    <h1>Add New Player:</h1>
+
+    <%= form_with model: @player do |form| %>
+        <div>
+            <%= form.label :first_name %><br>
+            <%= form.text_field :first_name %>
+            <% @player.errors.full_messages_for(:first_name).each do |message| %>
+                <div><%= message %></div>
+            <% end %>
+        </div>
+
+        <div>
+            <%= form.label :last_name %><br>
+            <%= form.text_field :last_name %>
+            <% @player.errors.full_messages_for(:last_name).each do |message| %>
+                <div><%= message %></div>
+            <% end %>
+        </div>
+       
+
+        <div>
+            <%= form.label :position %><br>
+            <%= form.select :position, ["Center","Defenseman","Goalie", "Wing"]%>
+            <% @player.errors.full_messages_for(:position).each do |message| %>
+                <div><%= message %></div>
+            <% end %>
+        </div>
+
+        <div>
+            <%= form.label :number %><br>
+            <%= form.number_field :number, min: 0, max: 99 %>
+            <% @player.errors.full_messages_for(:number).each do |message| %>
+                <div><%= message %></div>
+            <% end %>
+        </div>
+
+        <div>
+            <%= form.submit %>
+        </div>
+    
+    <% end %>
+
+    <%= link_to("Home", root_path, :class => 'go back') %>
+</html>

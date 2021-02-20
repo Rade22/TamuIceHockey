@@ -1,0 +1,37 @@
+<html>
+    <h1>Add New Game:</h1>
+
+    <%= form_with model: @game  do |form| %>
+        <div>
+            <%= form.label :against_team %><br>
+            <%= form.text_field :against_team %>
+            <% @game.errors.full_messages_for(:against_team).each do |message| %>
+                <div><%= message %></div>
+            <% end %>
+        </div>
+
+        <div>
+            <%= form.label :date %><br>
+            <%= form.date_field :date %>
+            <% @game.errors.full_messages_for(:date).each do |message| %>
+                <div><%= message %></div>
+            <% end %>
+        </div>
+       
+
+        <div>
+            <%= form.label :location %><br>
+            <%= form.text_field :location %>
+            <% @game.errors.full_messages_for(:location).each do |message| %>
+                <div><%= message %></div>
+            <% end %>
+        </div>
+
+        <div>
+            <%= form.submit %>
+        </div>
+    
+    <% end %>
+    
+    <%= link_to("Home", games_path, :class => 'go back') %>
+</html>

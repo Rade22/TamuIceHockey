@@ -4,7 +4,7 @@
     <%= form_with model: @player do |form| %>
         <div>
             <%= form.label :first_name %><br>
-            <%= form.text_field :first_name %>
+            <%= form.text_field :first_name, :required => 'required' %>
             <% @player.errors.full_messages_for(:first_name).each do |message| %>
                 <div><%= message %></div>
             <% end %>
@@ -12,7 +12,7 @@
 
         <div>
             <%= form.label :last_name %><br>
-            <%= form.text_field :last_name %>
+            <%= form.text_field :last_name, :required => 'required' %>
             <% @player.errors.full_messages_for(:last_name).each do |message| %>
                 <div><%= message %></div>
             <% end %>
@@ -29,7 +29,7 @@
 
         <div>
             <%= form.label :number %><br>
-            <%= form.number_field :number, min: 0, max: 99 %>
+            <%= form.number_field :number, min: 0, max: 99, :required => 'required' %>
             <% @player.errors.full_messages_for(:number).each do |message| %>
                 <div><%= message %></div>
             <% end %>

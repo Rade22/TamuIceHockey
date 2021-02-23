@@ -1,7 +1,19 @@
 Rails.application.routes.draw do
   root 'players#index'
 
-  get "/games/delete/:id", to: "games#delete"
+  resources :games do
+    member do
+      get :delete
+    end
+  end
+
+  resources :players do
+    member do
+      get :delete
+    end
+  end
+
+  get ':controller(/:action(/:id))'
 
   resources :players
   resources :games

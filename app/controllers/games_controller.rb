@@ -20,6 +20,10 @@ class GamesController < ApplicationController
             render :new
         end
     end
+
+    def delete
+        @game = Game.find(params[:id])
+    end
     
     def destroy
         @game = Game.find(params[:id])

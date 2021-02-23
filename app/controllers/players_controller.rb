@@ -32,11 +32,21 @@ class PlayersController < ApplicationController
   end 
 
   def edit
-      
+    @player = Player.find(params[:id])
+    if @player.update(playersedit_params)
+        flash[:update] = "Player has been successfully updated!"
+        redirect_to(player_path)
+    else
+        render 'edit'
+    end
   end
    
   def players_params
       params.require(:player).permit(:first_name, :last_name, :position, :number)
+  end
+
+  def playersedit_params
+      params.require(:player).permit(:first_name, :last_name, :position, :number, :time_on_ice, :goals, :assists, :penalty_minutes, :powerplay_goals)
   end
   
 end

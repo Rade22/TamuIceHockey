@@ -5,23 +5,27 @@
     <%= form_with model: @game  do |form| %>
         <div>
             <%= form.label :against_team %><br>
-            <%= form.text_field :against_team %>
+            <%= form.text_field :against_team , required: true %>
         </div>
 
         <div>
             <%= form.label :date %><br>
-            <%= form.date_field :date %>
+            <%= form.date_field :date , required: true %>
         </div>
-       
 
         <div>
             <%= form.label :location %><br>
-            <%= form.text_field :location %>
+            <%= form.text_field :location%>
+        </div>
+
+        <div>
+            <%= form.label :score %><br>
+            <%= form.number_field :score, min: 0, max: 99 , required: true  %>
         </div>
 
         <div>
             <%= form.label :opposing_score %><br>
-            <%= form.text_field :opposing_score %>
+            <%= form.number_field :opposing_score,  min: 0, max: 99 , required: true %>
         </div>
 
         <div>

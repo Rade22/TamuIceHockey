@@ -20,9 +20,16 @@ class PlayersController < ApplicationController
       end
   end
   
-  def destroy
-
+  def delete
+       @player = Player.find(params[:id])
   end
+
+  def destroy
+    @player = Player.find(params[:id])
+    @player.destroy
+    flash.notice = "Delete Player Successfully"
+    redirect_to players_path
+  end 
 
   def edit
       

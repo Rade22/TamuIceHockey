@@ -39,20 +39,19 @@
 			<td>
 				<ul>
 					<li>
-						<%= link_to "Details", "/" %>
+						<%= link_to "Details", player_path(player) %>
 					</li>
 					<li>
-						<%= link_to "Edit Stats", "/" %>
+						<%= link_to "Edit Stats", edit_player_path(player) %>
 					</li>
 					<li>
-						<%= link_to "Delete Player", "/" %>
+						<%= link_to "Delete Player", root_path %>
 					</li>
 				</ul>
 			</td>
 			</tr>
 			<% end %>
 		</table>
-		<%= link_to "Add New Game", new_game_path() %><br/>
 		<%= link_to "Add New Player", new_player_path() %><br/>
-		<%= link_to "Edit Game Statistics", edit_game_path(@player) %><br/>
+		<%= link_to "View Games", games_path() %>
 </html>

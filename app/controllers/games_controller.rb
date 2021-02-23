@@ -5,7 +5,7 @@ class GamesController < ApplicationController
     end
     
     def show
-
+        @game = Game.find(params[:id])
     end
 
     def new
@@ -15,19 +15,21 @@ class GamesController < ApplicationController
     def create
         @game = Game.new(games_params)  
         if @game.save
-            redirect_to root_path, notice: "Game saved"
+            redirect_to games_path, notice: "Game saved"
         else
             render :new
         end
     end
     
-    def delete
+    def destroy
+        @game = Game.find(params[:id])
+        @game.destroy
 
+        redirect_to games_path, :notice => "Your game has been deleted"
     end
 
     def edit
-        @game = Game.find(params[:location])
-        
+        @game = Game.find(params[:id])
     end
      
     def games_params

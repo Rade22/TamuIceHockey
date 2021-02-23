@@ -28,7 +28,7 @@ class GamesController < ApplicationController
     def destroy
         @game = Game.find(params[:id])
         @game.destroy
-
+        flash.notice = "Delete Game Successfully"
         redirect_to games_path, :notice => "Your game has been deleted"
     end
 

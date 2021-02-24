@@ -48,7 +48,7 @@
 						<%= link_to "Edit Player Profile", edit_player_path(player) %>
 					</li>
 					<li>
-          				<%= link_to "View/Edit Player Stats Per Game", editPlayerStats_player_path(@participation) %>
+          				<%= link_to "View/Edit Player Stats Per Game", new_participation_path() %>
    					</li>
 					<li>
 						<%= link_to "Delete Player Profile", delete_player_path(player) %>
@@ -60,5 +60,6 @@
 		</table>
 		<%= link_to "Add New Player", new_player_path() %><br/>
 		<%= link_to "View Games", games_path() %><br/>
+		<%= link_to "View all player stats", participations_path() %>
 		
 </html>

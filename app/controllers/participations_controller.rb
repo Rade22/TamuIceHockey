@@ -22,6 +22,7 @@ class ParticipationsController < ApplicationController
   
   def delete
        @participation = Participation.find(params[:id])
+       destroy
   end
 
   def destroy

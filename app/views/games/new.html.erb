@@ -4,7 +4,7 @@
     <%= form_with model: @game  do |form| %>
         <div>
             <%= form.label :against_team %><br>
-            <%= form.text_field :against_team, :required => 'required' %>
+            <%= form.text_field :against_team, required: true%>
             <% @game.errors.full_messages_for(:against_team).each do |message| %>
                 <div><%= message %></div>
             <% end %>
@@ -12,7 +12,7 @@
 
         <div>
             <%= form.label :date %><br>
-            <%= form.date_field :date, :required => 'required' %>
+            <%= form.date_field :date, required: true %>
             <% @game.errors.full_messages_for(:date).each do |message| %>
                 <div><%= message %></div>
             <% end %>

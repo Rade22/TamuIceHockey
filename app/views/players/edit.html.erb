@@ -1,5 +1,32 @@
 <html>
-    <h1>Pick A Game To Edit Game Statistics For A Player</h1>
+    <h1>Change <%= @player.first_name + " " + @player.last_name %> Profile</h1>
+
+    <%= form_with model: @player  do |form| %>
+        <div>
+            <%= form.label :first_name %><br>
+            <%= form.text_field :first_name , required: true %>
+        </div>
+
+        <div>
+            <%= form.label :last_name %><br>
+            <%= form.text_field :last_name , required: true %>
+        </div>
+
+        <div>
+            <%= form.label :position %><br>
+            <%= form.select :position, ["Center","Defenseman","Goalie", "Left Wing", "Right Wing"], required: true%>
+        </div>
+
+        <div>
+            <%= form.label :number %><br>
+            <%= form.number_field :number, min: 0, max: 99 %>
+        </div>
+
+        <div>
+            <%= form.submit %>
+        </div>
+    
+    <% end %>
 
     <%= link_to("Home", root_path, :class => 'go back') %>
 </html>

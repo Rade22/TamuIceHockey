@@ -1,5 +1,12 @@
 <html>
-    <h1>Choose A Game to see player statistics</h1>
+    <h1>Player Profile</h1>
+    <ul>
+        <li>First Name: <%= @player.first_name%></li>
+        <li>Last Name: <%=@player.last_name%></li>
+        <li>Position: <%= @player.position %></li>
+        <li>Number: <%= @player.number %></li>
+    </ul>
 
+    <%= link_to "Edit Stats", edit_player_path(@player) %><br/>
     <%= link_to("Home", root_path, :class => 'go back') %>
 </html>

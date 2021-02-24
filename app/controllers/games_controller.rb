@@ -20,19 +20,38 @@ class GamesController < ApplicationController
             render :new
         end
     end
+
+    def delete
+        @game = Game.find(params[:id])
+    end
     
     def destroy
         @game = Game.find(params[:id])
         @game.destroy
-
+        flash.notice = "Delete Game Successfully"
         redirect_to games_path, :notice => "Your game has been deleted"
     end
 
     def edit
         @game = Game.find(params[:id])
     end
-     
+    
+    def update
+        @game = Game.find(params[:id])
+        if @game.update(gamesedit_params)
+            flash[:update] = "Your game has been successfully updated!"
+            redirect_to(game_path)
+        else
+            render 'edit'
+        end
+    end
+
+
     def games_params
         params.require(:game).permit(:against_team, :date, :location)
+    end
+
+    def gamesedit_params
+        params.require(:game).permit(:against_team, :date, :location, :score, :opposing_score)
     end
 end

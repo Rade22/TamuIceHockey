@@ -1,0 +1,79 @@
+<html>
+	<head>
+		<style>
+			table, th, td {
+			border: 1px solid black;
+			}
+			table.center {
+			margin-left: auto;
+			margin-right: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<% if flash[:notice] %>
+			<div class="notice">
+			<%= flash[:notice] %>
+		</div>
+		<% end %>
+
+		<h2>Participations:</h2>
+		<% flash.each do |type, msg| %>
+		<div>
+			<%= msg %>
+		</div>
+		<% end %>
+		<table class="center">
+			<tr>
+				<th>Name</th>
+				<th>Game</th>
+				<th>Goals</th>
+				<th>Assists</th>
+				<th>Powerplay Goals</th>
+				<th>Penalty Minutes</th>
+				<th>Action</th>
+			</tr>
+			<% @participation.each do |participation| %>
+			</tr>
+			<td>
+					<%= Player.find(participation.player_id).first_name  + " " + Player.find(participation.player_id).last_name %>
+					</td>
+			<td>
+				<%= Game.find(participation.game_id).against_team  + ", " + Game.find(participation.game_id).date.to_s %>
+				</td>
+			<td>
+				<%= participation.goals %>
+			</td>
+				<td>
+					<%= participation.assists %>
+				</td>
+				<td>
+					<%= participation.powerplay_goals %>
+				</td>
+				<td>
+					<%= participation.penalty_minutes %>
+				</td>
+			<td>
+				<ul>
+					<li>
+						<%= link_to "View Participation Profile", participation_path(participation) %>
+					</li>
+					<li>
+						<%= link_to "Edit Participation Profile", edit_participation_path(participation) %>
+					</li>
+					<li>
+						<%= link_to "View/Edit Participation Stats Per Game", new_participation_path() %>
+					</li>
+					<li>
+						<%= link_to "Delete Participation Profile", delete_participation_path(participation) %>
+					</li>
+				</ul>
+			</td>
+			</tr>
+			<% end %>
+		</table>
+		<%= link_to "Add New Participation", new_participation_path() %><br/>
+		<%= link_to "View Games", games_path() %><br/>
+			<%= link_to "View Players", players_path() %><br/>
+
+	</html>

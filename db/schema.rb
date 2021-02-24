@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2021_02_23_062608) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "against_team", null: false
-    t.datetime "date"
+    t.datetime "date", null: false
     t.text "location", null: false
     t.integer "score"
     t.integer "opposing_score"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2021_02_23_062608) do
   end
 
   create_table "players", force: :cascade do |t|
-    t.string "first_name", null: false
+    t.string "first_name"
     t.string "last_name", null: false
     t.string "position"
     t.integer "number"

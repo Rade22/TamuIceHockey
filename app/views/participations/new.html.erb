@@ -4,15 +4,19 @@
 	<%= form_with model: @participation  do |form| %>
 	<div>
 			<%= form.label :player_id %><br>
-				<%= form.collection_select :player_id, Player.order(:last_name), :id, :last_name %>
-			</br>
-		</div>
+				<%= form.collection_select :player_id, Player.order(:last_name), :id, ->(player) { full_name(player) }, {prompt: "Select a player"}  %>
+				<% @participation.errors.full_messages_for(:player_id).each do |message| %>
+				  <div><%= message %></div>
+				<% end %>
+		</div><br>
 
 		<div>
 			<%= form.label :game_id %><br>
-				<%= form.collection_select :game_id, Game.order(:date), :id, :date %>
-			</br>
-		</div>
+				<%= form.collection_select :game_id, Game.order(:date), :id, ->(game) { game_identity(game) }, {prompt: "Select a game"} %>
+				<% @participation.errors.full_messages_for(:game_id).each do |message| %>
+				  <div><%= message %></div>
+				<% end %>
+		</div><br>
 
 	<div>
 		<%= form.label :goals %><br>

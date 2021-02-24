@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   resources :players do
     member do
       get :delete
-      get :pickGame
     end
   end
 

@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-  get 'participations/new'
-  get 'participations/create'
-  get 'participations/update'
-  get 'participations/edit'
-  get 'participations/destroy'
-  get 'participations/index'
-  get 'participations/show'
   root 'players#index'
 
   resources :games do

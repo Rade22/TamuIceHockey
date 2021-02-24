@@ -11,11 +11,6 @@
 		</style>
 	</head>
 	<body>
-		<% if flash[:notice] %>
-			<div class="notice">
-			<%= flash[:notice] %>
-		</div>
-		<% end %>
 
 		<h2>Participations:</h2>
 		<% flash.each do |type, msg| %>
@@ -36,10 +31,10 @@
 			<% @participation.each do |participation| %>
 			</tr>
 			<td>
-					<%= Player.find(participation.player_id).first_name  + " " + Player.find(participation.player_id).last_name %>
+					<%= full_name(Player.find(participation.player_id)) %>
 					</td>
 			<td>
-				<%= Game.find(participation.game_id).against_team  + ", " + Game.find(participation.game_id).date.to_s %>
+				<%= game_identity(Game.find(participation.game_id)) %>
 				</td>
 			<td>
 				<%= participation.goals %>
@@ -56,16 +51,13 @@
 			<td>
 				<ul>
 					<li>
-						<%= link_to "View Participation Profile", participation_path(participation) %>
+						<%= link_to "View Stats Entry", participation_path(participation) %>
 					</li>
 					<li>
-						<%= link_to "Edit Participation Profile", edit_participation_path(participation) %>
+						<%= link_to "Edit Stats Entry", edit_participation_path(participation) %>
 					</li>
 					<li>
-						<%= link_to "View/Edit Participation Stats Per Game", new_participation_path() %>
-					</li>
-					<li>
-						<%= link_to "Delete Participation Profile", delete_participation_path(participation) %>
+						<%= link_to "Delete Stats Entry", delete_participation_path(participation), data: {confirm: 'You sure about that?'} %>
 					</li>
 				</ul>
 			</td>

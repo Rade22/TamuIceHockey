@@ -26,8 +26,10 @@ class PlayersController < ApplicationController
 
   def destroy
     @player = Player.find(params[:id])
+    @participation = Participation.where(player_id: @player.id)
+    @participation.destroy_all
     @player.destroy
-    flash.notice = "Delete Player Successfully"
+    flash.notice = "Deleted Player Successfully"
     redirect_to players_path
   end 
 
@@ -48,5 +50,8 @@ class PlayersController < ApplicationController
   def players_params
       params.require(:player).permit(:first_name, :last_name, :position, :number)
   end
-  
+
+  #def full_name
+   #"#{player.first_name} #{player.last_name}"
+  #end
 end

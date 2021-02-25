@@ -1,0 +1,53 @@
+<html>
+	<h1>Create Player Statistics</h1>
+
+	<%= form_with model: @participation  do |form| %>
+	<div>
+			<%= form.label :player_id %><br>
+				<%= form.collection_select :player_id, Player.order(:last_name), :id, ->(player) { full_name(player) }, {prompt: "Select a player"}  %>
+				<% @participation.errors.full_messages_for(:player_id).each do |message| %>
+				  <div><%= message %></div>
+				<% end %>
+		</div><br>
+
+		<div>
+			<%= form.label :game_id %><br>
+				<%= form.collection_select :game_id, Game.order(:date), :id, ->(game) { game_identity(game) }, {prompt: "Select a game"} %>
+				<% @participation.errors.full_messages_for(:game_id).each do |message| %>
+				  <div><%= message %></div>
+				<% end %>
+		</div><br>
+
+	<div>
+		<%= form.label :goals %><br>
+			<%= form.number_field :goals,  min: 0, required: true %>
+		</div>
+
+	<div>
+		<%= form.label :assists %><br>
+			<%= form.number_field :assists,  min: 0, required: true %>
+		</div>
+
+	<div>
+		<%= form.label :powerplay_goals %><br>
+			<%= form.number_field :powerplay_goals,  min: 0, required: true %>
+		</div>
+
+	<div>
+		<%= form.label :penalty_minutes %><br>
+			<%= form.number_field :penalty_minutes,  min: 0, required: true %>
+		</div>
+
+	<div>
+		<%= form.label :time_on_ice %><br>
+			<%= form.number_field :time_on_ice,  min: 0, required: true %>
+		</div>
+
+	<div>
+		<%= form.submit %>
+	</div>
+
+	<% end %>
+
+    <%= link_to("Home", root_path, :class => 'go back') %>
+</html>

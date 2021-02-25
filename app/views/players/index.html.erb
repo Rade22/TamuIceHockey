@@ -39,13 +39,16 @@
 			<td>
 				<ul>
 					<li>
-						<%= link_to "Details", player_path(player) %>
+						<%= link_to "View Player Profile", player_path(player) %>
 					</li>
 					<li>
-						<%= link_to "Edit Stats", edit_player_path(player) %>
+						<%= link_to "Edit Player Profile", edit_player_path(player) %>
 					</li>
 					<li>
-						<%= link_to "Delete Player", root_path %>
+          				<%= link_to "View/Edit Player Stats Per Game", new_participation_path() %>
+   					</li>
+					<li>
+						<%= link_to "Delete Player Profile", delete_player_path(player) %>
 					</li>
 				</ul>
 			</td>
@@ -53,5 +56,7 @@
 			<% end %>
 		</table>
 		<%= link_to "Add New Player", new_player_path() %><br/>
-		<%= link_to "View Games", games_path() %>
+		<%= link_to "View Games", games_path() %><br/>
+		<%= link_to "View all player stats", participations_path() %>
+		
 </html>

@@ -1,0 +1,38 @@
+
+<html>
+    <h1>Change Game Statistics</h1>
+
+    <%= form_with model: @game  do |form| %>
+        <div>
+            <%= form.label :against_team %><br>
+            <%= form.text_field :against_team , required: true %>
+        </div>
+
+        <div>
+            <%= form.label :date %><br>
+            <%= form.date_field :date , required: true %>
+        </div>
+
+        <div>
+            <%= form.label :location %><br>
+            <%= form.text_field :location%>
+        </div>
+
+        <div>
+            <%= form.label :score %><br>
+            <%= form.number_field :score, min: 0, max: 99 , required: true  %>
+        </div>
+
+        <div>
+            <%= form.label :opposing_score %><br>
+            <%= form.number_field :opposing_score,  min: 0, max: 99 , required: true %>
+        </div>
+
+        <div>
+            <%= form.submit %>
+        </div>
+    
+    <% end %>
+
+    <%= link_to("Home", games_path, :class => 'go back') %>
+</html>

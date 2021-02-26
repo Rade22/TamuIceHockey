@@ -1,0 +1,14 @@
+<html>
+    <h1>Game Statistics</h1>
+
+	<ul>
+        <li>Opposition: <%= @game.against_team%></li>
+        <li>Location: <%=@game.location%></li>
+        <li>Date: <%= @game.date %></li>
+        <li>Score: <%= @game.score %></li>
+        <li>Opposing Score: <%= @game.opposing_score %></li>
+    </ul>
+			
+    <%= link_to "Edit Stats", edit_game_path(@game) %><br/>
+    <%= link_to("Home", games_path, :class => 'go back') %>
+</html>

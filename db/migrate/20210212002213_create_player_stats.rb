@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# migration
 class CreatePlayerStats < ActiveRecord::Migration[6.1]
   def change
     create_table :player_stats do |t|

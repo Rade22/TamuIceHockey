@@ -3,7 +3,6 @@
 
     <%= form_with model: @player do |form| %>
         <div>
-            <%= form.label :first_name %><br>
             <%= form.label :first_name  %><br>
             <%= form.text_field :first_name, required: true %>
             <% @player.errors.full_messages_for(:first_name).each do |message| %>

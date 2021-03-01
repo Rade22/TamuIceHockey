@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  opposing_team: MyString
+  date: 2021-02-18
+  location: MyString
+  home_score: 1
+  opposing_score: 1
+
+two:
+  opposing_team: MyString
+  date: 2021-02-18
+  location: MyString
+  home_score: 1
+  opposing_score: 1

@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# migration
 class Playermig2 < ActiveRecord::Migration[6.1]
   def change
     change_column_null :players, :last_name, false

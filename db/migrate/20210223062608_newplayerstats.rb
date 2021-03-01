@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# migration
 class Newplayerstats < ActiveRecord::Migration[6.1]
   def change
     add_column :participations, :time_on_ice, :integer

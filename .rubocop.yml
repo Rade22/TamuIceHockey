@@ -1,0 +1,8 @@
+AllCops:
+  NewCops: disable
+  Exclude:
+    - bin/bundle
+    - node_modules/node-sass/src/libsass/extconf.rb
+    - node_modules/node-sass/src/libsass/contrib/libsass.spec
+    - db/schema.rb
+    - db/migrate/20210212002213_create_player_stats.rb

@@ -55,3 +55,15 @@
 		<%= link_to "Add New Game", new_game_path() %><br/>
 		<%= link_to "View Players", players_path() %>
 </html>
+
+<%= month_calendar games: @games do |date, games| %>  
+	<%= date %>  
+  
+	<% games.each do |game| %>  
+	  <div>  
+		<%= game.date %>
+		<%= game.against_team %>  
+	  </div>  
+	<% end %>  
+  
+  <% end %>

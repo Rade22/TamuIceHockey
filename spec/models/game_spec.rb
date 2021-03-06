@@ -10,10 +10,6 @@ RSpec.describe Game, type: :feature do
 		expect(@game).to be_valid
 	end
 
-	it 'checks that game can be read' do
-		expect(Game.find_by(against_team: "Test")).to eq(@game)
-	end
-
 	it 'checks that a game can be updated' do
 		@game.update(:against_team => "Alpha")
 		expect(Game.find_by(against_team: "Alpha")).to eq(@game)

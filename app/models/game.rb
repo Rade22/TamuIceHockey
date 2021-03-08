@@ -1,4 +1,10 @@
 # frozen_string_literal: true
 
 class Game < ApplicationRecord
+    extend SimpleCalendar
+    
+    def start_time
+        self.date
+    end
 end
+

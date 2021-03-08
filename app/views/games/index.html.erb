@@ -55,13 +55,14 @@
 		<%= link_to "Add New Game", new_game_path() %><br/>
 		<%= link_to "View Players", players_path() %>
 
-	<%= month_calendar(events: @games_this_month) do |date, games_this_month| %>  
+	<%= month_calendar(events: @games) do |date, games| %>  
 		<%= date %>  
-		<% @games_this_month.each do |game| %>  
+		<% @games.each do |game| %>  
 			<div>  
-				test
-				<%= game.date %>
-				<%= game.against_team %>  
+				<% if game.date == date %>
+					<%= game.against_team %>  
+					<%= link_to "View Game", game_path(game) %>
+				<% end %>
 			</div>  
 		<% end %>
 	<% end %>

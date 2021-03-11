@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'players#index'
+  root 'players#home'
+
 
   resources :games do
     member do
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
   resources :players do
     member do
       get :delete
+      get :home
     end
   end
 

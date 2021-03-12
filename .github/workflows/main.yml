@@ -10,8 +10,8 @@ jobs:
         image: postgres:11
         ports: ["5432:5432"]
         env:
-          POSTGRES_USER: tamuicehockey
-          POSTGRES_PASSWORD: hockey1
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
         options: >-
           --health-cmd pg_isready
           --health-interval 10s

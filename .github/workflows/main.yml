@@ -1,27 +1,47 @@
 #main.yml
 
-env:
-  RUBY_VERSION: 2.7.2
-  POSTGRES_USER: tamuicehockey
-  POSTGRES_PASSWORD: hockey1
-  POSTGRES_DB: tamuicehockey_development
-
-name: Rails tests
-on: [push,pull_request]
-
+name: CI/CD
+on: [push, pull_request]
 jobs:
-  rubocop-test:
-    name: Rubocop
+  build:
     runs-on: ubuntu-latest
+    services:
+      db:
+        image: postgres:11
+        ports: ["5432:5432"]
+        env:
+          POSTGRES_USER: tamuicehockey
+          POSTGRES_PASSWORD: hockey1
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+      redis:
+        image: redis
+        ports: ["6379:6379"]
+        options: --entrypoint redis-server
+
     steps:
-      - uses: borales/actions-yarn@v2.3.0
-	with:
-	     cmd: install
-      - uses: actions/checkout@v2
-      - uses: ruby/setup-ruby@v1
+      - uses: actions/checkout@v1
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1
         with:
-          ruby-version: ${{ env.RUBY_VERSION }}
-      - name: Install Rubocop
-        run: gem install rubocop
-      - name: Check code
-        run: rubocop
+          ruby-version: 2.6.x
+      - uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: install
+      - name: Build and run test
+        env:
+          DATABASE_URL: postgres://postgres:@localhost:5432/test
+          REDIS_URL: redis://localhost:6379/0
+          RAILS_ENV: test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        run: |
+          sudo apt-get -yqq install libpq-dev
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+          bundle exec rake db:create
+          bundle exec rake db:migrate
+          bundle exec rspec .

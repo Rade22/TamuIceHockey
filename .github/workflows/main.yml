@@ -8,3 +8,17 @@ env:
 
 name: Rails tests
 on: [push,pull_request]
+
+jobs:
+  rubocop-test:
+    name: Rubocop
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+      - name: Install Rubocop
+        run: gem install rubocop
+      - name: Check code
+        run: rubocop

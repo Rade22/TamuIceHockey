@@ -1,7 +1,7 @@
 #main.yml
 
 env:
-  RUBY_VERSION: 2.7.x
+  RUBY_VERSION: 2.7.2
   POSTGRES_USER: tamuicehockey
   POSTGRES_PASSWORD: hockey1
   POSTGRES_DB: tamuicehockey_development

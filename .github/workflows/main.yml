@@ -10,8 +10,8 @@ jobs:
         image: postgres:11
         ports: ["5432:5432"]
         env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: tamuicehockey
+          POSTGRES_PASSWORD: hockey1
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -36,8 +36,8 @@ jobs:
           DATABASE_URL: postgres://postgres:@localhost:5432/test
           REDIS_URL: redis://localhost:6379/0
           RAILS_ENV: test
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: tamuicehockey
+          POSTGRES_PASSWORD: hockey1
         run: |
           sudo apt-get -yqq install libpq-dev
           gem install bundler

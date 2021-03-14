@@ -48,8 +48,12 @@
 						<%= link_to "Edit Stats", pickGame_player_path(player) %>
 					</li>
 					<li>
+						<%= link_to "View/Edit Games", playerInGame_player_path(player,@game) %>
+					</li>
+					<li>
 						<%= link_to "Delete Player", delete_player_path(player) %>
 					</li>
+					
 				</ul>
 			</td>
 			</tr>

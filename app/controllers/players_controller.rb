@@ -1,6 +1,7 @@
 class PlayersController < ApplicationController
   def index
     @player = Player.all
+    @game = Game.all
   end
 
   def show
@@ -43,6 +44,13 @@ class PlayersController < ApplicationController
       render 'edit'
     end
   end
+
+  def playerInGame
+    @player = Player.all
+    @game = Game.all
+    
+  end
+
   
    
   def players_params

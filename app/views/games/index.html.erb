@@ -11,9 +11,6 @@
 		</style>
 	</head>
 	<body>
-		<% if flash[:notice] %>
-			<div class="notice"><%= flash[:notice] %></div>
-		<% end %>
 
 		<h2>Games:</h2>
 		<% flash.each do |type, msg| %>
@@ -42,10 +39,10 @@
 			<td>
 				<ul>
 					<li>
-						<%= link_to "Details", game_path(game) %>
+						<%= link_to "View Game", game_path(game) %>
 					</li>
 					<li>
-						<%= link_to "Edit Stats", edit_game_path(game) %>
+						<%= link_to "Edit Game Statistics", edit_game_path(game) %>
 					</li>
 					<li>
 						<%= link_to "Delete Game",delete_game_path(game) %>

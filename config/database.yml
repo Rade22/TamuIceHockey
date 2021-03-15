@@ -27,7 +27,7 @@ development:
   # If your server runs on a different port number, change accordingly.
   
   #Needs to be changed to 5432 at some point to be compatible with others
-  port: 5432
+  port: 5433
 
   # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public

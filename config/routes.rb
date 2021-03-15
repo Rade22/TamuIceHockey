@@ -1,7 +1,6 @@
-# frozen_string_literal: true
-
 Rails.application.routes.draw do
-  root 'players#index'
+  root 'players#home'
+
 
   resources :games do
     member do
@@ -12,6 +11,7 @@ Rails.application.routes.draw do
   resources :players do
     member do
       get :delete
+      get :home
     end
   end
 
@@ -20,6 +20,9 @@ Rails.application.routes.draw do
       get :delete
     end
   end
+
+
+
 
   get ':controller(/:action(/:id))'
 

@@ -51,13 +51,29 @@
 
         <div class="game-stats">
             <h3>Texas A&M University vs. <%= @game.against_team%> </h3>
-            <h4> <%= @game.score%> - <%= @game.opposing_score%> </h4>
+            <h4> <%= @game.goals_for%> - <%= @game.goals_against%> <%= @overtime %> </h4>
 
             <div class="game-info">
-                <h3>Game Information</h3>
-                <h4><i class="fa fa-map-marker" style="font-size:48px;color:#500000;"></i> Kyle Field Arena, College Station, TX @ <%= @game.date.hour %>:<%= @game.date.min %> </h4>
-                <h4><i class="fa fa-clock-o" style="font-size:32px;color:#500000;"></i> <%= @game.date.month %>/<%= @game.date.day %>/<%= @game.date.year %> </h4>
+                <h3>Game Information:</h3>
+                <h4><i class="fa fa-map-marker" style="font-size:48px;color:#500000;"></i> <%= @game.ring_name%>, <%= @game.city %>, <%= @game.state %> @ <%= @game.time.hour %>:<%= @game.time.min %> </h4>
+                <h4><i class="fa fa-calendar" style="font-size:32px;color:#500000;"></i> <%= @game.date.month %>/<%= @game.date.day %>/<%= @game.date.year %> </h4>
             </div>
+
+            <% if @game.goals_for %>
+                <div class="game-played-stats">
+                    <h3>Total Game Statistics:</h3>
+                    <% if @game.powerplay_attemps %>
+                        <h4>Powerplay Attempts: <%= @game.powerplay_attemps%></h4>
+                    <%end%>
+
+                    <% if @game.killed_penalties %>
+                        <h4>Killed Penalties: <%= @game.killed_penalties%></h4>
+                    <%end%>
+                    <% if @game.total_penalties %>
+                        <h4>Total Penalties: <%= @game.total_penalties%></h4>
+                    <%end%>
+                </div>
+            <%end%>
         </div>
 		
         <div class="show-game-div">

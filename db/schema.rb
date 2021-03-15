@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_23_062608) do
+ActiveRecord::Schema.define(version: 2021_03_06_211049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,17 +23,6 @@ ActiveRecord::Schema.define(version: 2021_02_23_062608) do
     t.integer "opposing_score"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "games", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.text "against_team", null: false
-    t.datetime "date", null: false
-    t.text "location", null: false
-    t.integer "score"
-    t.integer "opposing_score"
-    t.integer "game_stats_id"
     t.integer "wins"
     t.integer "losses"
     t.integer "overtime_shootout_losses"
@@ -42,9 +31,18 @@ ActiveRecord::Schema.define(version: 2021_02_23_062608) do
     t.integer "goals_against"
   end
 
-  create_table "logins", force: :cascade do |t|
-    t.string "username"
-    t.string "hashed_password"
+  create_table "games", force: :cascade do |t|
+    t.text "against_team"
+    t.datetime "date"
+    t.integer "goals_for"
+    t.integer "goals_against"
+    t.boolean "is_overtime"
+    t.integer "powerplay_attemps"
+    t.integer "killed_penalties"
+    t.integer "total_penalties"
+    t.text "city"
+    t.text "ring_name"
+    t.text "state"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -52,14 +50,16 @@ ActiveRecord::Schema.define(version: 2021_02_23_062608) do
   create_table "participations", force: :cascade do |t|
     t.integer "player_id"
     t.integer "game_id"
-    t.integer "player_stats_id"
+    t.time "time_on_ice_goalie"
+    t.integer "shots_against_goalie"
+    t.integer "saves_goalie"
+    t.integer "goals_against_goalie"
+    t.integer "goals_skater"
+    t.integer "assists_skater"
+    t.integer "penalty_minutes_skater"
+    t.integer "powerplay_goals_skater"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "time_on_ice"
-    t.integer "goals"
-    t.integer "assists"
-    t.integer "penalty_minutes"
-    t.integer "powerplay_goals"
   end
 
   create_table "player_stats", force: :cascade do |t|
@@ -80,10 +80,12 @@ ActiveRecord::Schema.define(version: 2021_02_23_062608) do
   end
 
   create_table "players", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name", null: false
-    t.string "position"
+    t.text "first_name", null: false
+    t.text "last_name", null: false
     t.integer "number"
+    t.text "position", null: false
+    t.boolean "active"
+    t.text "image_link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -54,4 +54,18 @@
 		</table>
 		<%= link_to "Add New Game", new_game_path() %><br/>
 		<%= link_to "View Players", players_path() %>
+
+	<%= month_calendar do |date| %>  
+		<%= date %>
+    	<% @games = Game.where(date: date.beginning_of_month.beginning_of_week..date.end_of_month.end_of_week) %>  
+		<% @games.each do |game| %>  
+			<div>  
+				<% if game.date == date %>
+					<%= game.against_team %>  
+					<%= link_to "View Game", game_path(game) %>
+				<% end %>
+			</div>  
+		<% end %>
+	<% end %>
+
 </html>

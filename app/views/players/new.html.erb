@@ -29,7 +29,7 @@
 
         <div>
             <%= form.label :number %><br>
-            <%= form.number_field :number, min: 0, max: 99 %>
+            <%= form.number_field :number, min: 0, max: 99, :required => 'required' %>
             <% @player.errors.full_messages_for(:number).each do |message| %>
                 <div><%= message %></div>
             <% end %>

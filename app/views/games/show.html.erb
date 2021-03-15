@@ -1,14 +1,82 @@
-<html>
-    <h1>Game Statistics</h1>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%# Change style sheet link tag %>
+    <%= stylesheet_link_tag 'games' %>
 
-	<ul>
-        <li>Opposition: <%= @game.against_team%></li>
-        <li>Location: <%=@game.location%></li>
-        <li>Date: <%= @game.date %></li>
-        <li>Score: <%= @game.score %></li>
-        <li>Opposing Score: <%= @game.opposing_score %></li>
-    </ul>
-			
-    <%= link_to "Edit Stats", edit_game_path(@game) %><br/>
-    <%= link_to("Home", games_path, :class => 'go back') %>
-</html>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+    <%# Change title %>
+    <title>Home Page</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md">
+        <div class="container-fluid">
+            <div class= "logo-image">
+                <%= image_tag("HockeyLogo.png", width: '75px', height: '75px')%>
+            </div>
+
+            <%#For collapse NavBar%>
+            <a class="navbar-toggler" type="a" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon bg-secondary"></span>
+            </a>
+
+            <%# Change disabled from home to page you are modifying %>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav button-div">
+                    <%= link_to '<button>Home</button>'.html_safe, root_path() %>
+                    <div class= "vertical-line"></div>
+					<%= link_to '<button>View Games</button>'.html_safe, games_path() %>
+                    <div class= "vertical-line"></div>
+                    <%= link_to '<button>View Players</button>'.html_safe, players_path() %>
+                    <div class= "vertical-line"></div>
+                    <button>View Analytics</button>
+                </div>
+                <div class= "navbar-nav login">
+                    <a href="#">Admin Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="body-div-game-show">
+        <div class="title">
+            <h1>Game Statistics</h1>
+        </div>
+
+        <div class="game-stats">
+            <h3> Opposition: <%= @game.against_team%> </h3>
+            <h3> Location: <%=@game.location%> </h3>
+            <h3> Date: <%= @game.date %> </h3>
+            <h3> Score: <%= @game.score %> </h3>
+            <h3> Opposing Score: <%= @game.opposing_score %> </h3>
+        </div>
+		
+        <div class="show-game-div">
+            <%= link_to '<button class="btn btn-success">Edit Game</button>'.html_safe, edit_game_path(@game) %>
+        </div>
+    </div>
+    
+    <%# Footer %>
+    <div class="footer">
+        <div class="info">
+            <h5>Spirit Ice Arena</h5>
+            <h5>400 Holleman Dr E, College Station, TX 77840</h5>
+            <h5>GENERAL INQUIRIES: TAMUICEHOCKEY@GMAIL.COM</h5>
+            <p><a href = "mailto: TAMUICEHOCKEY@GMAIL.COM" target="_blank">Email Us</a></p>
+        </div>
+        <div class="sponsors">
+            <div>
+                <%= image_tag("rec.png")%>
+            </div>
+            <div>
+                <%= image_tag("ACHA.png")%>
+            </div>
+        </div>
+    </div>
+</body>
+
+    

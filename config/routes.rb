@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   root 'players#index'
 
@@ -18,9 +20,6 @@ Rails.application.routes.draw do
       get :delete
     end
   end
-
-
-
 
   get ':controller(/:action(/:id))'
 

@@ -121,13 +121,30 @@ body, html {
     color: white;
 }
 
-.game-stats, .game-stats-edit, .game-stats-add, .game-stats-delete{
+.game-stats{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    width: 50%;
+    margin: auto;
+}
+
+.game-info{
+    border: 1px solid white;
+    text-align: left;
+    padding-left: 10px;
+    margin: 10px;
+}
+
+.game-stats-edit, .game-stats-add, .game-stats-delete{
     padding-left: 10px;
     color: white;
 }
 
 .body-div-game-show, .body-div-game-edit, .body-div-game-add, .body-div-game-delete{
     background: linear-gradient(to left, #bdc3c7, #414345); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    width: 100%;
 }
 
 .new-game-div, .edit-game-div, .show-game-div, .delete-game-div{

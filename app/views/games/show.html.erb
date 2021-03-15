@@ -8,6 +8,8 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
     <%# Change title %>
     <title>Home Page</title>
@@ -48,11 +50,14 @@
         </div>
 
         <div class="game-stats">
-            <h3> Opposition: <%= @game.against_team%> </h3>
-            <h3> Location: <%=@game.location%> </h3>
-            <h3> Date: <%= @game.date %> </h3>
-            <h3> Score: <%= @game.score %> </h3>
-            <h3> Opposing Score: <%= @game.opposing_score %> </h3>
+            <h3>Texas A&M University vs. <%= @game.against_team%> </h3>
+            <h4> <%= @game.score%> - <%= @game.opposing_score%> </h4>
+
+            <div class="game-info">
+                <h3>Game Information</h3>
+                <h4><i class="fa fa-map-marker" style="font-size:48px;color:#500000;"></i> Kyle Field Arena, College Station, TX @ <%= @game.date.hour %>:<%= @game.date.min %> </h4>
+                <h4><i class="fa fa-clock-o" style="font-size:32px;color:#500000;"></i> <%= @game.date.month %>/<%= @game.date.day %>/<%= @game.date.year %> </h4>
+            </div>
         </div>
 		
         <div class="show-game-div">

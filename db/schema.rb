@@ -15,16 +15,6 @@ ActiveRecord::Schema.define(version: 2021_02_23_062608) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "game_stats", force: :cascade do |t|
-    t.text "opposing_team"
-    t.date "date"
-    t.text "location"
-    t.integer "home_score"
-    t.integer "opposing_score"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "games", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -60,23 +50,6 @@ ActiveRecord::Schema.define(version: 2021_02_23_062608) do
     t.integer "assists"
     t.integer "penalty_minutes"
     t.integer "powerplay_goals"
-  end
-
-  create_table "player_stats", force: :cascade do |t|
-    t.integer "games_played"
-    t.integer "wins"
-    t.integer "losses"
-    t.integer "overtime_shootout_losses"
-    t.integer "goals_against"
-    t.integer "time_on_ice"
-    t.integer "goals"
-    t.integer "assists"
-    t.integer "penalty_minutes"
-    t.integer "powerplay_goals"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "playerid"
-    t.integer "gameid"
   end
 
   create_table "players", force: :cascade do |t|

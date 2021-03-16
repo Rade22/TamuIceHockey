@@ -12,6 +12,15 @@ class ParticipationsController < ApplicationController
 
   def new
     @participation = Participation.new
+    #if params.arity == 2
+      @participation.game_id = params[:id]
+      @participation.player_id = params[:player_id]
+    #end
+  end
+
+  def games
+    params.require(:id)
+    @game = Game.all
   end
 
   def create

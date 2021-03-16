@@ -3,15 +3,11 @@ require 'rails_helper'
 RSpec.describe Game, type: :feature do
 	
 	before(:all) do
-		@game = Game.create(against_team: 'Test', date: '2021-02-24 00:00:00 UTC', location: 'Texas', score: 1, opposing_score: 2) 
+		@game = Game.create(against_team: 'Test', date: '2021-02-24 00:00:00 UTC', ring_name: 'Texas', score: 1, opposing_score: 2) 
 	end
 
 	it 'checks that a game can be created' do
 		expect(@game).to be_valid
-	end
-
-	it 'checks that game can be read' do
-		expect(Game.find_by(against_team: "Test")).to eq(@game)
 	end
 
 	it 'checks that a game can be updated' do

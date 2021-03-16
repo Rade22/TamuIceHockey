@@ -24,11 +24,13 @@
 
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav button-div">
-                    <button href="#">View Games</button>
-                    <div class= "vertical-line"></div>
-                    <button href="#">View Players</button>
-                    <div class= "vertical-line"></div>
-                    <button href="#">View Analytics</button>
+                <%= link_to '<button disabled"> Home </button> '.html_safe, root_path() %>
+                <div class= "vertical-line"></div>
+                <%= link_to '<button  class="btn btn-primary btn-sm"> View games </button> '.html_safe, games_url %>
+                <div class= "vertical-line"></div>
+                <%= link_to '<button class="btn btn-primary btn-sm"> View players </button> '.html_safe, players_path() %>
+                <div class= "vertical-line"></div>
+                <button href="#">View Analytics</button>
                 </div>
                 <div class= "navbar-nav login">
                     <a href="#">Admin Login</a>

@@ -1,57 +1,84 @@
-<html>
-	<head>
-		<style>
-			table, th, td {
-			border: 1px solid black;
-			}
-			table.center {
-			margin-left: auto;
-			margin-right: auto;
-			}
-		</style>
-	</head>
-	<body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= stylesheet_link_tag 'games' %>
 
-		<h2>Games:</h2>
-		<% flash.each do |type, msg| %>
-		<div>
-			<%= msg %>
-		</div>
-		<% end %>
-		<table class="center">
-			<tr>
-				<th>Opposition</th>
-				<th>Location</th>
-                <th>Game Date</th>
-				<th>Action</th>
-			</tr>
-			<% @game.each do |game| %>
-			</tr>
-			<td>
-				<%= game.against_team %>
-			</td>
-			<td>
-				<%= game.location %>
-			</td>
-			<td>
-				<%= game.date %>
-			</td>
-			<td>
-				<ul>
-					<li>
-						<%= link_to "View Game", game_path(game) %>
-					</li>
-					<li>
-						<%= link_to "Edit Game Statistics", edit_game_path(game) %>
-					</li>
-					<li>
-						<%= link_to "Delete Game",delete_game_path(game) %>
-					</li>
-				</ul>
-			</td>
-			</tr>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+    <title>Games Page</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md">
+        <div class="container-fluid">
+            <div class= "logo-image">
+                <%= image_tag("HockeyLogo.png", width: '75px', height: '75px')%>
+            </div>
+
+            <%#For collapse NavBar%>
+            <a class="navbar-toggler" type="a" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon bg-secondary"></span>
+            </a>
+
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav button-div">
+                    <%= link_to '<button>Home</button>'.html_safe, root_path() %>
+                    <div class= "vertical-line"></div>
+					<%= link_to '<button disabled>View Games</button>'.html_safe, games_path() %>
+                    <div class= "vertical-line"></div>
+                    <%= link_to '<button>View Players</button>'.html_safe, players_path() %>
+                    <div class= "vertical-line"></div>
+                    <button>View Analytics</button>
+                </div>
+                <div class= "navbar-nav login">
+                    <a href="#">Admin Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+	<div class="body-div-game-index">
+		<div class="calendar">
+			<%= month_calendar do |date| %>  
+				<%= date %>
+				<% @games = Game.where(date: date.beginning_of_month.beginning_of_week..date.end_of_month.end_of_week) %>  
+				<% @games.each do |game| %>  
+					<div>  
+						<% if game.date == date %>
+							<strong class="against-team"><%= game.against_team %></strong>
+							<div class="game-actions">
+								<br><%= link_to '<button class="btn btn-outline-primary btn-sm">View Game</button>'.html_safe, game_path(game) %>
+								<%= link_to '<button class="btn btn-outline-primary btn-sm">Edit Game</button>'.html_safe, edit_game_path(game) %>
+							</div>
+						<% end %>
+					</div>  
+				<% end %>
 			<% end %>
-		</table>
-		<%= link_to "Add New Game", new_game_path() %><br/>
-		<%= link_to "View Players", players_path() %>
+		</div>
+
+		<div class="new-game-div">
+			<%= link_to '<button class="btn btn-success">Add New Game</button>'.html_safe, new_game_path() %><br/>
+		</div>
+	</div>
+
+    <%# Footer %>
+    <div class="footer">
+        <div class="info">
+            <h5>Spirit Ice Arena</h5>
+            <h5>400 Holleman Dr E, College Station, TX 77840</h5>
+            <h5>GENERAL INQUIRIES: TAMUICEHOCKEY@GMAIL.COM</h5>
+            <p><a href = "mailto: TAMUICEHOCKEY@GMAIL.COM" target="_blank">Email Us</a></p>
+        </div>
+        <div class="sponsors">
+            <div>
+                <%= image_tag("rec.png")%>
+            </div>
+            <div>
+                <%= image_tag("ACHA.png")%>
+            </div>
+        </div>
+    </div>
+</body>
 </html>

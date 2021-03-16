@@ -8,6 +8,10 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    
+    if @game.is_overtime == true
+      @overtime = "(Overtime)"
+    end
   end
 
   def new
@@ -51,10 +55,10 @@ class GamesController < ApplicationController
   end
 
   def games_params
-    params.require(:game).permit(:against_team, :date, :location)
+    params.require(:game).permit(:against_team, :date, :time, :city, :ring_name, :state)
   end
 
   def gamesedit_params
-    params.require(:game).permit(:against_team, :date, :location, :score, :opposing_score)
+    params.require(:game).permit(:against_team, :date, :time, :city, :ring_name, :state, :goals_for, :goals_against, :is_overtime, :powerplay_attemps, :killed_penalties, :total_penalties)
   end
 end

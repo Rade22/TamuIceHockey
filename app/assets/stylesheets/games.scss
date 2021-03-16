@@ -96,6 +96,102 @@ body, html {
     height: 100%;
 }
 
+// Calendar CSS start
+.calendar{
+    margin-top: 25px;
+}
+
+.against-team{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.game-actions{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    margin-top: 5px;
+}
+
+// Games view CSS start
+.title{
+    padding-top: 5px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: white;
+}
+
+.game-stats{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    width: 50%;
+    margin: auto;
+}
+
+.game-info, .game-played-stats{
+    border: 1px solid white;
+    text-align: left;
+    padding-left: 10px;
+    margin: 10px;
+}
+
+.game-stats-add, .game-stats-delete{
+    padding-left: 10px;
+    color: white;
+}
+
+.body-div-game-show, .body-div-game-edit, .body-div-game-add, .body-div-game-delete{
+    background: linear-gradient(to left, #bdc3c7, #414345); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    width: 100%;
+}
+
+.new-game-div, .edit-game-div, .show-game-div, .delete-game-div{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+.edit-game-div button{
+    margin-right: 25px;
+}
+
+//Games Add CSS start
+.input_field input, .submit-button input{
+    border-radius: 8%;
+}
+
+.input_field{
+    margin: 10px;
+}
+
+.submit-button input{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+//Games Edit CSS start
+.game-info-edit, .submit-button{
+    padding-left: 10px;
+    color: white;
+}
+
+.games-stats-edit{
+    color: white;
+}
+
+.game-edit{
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+
+//footer CSS start
 .footer{
     display: flex;
     flex-direction: column;
@@ -116,8 +212,3 @@ body, html {
     justify-content: space-evenly;
     width: 100%;
 }
-
-
-
-
-

@@ -24,13 +24,13 @@
 
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav button-div">
-					<%= link_to '<button class="btn btn-primary btn-sm"> Home </button> '.html_safe, root_path() %>
-					<div class= "vertical-line"></div>
-					<%= link_to '<button disabled> View games </button> '.html_safe, games_url %>
+                    <%= link_to '<button>Home</button>'.html_safe, root_path() %>
                     <div class= "vertical-line"></div>
-					<%= link_to '<button class="btn btn-primary btn-sm"> View players </button> '.html_safe, players_path() %>
+					<%= link_to '<button disabled>View Games</button>'.html_safe, games_path() %>
                     <div class= "vertical-line"></div>
-                    <button href="#">View Analytics</button>
+                    <%= link_to '<button>View Players</button>'.html_safe, players_path() %>
+                    <div class= "vertical-line"></div>
+                    <button>View Analytics</button>
                 </div>
                 <div class= "navbar-nav login">
                     <a href="#">Admin Login</a>
@@ -38,23 +38,31 @@
             </div>
         </div>
     </nav>
-	<div>
-		<%= link_to "Add New Game", new_game_path() %><br/>
-		<%= link_to "View Players", players_path() %>
-		<%= month_calendar do |date| %>  
-			<% @games = Game.where(date: date) %>  
-			<%= date %>
-			<% @games.each do |game| %>  
-				<div> 
-					<%= game.against_team %>
-					<%= link_to '<button class="btn btn-primary btn-sm"> View game </button> '.html_safe, game_path(game) %>
-					<%= link_to '<button class="btn btn-primary btn-sm"> Edit game </button> '.html_safe, edit_game_path(game) %>
-					<%= link_to '<button class="btn btn-primary btn-sm"> Delete game </button> '.html_safe, delete_game_path(game) %>
-				</div>  
+
+	<div class="body-div-game-index">
+		<div class="calendar">
+			<%= month_calendar do |date| %>  
+				<%= date %>
+				<% @games = Game.where(date: date.beginning_of_month.beginning_of_week..date.end_of_month.end_of_week) %>  
+				<% @games.each do |game| %>  
+					<div>  
+						<% if game.date == date %>
+							<strong class="against-team"><%= game.against_team %></strong>
+							<div class="game-actions">
+								<br><%= link_to '<button class="btn btn-outline-primary btn-sm">View Game</button>'.html_safe, game_path(game) %>
+								<%= link_to '<button class="btn btn-outline-primary btn-sm">Edit Game</button>'.html_safe, edit_game_path(game) %>
+							</div>
+						<% end %>
+					</div>  
+				<% end %>
 			<% end %>
-		<% end %>
+		</div>
+
+		<div class="new-game-div">
+			<%= link_to '<button class="btn btn-success">Add New Game</button>'.html_safe, new_game_path() %><br/>
+		</div>
 	</div>
-    
+
     <%# Footer %>
     <div class="footer">
         <div class="info">

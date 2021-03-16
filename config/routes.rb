@@ -18,10 +18,13 @@ Rails.application.routes.draw do
   resources :participations do
     member do
       get :delete
+      get :games
     end
   end
 
-
+  
+  
+  get 'participations/new/:id/:player_id', to: 'participations#new'
 
 
   get ':controller(/:action(/:id))'

@@ -12,9 +12,6 @@ RSpec.describe Player, type: :feature do
 		expect(@player).to be_valid
 	end
 
-	it 'checks that player can be read' do
-		expect(Player.find_by(first_name: "Rylan")).to eq(@player)
-	end
 
 	it 'checks that a player can be updated' do
 		@player.update(:first_name => "Johnny")

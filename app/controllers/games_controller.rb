@@ -3,7 +3,9 @@
 # controller for games model
 class GamesController < ApplicationController
   def index
-    @game = Game.all
+    start_date = params.fetch(:start_date, Date.today).to_date
+    @games = Game.where(date: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
+    @game = Game.all   
   end
 
   def show

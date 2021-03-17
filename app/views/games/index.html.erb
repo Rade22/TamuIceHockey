@@ -38,12 +38,10 @@
             </div>
         </div>
     </nav>
-
 	<div class="body-div-game-index">
 		<div class="calendar">
 			<%= month_calendar do |date| %>  
-				<%= date %>
-				<% @games = Game.where(date: date.beginning_of_month.beginning_of_week..date.end_of_month.end_of_week) %>  
+				<%= date.month %> - <%= date.day %>
 				<% @games.each do |game| %>  
 					<div>  
 						<% if game.date == date %>

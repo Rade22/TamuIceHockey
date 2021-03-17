@@ -2,6 +2,14 @@ body div{
     //border: 1px solid black;
 }
 
+@media (max-width: 900px){
+    .footer div{
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+    }
+}
+
 .navbar{
     background-color: #500000;
     box-shadow: 1px 1px 1px 1px black;
@@ -142,7 +150,6 @@ body, html {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    width: 100%;
 }
 
 

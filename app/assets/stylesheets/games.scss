@@ -114,6 +114,18 @@ body, html {
     margin-top: 5px;
 }
 
+@media(max-width: 1450px){
+    .game-actions{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .game-actions button{
+        margin-bottom: 5px;
+    }
+}
+
 // Games view CSS start
 .title{
     padding-top: 5px;

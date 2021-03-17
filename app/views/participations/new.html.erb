@@ -1,5 +1,5 @@
 <html>
-  <%= render 'shared/header', page_title: "Add Participation" %>
+  <%= render 'shared/header', stylesheet_link: 'participations', page_title: "Add Participation" %>
   <body>
     <%= render 'shared/navbar' %>
 
@@ -28,28 +28,28 @@
 		</div><br>
 
 	<div class="input_field">
-		<%= form.label :goals_skater %><br>
-			<%= form.number_field :goals_skater,  min: 0, required: true %>
+		<%= form.label "Goals" %><br>
+			<%= form.number_field :goals_skater,  min: 0, value: 0 %>
 		</div>
 
 	<div class="input_field">
-		<%= form.label :assists_skater %><br>
-			<%= form.number_field :assists_skater,  min: 0, required: true %>
+		<%= form.label "Assists" %><br>
+			<%= form.number_field :assists_skater,  min: 0, value: 0 %>
 		</div>
 
 	<div class="input_field">
-		<%= form.label :powerplay_goals_skater %><br>
-			<%= form.number_field :powerplay_goals_skater,  min: 0, required: true %>
+		<%= form.label "Powerplay Goals" %><br>
+			<%= form.number_field :powerplay_goals_skater,  min: 0, value: 0 %>
 		</div>
 
 	<div class="input_field">
-		<%= form.label :penalty_minutes_skater %><br>
-			<%= form.number_field :penalty_minutes_skater,  min: 0, required: true %>
+		<%= form.label "Penalty Minutes" %><br>
+			<%= form.number_field :penalty_minutes_skater,  min: 0, value: 0 %>
 		</div>
 
 	<div class="input_field">
-		<%= form.label :time_on_ice_goalie %><br>
-			<%= form.number_field :time_on_ice_goalie,  min: 0, required: true %>
+		<%= form.label "Time on Ice" %><br>
+			<%= form.number_field :time_on_ice_goalie,  min: 0, value: 0 %>
 		</div>
 
 	<div class="submit-button">

@@ -5,7 +5,7 @@ RSpec.describe 'Creating a game', type: :feature do
 		visit new_game_path
 		fill_in 'game_against_team', with: 'Test3'
 		fill_in 'game_date', with: '2021-02-24 22:00:00 UTC'
-		fill_in 'game_location', with: 'unknow'
+		fill_in 'game_ring_name', with: 'unknown'
 		click_on 'Create Game'
 		visit games_path
 		expect(page).to have_content('Test3')

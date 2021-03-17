@@ -3,6 +3,7 @@ class CreateGames < ActiveRecord::Migration[6.1]
     create_table :games do |t|
       t.text :against_team
       t.timestamp :date
+      t.time :time
       t.integer :goals_for
       t.integer :goals_against
       t.boolean :is_overtime

@@ -15,25 +15,10 @@ ActiveRecord::Schema.define(version: 2021_03_06_211049) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "game_stats", force: :cascade do |t|
-    t.text "opposing_team"
-    t.date "date"
-    t.text "location"
-    t.integer "home_score"
-    t.integer "opposing_score"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "wins"
-    t.integer "losses"
-    t.integer "overtime_shootout_losses"
-    t.integer "overtime_wins"
-    t.integer "goals_for"
-    t.integer "goals_against"
-  end
-
   create_table "games", force: :cascade do |t|
     t.text "against_team"
     t.datetime "date"
+    t.time "time"
     t.integer "goals_for"
     t.integer "goals_against"
     t.boolean "is_overtime"
@@ -60,23 +45,6 @@ ActiveRecord::Schema.define(version: 2021_03_06_211049) do
     t.integer "powerplay_goals_skater"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "player_stats", force: :cascade do |t|
-    t.integer "games_played"
-    t.integer "wins"
-    t.integer "losses"
-    t.integer "overtime_shootout_losses"
-    t.integer "goals_against"
-    t.integer "time_on_ice"
-    t.integer "goals"
-    t.integer "assists"
-    t.integer "penalty_minutes"
-    t.integer "powerplay_goals"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "playerid"
-    t.integer "gameid"
   end
 
   create_table "players", force: :cascade do |t|

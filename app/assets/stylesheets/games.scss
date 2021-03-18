@@ -200,6 +200,10 @@ body, html {
     flex-direction: row;
 }
 
+.add-button {
+    background-color: powderblue;
+}
+
 
 
 
@@ -226,9 +230,15 @@ body, html {
 }
 
 .simple-calendar {
-    height: 100%; 
-    width: 100%;
-    text-align: center;
+    .calendar-title {
+        color: maroon;
+    }
+    .calendar-heading {
+        text-align: center;
+        font-size: 30px;
+        justify-content: space-evenly;
+        width: 100%;
+    }
     tr {
         text-align: center;
     }

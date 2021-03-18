@@ -1,32 +1,49 @@
 <html>
-    <h1>Change <%= @player.first_name + " " + @player.last_name %> Profile</h1>
+<%= render 'shared/header', stylesheet_link: 'players', page_title: "Edit Player"%>
+<body>
+    <%= render 'shared/navbar' %>
+    <div class="body-div-game-add">
+    <div class = "title">
+        <h1>Change <%= @player.first_name + " " + @player.last_name + "'s" %> Profile</h1>
+    </div>
 
+    <div class "player-profile-edit">
     <%= form_with model: @player  do |form| %>
-        <div>
+        <div class = "input_field">
             <%= form.label :first_name %><br>
-            <%= form.text_field :first_name , required: true %>
+            <%= form.text_field :first_name , required: true, placeholder: "First name" %>
+            <% @player.errors.full_messages_for(:first_name).each do |message| %>
+                <div><%= message %></div>
+            <% end %>
         </div>
-
-        <div>
+        <div class = "input_field">
             <%= form.label :last_name %><br>
-            <%= form.text_field :last_name , required: true %>
+            <%= form.text_field :last_name , required: true, placeholder: "Last name" %>
+            <% @player.errors.full_messages_for(:last_name).each do |message| %>
+                <div><%= message %></div>
+            <% end %>
         </div>
 
-        <div>
+        <div class = "input_field">
             <%= form.label :position %><br>
             <%= form.select :position, ["Center","Defenseman","Goalie", "Left Wing", "Right Wing"], required: true%>
+            <% @player.errors.full_messages_for(:position).each do |message| %>
+                <div><%= message %></div>
+            <% end %>
         </div>
 
-        <div>
+        <div class = "input_field">
             <%= form.label :number %><br>
-            <%= form.number_field :number, min: 0, max: 99 %>
-        </div>
-
-        <div>
-            <%= form.submit %>
+            <%= form.number_field :number, min: 0, max: 99, :required => 'required' %>
+            <% @player.errors.full_messages_for(:number).each do |message| %>
+                <div><%= message %></div>
+            <% end %>
+       
+        <div class = "submit-button">
+            <%= form.submit class: "btn btn-success" %>
         </div>
     
     <% end %>
-
-    <%= link_to("Home", root_path, :class => 'go back') %>
+</div>
+    <%= render 'shared/footer' %>
 </html>

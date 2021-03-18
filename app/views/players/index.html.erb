@@ -1,4 +1,5 @@
 <html>
+  <%= render 'shared/header', stylesheet_link: 'players', page_title: "Players Index" %>
 	<head>
 		<style>
 			table, th, td {
@@ -11,6 +12,7 @@
 		</style>
 	</head>
 	<body>
+	  <%= render 'shared/navbar' %>
 
 		<h2>Players:</h2>
 		<% flash.each do |type, msg| %>
@@ -55,8 +57,9 @@
 			</tr>
 			<% end %>
 		</table>
-		<%= link_to "Add New Player", new_player_path() %><br/>
-		<%= link_to "View Games", games_path() %><br/>
-		<%= link_to "View all player stats", participations_path() %>
+		<%= link_to '<button class="btn btn-primary btn-sm">Add New Player</button>'.html_safe, new_player_path() %><br/>
+		<%= link_to '<button class="btn btn-primary btn-sm">View Games</button>'.html_safe, games_path() %><br/>
+		<%= link_to '<button class="btn btn-primary btn-sm">View all player stats</button>'.html_safe, participations_path() %>
 		
+  <%= render 'shared/footer' %>
 </html>

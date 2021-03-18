@@ -1,16 +1,25 @@
-<%= link_to("<< Back to List", players_path, :class => 'back-link') %>
+<html>
+<%= render 'shared/header', stylesheet_link: 'players', page_title: "Delete Player" %>
 
-<div class="players delete">
-  <h2>Delete Player</h2>
 
-  <%= form_for(@player, :method => 'delete') do |f|%>
+<body>
+  <%= render 'shared/navbar' %>
+  <%= link_to("<< Back to List", players_path, :class => 'back-link') %>
 
-  <p>Are you sure you want to permanently delete this player entry?</p>
-  <p><%= @player.first_name + " " + @player.last_name %></p>
+  <div class="players delete">
+    <h2>Delete Player</h2>
 
-    <div class="form-buttons">
-      <%= f.submit("Delete Player") %>
-    </div>
+    <%= form_for(@player, :method => 'delete') do |f|%>
 
-  <% end %>
-</div>
+    <p>Are you sure you want to permanently delete this player entry?</p>
+    <p><%= @player.first_name + " " + @player.last_name %></p>
+
+      <div class="form-buttons">
+        <%= f.submit("Delete Player") %>
+      </div>
+
+    <% end %>
+  </div>
+
+<%= render 'shared/footer' %> 
+</html>

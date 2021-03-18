@@ -57,9 +57,9 @@
 			</tr>
 			<% end %>
 		</table>
-		<%= link_to "Add New Player", new_player_path() %><br/>
-		<%= link_to "View Games", games_path() %><br/>
-		<%= link_to "View all player stats", participations_path() %>
+		<%= link_to '<button class="btn btn-primary btn-sm">Add New Player</button>'.html_safe, new_player_path() %><br/>
+		<%= link_to '<button class="btn btn-primary btn-sm">View Games</button>'.html_safe, games_path() %><br/>
+		<%= link_to '<button class="btn btn-primary btn-sm">View all player stats</button>'.html_safe, participations_path() %>
 		
   <%= render 'shared/footer' %>
 </html>

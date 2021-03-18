@@ -1,45 +1,54 @@
 <html>
-    <h1>Add New Player:</h1>
+   
+<%= render 'shared/header', stylesheet_link: 'players', page_title: "Add Player" %>
+<body>
+    <%= render 'shared/navbar' %>
+    <div class="body-div-game-add">
+        <div class="title">
+              <h1>Add Player</h1>
+        </div>
 
-    <%= form_with model: @player do |form| %>
-        <div>
-            <%= form.label :first_name  %><br>
-            <%= form.text_field :first_name, required: true %>
-            <% @player.errors.full_messages_for(:first_name).each do |message| %>
-                <div><%= message %></div>
+        <div class="player-stats-add">
+            <%= form_with model: @player do |form| %>
+                <div class = "input_field">
+                    <%= form.label :first_name  %><br>
+                    <%= form.text_field :first_name, required: true, placeholder: "First name" %>
+                    <% @player.errors.full_messages_for(:first_name).each do |message| %>
+                        <div><%= message %></div>
+                    <% end %>
+                </div>
+
+                <div class = "input_field">
+                    <%= form.label :last_name %><br>
+                    <%= form.text_field :last_name, required: true, placeholder: "Last name" %>
+                    <% @player.errors.full_messages_for(:last_name).each do |message| %>
+                        <div><%= message %></div>
+                    <% end %>
+                </div>
+            
+
+                <div class = "input_field">
+                    <%= form.label :position %><br>
+                    <%= form.select :position, ["Center","Defenseman","Goalie", "Left Wing", "Right Wing"], required: true%>
+                    <% @player.errors.full_messages_for(:position).each do |message| %>
+                        <div><%= message %></div>
+                    <% end %>
+                </div>
+
+                <div class = "input_field">
+                    <%= form.label :number %><br>
+                    <%= form.number_field :number, min: 0, max: 99, :required => 'required' %>
+                    <% @player.errors.full_messages_for(:number).each do |message| %>
+                        <div><%= message %></div>
+                    <% end %>
+                </div>
+
+                <div class = "submit-button">
+                    <%= form.submit class: "btn btn-success" %>
+                </div>
+            
             <% end %>
         </div>
-
-        <div>
-            <%= form.label :last_name %><br>
-            <%= form.text_field :last_name, required: true %>
-            <% @player.errors.full_messages_for(:last_name).each do |message| %>
-                <div><%= message %></div>
-            <% end %>
-        </div>
-       
-
-        <div>
-            <%= form.label :position %><br>
-            <%= form.select :position, ["Center","Defenseman","Goalie", "Left Wing", "Right Wing"], required: true%>
-            <% @player.errors.full_messages_for(:position).each do |message| %>
-                <div><%= message %></div>
-            <% end %>
-        </div>
-
-        <div>
-            <%= form.label :number %><br>
-            <%= form.number_field :number, min: 0, max: 99, :required => 'required' %>
-            <% @player.errors.full_messages_for(:number).each do |message| %>
-                <div><%= message %></div>
-            <% end %>
-        </div>
-
-        <div>
-            <%= form.submit %>
-        </div>
-    
-    <% end %>
-
-    <%= link_to("Home", root_path, :class => 'go back') %>
+    </div>
+        <%= render 'shared/footer' %>
 </html>

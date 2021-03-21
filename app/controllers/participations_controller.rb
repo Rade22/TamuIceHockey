@@ -15,6 +15,7 @@ class ParticipationsController < ApplicationController
     #if params.arity == 2
       @participation.game_id = params[:id]
       @participation.player_id = params[:player_id]
+      @player = Player.search(participations_params[:player_id])
     #end
   end
 
@@ -62,4 +63,5 @@ class ParticipationsController < ApplicationController
     params.require(:participation).permit(:player_id, :game_id, :goals, :assists, :penalty_minutes,
                                           :powerplay_goals, :time_on_ice)
   end
+
 end

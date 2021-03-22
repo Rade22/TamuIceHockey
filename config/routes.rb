@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     member do
       get :delete
       get :games
+      get :playerParticipations
     end
   end
 

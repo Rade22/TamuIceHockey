@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -41,6 +42,23 @@
             </div>
         </div>
     </nav>
+=======
+<html>
+  <%= render 'shared/header', stylesheet_link: 'participations', page_title: "Participation Index" %>
+	<head>
+		<style>
+			table, th, td {
+			border: 1px solid black;
+			}
+			table.center {
+			margin-left: auto;
+			margin-right: auto;
+			}
+		</style>
+	</head>
+	<body>
+      <%= render 'shared/navbar' %>
+>>>>>>> d3b3a7510b488b0206084ecd07d5803a71968a6f
 
 		<h2>Participations:</h2>
 		<% flash.each do |type, msg| %>
@@ -67,16 +85,16 @@
 				<%= game_identity(Game.find(participation.game_id)) %>
 				</td>
 			<td>
-				<%= participation.goals %>
+				<%= participation.goals_skater %>
 			</td>
 				<td>
-					<%= participation.assists %>
+					<%= participation.assists_skater %>
 				</td>
 				<td>
-					<%= participation.powerplay_goals %>
+					<%= participation.powerplay_goals_skater %>
 				</td>
 				<td>
-					<%= participation.penalty_minutes %>
+					<%= participation.penalty_minutes_skater %>
 				</td>
 			<td>
 				<ul>
@@ -95,6 +113,7 @@
 			<% end %>
 		</table>
 
+<<<<<<< HEAD
 		<div class="new-participation-div">
 			<%= link_to '<button class="btn btn-success">Add New Participation</button>'.html_safe, new_participation_path() %><br/>
 		</div>
@@ -118,3 +137,7 @@
 </body>
 
 </html>
+=======
+	<%= render 'shared/footer' %>
+	</html>
+>>>>>>> d3b3a7510b488b0206084ecd07d5803a71968a6f

@@ -2,6 +2,7 @@
 
 # controller for games model
 class GamesController < ApplicationController
+  before_action :authenticate_admin!, only: [:new, :create, :delete, :destroy, :edit, :update]
   def index
     @game = Game.all
   end

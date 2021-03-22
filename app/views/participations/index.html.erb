@@ -54,16 +54,26 @@
 					<li>
 						<%= link_to "View Stats Entry", participation_path(participation) %>
 					</li>
+					<% if admin_signed_in? %>
 					<li>
 						<%= link_to "Edit Stats Entry", edit_participation_path(participation) %>
 					</li>
 					<li>
 						<%= link_to "Delete Stats Entry", delete_participation_path(participation), data: {confirm: 'You sure about that?'} %>
 					</li>
+					<% end %>
 				</ul>
 			</td>
 			</tr>
 			<% end %>
 		</table>
+
+		<% if admin_signed_in? %>
+		  <%= link_to "Add New Participation", new_participation_path() %><br/>
+		<% end %>
+		<%= link_to "View Games", games_path() %><br/>
+			<%= link_to "View Players", players_path() %><br/>
+
+
 	<%= render 'shared/footer' %>
 	</html>

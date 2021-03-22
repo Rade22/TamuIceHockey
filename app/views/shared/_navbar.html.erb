@@ -21,8 +21,13 @@
                 <button>View Analytics</button>
             </div>
             <div class= "navbar-nav login">
-                <a href="#">Admin Login</a>
-            </div>
+				<% if admin_signed_in? %>
+				  <%= link_to "Log Out", destroy_admin_session_path %>
+				<% else %>
+				  <%= link_to "Admin Login", admin_google_oauth2_omniauth_authorize_path %>
+				<% end %>
+			    
+				</div>
         </div>
     </div>
 </nav>

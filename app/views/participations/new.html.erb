@@ -13,7 +13,7 @@
 	<%= form_with model: @participation  do |form| %>
 	  <div class="input_field">
 	    <%= form.label :player_id %><br>
-		<%= form.collection_select :player_id, Player.order(:last_name), :id, ->(player) { full_name(player) }, {prompt: "Select a player"}  %>
+		<%= form.collection_select :player_id, Player.where(active: true).order(:last_name), :id, ->(player) { full_name(player) }, {prompt: "Select a player"}  %>
 		<% @participation.errors.full_messages_for(:player_id).each do |message| %>
 	      <div><%= message %></div>
 		<% end %>

@@ -9,6 +9,8 @@ class ParticipationsController < ApplicationController
 
   def show
     @participation = Participation.find(params[:id])
+    @player = Player.find(@participation.player_id)
+    @game = Game.find(@participation.game_id)
   end
 
   def new

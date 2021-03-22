@@ -43,6 +43,9 @@
 					<li>
 						<%= link_to "View Player Profile", player_path(player) %>
 					</li>
+					<li>
+						<%= link_to "View Player Participations", playerParticipations_participation_path(player) %>
+					</li>
 					<% if admin_signed_in? %>
 					<li>
 						<%= link_to "Edit Player Profile", edit_player_path(player) %>

@@ -8,7 +8,7 @@ class ParticipationsController < ApplicationController
   end
 
   def show
-    @participation = Participation.find(params[:id])
+    
   end
 
   def new
@@ -32,7 +32,7 @@ class ParticipationsController < ApplicationController
   def create
     @participation = Participation.new(participations_params)
     if @participation.save
-      redirect_to root_path, notice: 'Participation saved'
+      redirect_to participations_path, notice: 'Participation saved'
     else
       render :new
     end
@@ -62,6 +62,11 @@ class ParticipationsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def playerParticipations
+    @player = Player.find(params[:id])
+    @participation = Participation.where(player_id: @player.id)
   end
 
   def participations_params

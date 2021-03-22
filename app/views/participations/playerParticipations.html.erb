@@ -1,0 +1,73 @@
+<html lang="en">
+
+	<%= render 'shared/header', stylesheet_link: 'participations', page_title: "View Participation" %>
+
+	<body>
+		<%= render 'shared/navbar' %>
+		<h1>Player: <%= @player.first_name + " " + @player.last_name + " "%>(<%= @player.position%>)</h1>
+
+		<table class="center">
+			<tr>
+				<th>Game</th>
+
+				<% if @player.position.eql?("Goalie") %>
+					<th>Goals Against</th>
+					<th>Saves</th>
+					<th>Shots Against</th>
+					<th>Time on Ice (Minutes)</th>
+				<% else %>
+					<th>Goals</th>
+					<th>Assists</th>
+					<th>Powerplay Goals</th>
+					<th>Penalty Minutes</th>
+				<%end%>
+			</tr>
+				<% @participation.each do |participation| %>
+					<tr>
+						<td>
+							<%= game_identity(Game.find(participation.game_id)) %>
+						</td>
+						<% if @player.position.eql?("Goalie")%>
+							<td>
+								<%= participation.goals_against_goalie %>
+							</td>
+							<td>
+								<%= participation.saves_goalie %>
+							</td>
+							<td>
+								<%= participation.shots_against_goalie %>
+							</td>
+							<td>
+								<%= participation.time_on_ice_goalie %>
+							</td>
+						<% else%>
+							<td>
+								<%= participation.goals_skater %>
+							</td>
+							<td>
+								<%= participation.assists_skater %>
+							</td>
+							<td>
+								<%= participation.powerplay_goals_skater %>
+							</td>
+							<td>
+								<%= participation.penalty_minutes_skater %>
+							</td>
+						<% end%>
+					</tr>
+				<% end%>
+			
+		</table>
+
+		<%= render 'shared/footer' %>
+	</body>
+
+	<style>
+		table, th, td {
+		border: 1px solid black;
+		}
+		table.center {
+		margin-left: auto;
+		margin-right: auto;
+		}
+	</style>

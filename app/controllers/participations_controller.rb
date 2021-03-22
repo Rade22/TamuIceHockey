@@ -12,6 +12,10 @@ class ParticipationsController < ApplicationController
   end
 
   def new
+    @checkparticipation = Participation.find_by(player_id: params[:player_id], game_id: params[:id])
+    if params[:id].present? && params[:player_id].present? && @checkparticipation != nil 
+      redirect_to action: 'edit', id: @checkparticipation.id
+    end
     @participation = Participation.new
     #if params.arity == 2
       @participation.game_id = params[:id]
@@ -52,6 +56,8 @@ class ParticipationsController < ApplicationController
 
   def edit
     @participation = Participation.find(params[:id])
+    @player = Player.find(@participation.player_id)
+    @game = Game.find(@participation.game_id)
   end
 
   def update

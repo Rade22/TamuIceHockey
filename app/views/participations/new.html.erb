@@ -1,144 +1,98 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%# Change style sheet link tag %>
-    <%= stylesheet_link_tag 'games' %>
+<html>
+  <%= render 'shared/header', stylesheet_link: 'participations', page_title: "Add Participation" %>
+  <body>
+    <%= render 'shared/navbar' %>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+	<div class="body-div-participation-add">
+	  <div class="title">
+	    <h1>Create Player Statistics</h1>
+	  </div>
 
-    <%# Change title %>
-    <title>Add Game</title>
-</head>
-<body>
-    <nav class="navbar navbar-expand-md">
-        <div class="container-fluid">
-            <div class= "logo-image">
-                <%= image_tag("HockeyLogo.png", width: '75px', height: '75px')%>
-            </div>
+	  <div class="participation-add">
 
-            <%#For collapse NavBar%>
-            <a class="navbar-toggler" type="a" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon bg-secondary"></span>
-            </a>
-
-            <%# Change disabled from home to page you are modifying %>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav button-div">
-                    <%= link_to '<button>Home</button>'.html_safe, root_path() %>
-                    <div class= "vertical-line"></div>
-					<%= link_to '<button>View Games</button>'.html_safe, games_path() %>
-                    <div class= "vertical-line"></div>
-                    <%= link_to '<button>View Players</button>'.html_safe, players_path() %>
-                    <div class= "vertical-line"></div>
-                    <button>View Analytics</button>
-                </div>
-                <div class= "navbar-nav login">
-                    <a href="#">Admin Login</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <div class="body-div-participation-add">
-        <div class="title">
-            <h1>Add Participation</h1>
-        </div>
-
-        <div class="participation-stats-add">
-            <%= form_with model: @participation  do |form| %>
-
-		<div>
-			<%= form.label :player_id %><br>
-				<%= form.collection_select :player_id, Player.order(:last_name), :id, ->(player) { full_name(player) }, {prompt: "Select a player"}  %>
-				<% @participation.errors.full_messages_for(:player_id).each do |message| %>
-				  <div><%= message %></div>
-				<% end %>
-		</div><br>
-
-		<div>
-			<%= form.label :game_id %><br>
-				<%= form.collection_select :game_id, Game.order(:date), :id, ->(game) { game_identity(game) }, {prompt: "Select a game"} %>
-				<% @participation.errors.full_messages_for(:game_id).each do |message| %>
-				  <div><%= message %></div>
-				<% end %>
-		</div><br>
-
-		<% if @player.position.eql?("Goalie") %>
-
-                <div class="input_field">
-                    <%= form.label :shots_against_goalie %><br>
-                    <%= form.number_field :shots_against_goalie, placeholder: "Shots Against..."%>
-                </div>
-
-                <div class="input_field">
-                    <%= form.label :saves_goalie %><br>
-                    <%= form.number_field :saves_goalie, placeholder: "Saves..."%>
-                </div>
-
-                <div class="input_field">
-                    <%= form.label :time_on_ice_goalie %><br>
-                    <%= form.number_field :time_on_ice_goalie, placeholder: "Ice Time..."%>
-                </div>
-
-		<% else %>
-
-		<div class="input_field">
-                    <%= form.label :goals_skater %><br>
-                    <%= form.number_field :goals_skater, placeholder: "Goals..."%>
-                </div>
-
-                <div class="input_field">
-                    <%= form.label :assists_skater %><br>
-                    <%= form.number_field :assists_skater, placeholder: "Assists..."%>
-                </div>
-
-                <div class="input_field">
-                    <%= form.label :powerplay_goals_skater %><br>
-                    <%= form.number_field :powerplay_goals_skater, placeholder: "Powerplay Goals..."%>
-                </div>
-
-                <div class="input_field">
-                    <%= form.label :penalty_minutes_skater %><br>
-                    <%= form.number_field :penalty_minutes_skater, placeholder: "Penalty Minutes..."%>
-                </div>
-
-                <div class="input_field">
-                    <%= form.label :time_on_ice_skater %><br>
-                    <%= form.number_field :time_on_ice_skater, placeholder: "Ice Time..."%>
-                </div>
-
-
+	<%= form_with model: @participation  do |form| %>
+	  <div class="input_field">
+	    <%= form.label :player_id %><br>
+		<%= form.collection_select :player_id, Player.order(:last_name), :id, ->(player) { full_name(player) }, {prompt: "Select a player"}, disabled: params[:player_id].present?  %>
+		<% @participation.errors.full_messages_for(:player_id).each do |message| %>
+	      <div><%= message %></div>
 		<% end %>
+	  </div>
 
-                <div class="submit-button">
-                    <%= form.submit class: "btn btn-success" %>
-                </div>
-            
-            <% end %>
-        </div>
-    </div>
+	  <div class="input_field">
+        <%= form.label :game_id %><br>
+        <%= form.collection_select :game_id, Game.order(:date), :id, ->(game) { game_identity(game) }, {prompt: "Select a game"}, disabled: params[:id].present? %>
+        <% @participation.errors.full_messages_for(:game_id).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+	
+	<div class="container-manager">
+	<!--Container for Skater Options-->
+	<% if @player == nil || !@player.position.eql?("Goalie") %>
+	<div class="skater-container">
+	  <div class="subtitle">
+	    <br><strong>Skater Options:</strong>
+      </div>
+	  <div class="input_field">
+	    <%= form.label "Goals" %><br>
+	    <%= form.number_field :goals_skater,  min: 0, placeholder: 0 %>
+	  </div>
 
+	  <div class="input_field">
+	    <%= form.label "Assists" %><br>
+ 	   <%= form.number_field :assists_skater,  min: 0, placeholder: 0 %>
+	  </div>
 
+	  <div class="input_field">
+	    <%= form.label "Powerplay Goals" %><br>
+	    <%= form.number_field :powerplay_goals_skater,  min: 0, placeholder: 0 %>
+	  </div>
 
- <%# Footer %>
-    <div class="footer">
-        <div class="info">
-            <h5>Spirit Ice Arena</h5>
-            <h5>400 Holleman Dr E, College Station, TX 77840</h5>
-            <h5>GENERAL INQUIRIES: TAMUICEHOCKEY@GMAIL.COM</h5>
-            <p><a href = "mailto: TAMUICEHOCKEY@GMAIL.COM" target="_blank">Email Us</a></p>
-        </div>
-        <div class="sponsors">
-            <div>
-                <%= image_tag("rec.png")%>
-            </div>
-            <div>
-                <%= image_tag("ACHA.png")%>
-            </div>
-        </div>
-    </div>
-</body>
+	  <div class="input_field">
+	    <%= form.label "Penalty Minutes" %><br>
+	    <%= form.number_field :penalty_minutes_skater,  min: 0, placeholder: 0 %>
+	  </div>
+	</div>
+	<% end %>
+
+	<!--Container for Goalie Options-->
+	<% if @player == nil || @player.position.eql?("Goalie") %>
+	<div class="goalie-container">
+	  <div class="subtitle">
+	    <br><strong>Goalie Options:</strong>
+	  </div>
+	  <div class="input_field">
+        <%= form.label "Time on ice (minutes)" %><br>
+        <%= form.number_field :time_on_ice_goalie,  min: 0, placeholder: 0 %>
+      </div>
+
+      <div class="input_field">
+        <%= form.label "Shots against" %><br>
+        <%= form.number_field :shots_against_goalie,  min: 0, placeholder: 0 %>
+      </div>
+
+      <div class="input_field">
+        <%= form.label "Saves" %><br>
+        <%= form.number_field :saves_goalie,  min: 0, placeholder: 0 %>
+      </div>
+
+      <div class="input_field">
+        <%= form.label "Goals against" %><br>
+        <%= form.number_field :goals_against_goalie,  min: 0, placeholder: 0 %>
+      </div>
+	</div>
+	<% end %>
+
+	</div>
+
+	<div class="submit-button">
+		<%= form.submit %>
+	</div>
+
+	<% end %>
+	</div></div>
+
+	<%= render 'shared/footer' %>
+	</body>
 </html>

@@ -16,7 +16,11 @@ class ParticipationsController < ApplicationController
     #if params.arity == 2
       @participation.game_id = params[:id]
       @participation.player_id = params[:player_id]
-      @player = Player.search(participations_params[:player_id])
+      if params[:player_id].present?
+        @player = Player.find(params[:player_id])
+      else
+        @player = nil
+      end
     #end
   end
 

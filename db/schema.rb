@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2021_03_22_000933) do
     t.text "state"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "scrimmage"
   end
 
   create_table "participations", force: :cascade do |t|
@@ -69,4 +70,3 @@ ActiveRecord::Schema.define(version: 2021_03_22_000933) do
   end
 
 end
-

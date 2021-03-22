@@ -13,7 +13,6 @@
 	</head>
 	<body>
       <%= render 'shared/navbar' %>
-
 		<h2>Participations:</h2>
 		<% flash.each do |type, msg| %>
 		<div>
@@ -68,11 +67,13 @@
 			</tr>
 			<% end %>
 		</table>
+
 		<% if admin_signed_in? %>
 		  <%= link_to "Add New Participation", new_participation_path() %><br/>
 		<% end %>
 		<%= link_to "View Games", games_path() %><br/>
 			<%= link_to "View Players", players_path() %><br/>
+
 
 	<%= render 'shared/footer' %>
 	</html>

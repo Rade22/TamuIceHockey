@@ -56,7 +56,7 @@ body div{
 
 // button animation https://dev.to/webdeasy/top-20-css-buttons-animations-f41
 .button-div button{
-    font-family: Tahoma;
+    font-family: cursive;
     display: inline-block;
     padding: .75rem 1.25rem;
     color: #500000;
@@ -119,7 +119,7 @@ body, html {
 .bg-text {
     background-color: rgba(80, 0, 0, 0.8);
     color: white;
-    font-family: Arial;
+    font-family: cursive;
     font-weight: bold;
     border: 3px solid white;
     position: absolute;
@@ -132,9 +132,6 @@ body, html {
     text-align: center;
 }
 
-
-
-//footer CSS start
 .footer{
     display: flex;
     flex-direction: column;
@@ -155,16 +152,6 @@ body, html {
     justify-content: space-evenly;
 }
 
-//players pages css
-.player-stats-add, .submit-button{
-    padding-left: 10px;
-    color: white;
-}
-
-.player-stats-edit{
-    padding-left: 10px;
-    color: white;
-}
 
 .body-div-player-show, .body-div-player-edit, .body-div-player-add, .body-div-player-delete {
     background: linear-gradient(to left, #bdc3c7, #414345); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */

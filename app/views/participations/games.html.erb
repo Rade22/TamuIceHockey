@@ -13,7 +13,7 @@
 						<% if game.date == date %>
 							<strong class="against-team"><%= game.against_team %></strong>
 							<div class="game-actions">
-								<%= link_to '<button class="btn btn-outline-primary btn-sm">Select Game</button>'.html_safe, "/participations/new/" + game.id.to_s + "/" + params[:id].to_s %>
+								<%= link_to '<button class="btn btn-primary btn-sm">Select Game</button>'.html_safe, "/participations/new/" + game.id.to_s + "/" + params[:id].to_s %>
 							</div>
 						<% end %>
 					</div>  

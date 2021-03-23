@@ -9,14 +9,24 @@ class ParticipationsController < ApplicationController
 
   def show
     @participation = Participation.find(params[:id])
+    @player = Player.find(@participation.player_id)
+    @game = Game.find(@participation.game_id)
   end
 
   def new
+    @checkparticipation = Participation.find_by(player_id: params[:player_id], game_id: params[:id])
+    if params[:id].present? && params[:player_id].present? && @checkparticipation != nil 
+      redirect_to action: 'edit', id: @checkparticipation.id
+    end
     @participation = Participation.new
     #if params.arity == 2
       @participation.game_id = params[:id]
       @participation.player_id = params[:player_id]
-      @player = Player.search(participations_params[:player_id])
+      if params[:player_id].present?
+        @player = Player.find(params[:player_id])
+      else
+        @player = nil
+      end
     #end
   end
 
@@ -28,7 +38,7 @@ class ParticipationsController < ApplicationController
   def create
     @participation = Participation.new(participations_params)
     if @participation.save
-      redirect_to root_path, notice: 'Participation saved'
+      redirect_to participations_path, notice: 'Participation saved'
     else
       render :new
     end
@@ -48,6 +58,8 @@ class ParticipationsController < ApplicationController
 
   def edit
     @participation = Participation.find(params[:id])
+    @player = Player.find(@participation.player_id)
+    @game = Game.find(@participation.game_id)
   end
 
   def update
@@ -58,6 +70,11 @@ class ParticipationsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def playerParticipations
+    @player = Player.find(params[:id])
+    @participation = Participation.where(player_id: @player.id)
   end
 
   def participations_params

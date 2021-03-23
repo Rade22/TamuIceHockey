@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_22_000933) do
+ActiveRecord::Schema.define(version: 2021_03_22_225019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,12 +40,12 @@ ActiveRecord::Schema.define(version: 2021_03_22_000933) do
     t.text "state"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "scrimmage"
   end
 
   create_table "participations", force: :cascade do |t|
     t.integer "player_id"
     t.integer "game_id"
-    t.time "time_on_ice_goalie"
     t.integer "shots_against_goalie"
     t.integer "saves_goalie"
     t.integer "goals_against_goalie"
@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(version: 2021_03_22_000933) do
     t.integer "powerplay_goals_skater"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "time_on_ice_goalie"
+    t.integer "powerplay_minutes_skater"
   end
 
   create_table "players", force: :cascade do |t|
@@ -62,11 +64,10 @@ ActiveRecord::Schema.define(version: 2021_03_22_000933) do
     t.text "last_name", null: false
     t.integer "number"
     t.text "position", null: false
-    t.boolean "active"
+    t.boolean "active", default: true
     t.text "image_link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
 end
-

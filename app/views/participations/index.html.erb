@@ -1,4 +1,5 @@
 <html>
+  <%= render 'shared/header', stylesheet_link: 'participations', page_title: "Participation Index" %>
 	<head>
 		<style>
 			table, th, td {
@@ -11,7 +12,7 @@
 		</style>
 	</head>
 	<body>
-
+      <%= render 'shared/navbar' %>
 		<h2>Participations:</h2>
 		<% flash.each do |type, msg| %>
 		<div>
@@ -37,35 +38,42 @@
 				<%= game_identity(Game.find(participation.game_id)) %>
 				</td>
 			<td>
-				<%= participation.goals %>
+				<%= participation.goals_skater %>
 			</td>
 				<td>
-					<%= participation.assists %>
+					<%= participation.assists_skater %>
 				</td>
 				<td>
-					<%= participation.powerplay_goals %>
+					<%= participation.powerplay_goals_skater %>
 				</td>
 				<td>
-					<%= participation.penalty_minutes %>
+					<%= participation.penalty_minutes_skater %>
 				</td>
 			<td>
 				<ul>
 					<li>
 						<%= link_to "View Stats Entry", participation_path(participation) %>
 					</li>
+					<% if admin_signed_in? %>
 					<li>
 						<%= link_to "Edit Stats Entry", edit_participation_path(participation) %>
 					</li>
 					<li>
 						<%= link_to "Delete Stats Entry", delete_participation_path(participation), data: {confirm: 'You sure about that?'} %>
 					</li>
+					<% end %>
 				</ul>
 			</td>
 			</tr>
 			<% end %>
 		</table>
-		<%= link_to "Add New Participation", new_participation_path() %><br/>
+
+		<% if admin_signed_in? %>
+		  <%= link_to "Add New Participation", new_participation_path() %><br/>
+		<% end %>
 		<%= link_to "View Games", games_path() %><br/>
 			<%= link_to "View Players", players_path() %><br/>
 
+
+	<%= render 'shared/footer' %>
 	</html>

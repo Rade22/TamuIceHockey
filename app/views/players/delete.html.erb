@@ -15,7 +15,7 @@
     <p><%= @player.first_name + " " + @player.last_name %></p>
 
       <div class="form-buttons">
-        <%= f.submit("Delete Player") %>
+        <%= f.submit("Delete Player", data: {confirm: "Are you sure?"}) %>
       </div>
 
     <% end %>

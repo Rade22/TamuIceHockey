@@ -9,6 +9,6 @@ RSpec.describe 'Updating a player', type: :feature do
 		fill_in 'player_first_name', with: 'Tyler'
 		click_on 'Update Player'
 		visit players_path
-		expect(page).to have_content('Tylee')
+		expect(page).to have_content('Tyler')
 	end
 end

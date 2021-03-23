@@ -1,4 +1,5 @@
 require 'simplecov'
+
 SimpleCov.start
 ##SimpleCov.start 'rails'
 
@@ -17,7 +18,11 @@ SimpleCov.start
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+
 RSpec.configure do |config|
+
+	#config.include IntegrationSpecHelper, :type => :feature
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
@@ -31,6 +36,15 @@ RSpec.configure do |config|
     #     # => "be bigger than 2"
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
+
+#Capybara.default_host = 'http://localhost:3000'
+
+#OmniAuth.config.test_mode = true
+#OmniAuth.config.add_mock(:google_oauth2, {:info => {
+	#:uid => '12345',
+	#:full_name => 'Zoey',
+	#:email => 'zoey99@gmail.com'
+#}})
 
   # rspec-mocks config goes here. You can use an alternate test double
   # library (such as bogus or mocha) by changing the `mock_with` option here.

@@ -41,7 +41,7 @@
 	<div class="body-div-game-index">
 		<div class="calendar">
 			<%= month_calendar do |date, games| %>  
-                <%= date.month %> - <%= date.day %>
+                <%= date.day %>
 				<% @games.each do |game| %>  
 					<div>  
 						<% if game.date == date %>

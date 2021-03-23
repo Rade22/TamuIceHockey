@@ -2,6 +2,7 @@
 
 # controller for players model
 class PlayersController < ApplicationController
+  before_action :authenticate_admin!, only: [:new, :create, :delete, :destroy, :edit, :update]
   def index
     @player = Player.all
   end
@@ -17,7 +18,7 @@ class PlayersController < ApplicationController
   def create
     @player = Player.new(players_params)
     if @player.save
-      redirect_to root_path, notice: 'Player saved'
+      redirect_to players_path, notice: 'Player saved'
     else
       render :new
     end
@@ -53,8 +54,4 @@ class PlayersController < ApplicationController
   def players_params
     params.require(:player).permit(:first_name, :last_name, :position, :number)
   end
-
-  # def full_name
-  # "#{player.first_name} #{player.last_name}"
-  # end
 end

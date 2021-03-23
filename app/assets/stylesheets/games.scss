@@ -200,6 +200,10 @@ body, html {
     flex-direction: row;
 }
 
+.add-button {
+    background-color: powderblue;
+}
+
 
 
 
@@ -224,3 +228,41 @@ body, html {
     justify-content: space-evenly;
     width: 100%;
 }
+
+.simple-calendar {
+    .calendar-title {
+        color: maroon;
+    }
+    .calendar-heading {
+        text-align: center;
+        font-size: 30px;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+    tr {
+        text-align: center;
+    }
+    th {
+        text-align: center;
+    }
+    .day {text-align: center;}
+    .wday-0 {}//sunday
+    .wday-1 {}//monday
+    .wday-2 {}
+    .wday-3 {}
+    .wday-4 {}
+    .wday-5 {}
+    .wday-6 {}
+  
+    .today {}
+    .past {}
+    .future {}
+  
+    .start-date {}
+  
+    .prev-month {background: rgb(255, 255, 255); opacity: 0.5;}
+    .next-month {background: rgb(255, 255, 255); opacity: 0.5;}
+    .current-month {}
+  
+    .has-events {}
+  }

@@ -10,6 +10,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Rubocop Linter Action
-      uses: Rade22/TamuIceHockey/github-actions-rubocop@v1.11.0
+      uses: andrewmcodes/rubocop-linter-action@v3.0.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

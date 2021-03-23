@@ -1,1 +1,16 @@
-ECHO is on.
+# .github/workflows/linters.yml
+name: linters
+on: [push]
+jobs:
+  linters:
+    name: runner / linters
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v1
+      - name: rubocop
+        uses: reviewdog/action-rubocop@v1
+        with:
+          rubocop_version: gemfile
+          rubocop_extensions: rubocop-rails:gemfile rubocop-rspec:gemfile
+          github_token: ${{ secrets.github_token }}

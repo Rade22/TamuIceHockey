@@ -43,13 +43,6 @@ ActiveRecord::Schema.define(version: 2021_03_22_225019) do
     t.boolean "scrimmage"
   end
 
-  create_table "logins", force: :cascade do |t|
-    t.string "username"
-    t.string "hashed_password"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "participations", force: :cascade do |t|
     t.integer "player_id"
     t.integer "game_id"
@@ -62,8 +55,8 @@ ActiveRecord::Schema.define(version: 2021_03_22_225019) do
     t.integer "powerplay_goals_skater"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "powerplay_minutes_skater"
     t.integer "time_on_ice_goalie"
+    t.integer "powerplay_minutes_skater"
   end
 
   create_table "players", force: :cascade do |t|

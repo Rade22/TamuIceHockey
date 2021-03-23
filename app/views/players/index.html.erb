@@ -44,20 +44,27 @@
 						<%= link_to "View Player Profile", player_path(player) %>
 					</li>
 					<li>
+						<%= link_to "View Player Participations", playerParticipations_participation_path(player) %>
+					</li>
+					<% if admin_signed_in? %>
+					<li>
 						<%= link_to "Edit Player Profile", edit_player_path(player) %>
 					</li>
 					<li>
-          				<%= link_to "View/Edit Player Stats Per Game", games_participation_path(player) %>
+          				<%= link_to "Create/Edit Player Stats Per Game", games_participation_path(player) %>
    					</li>
 					<li>
 						<%= link_to "Delete Player Profile", delete_player_path(player) %>
 					</li>
+					<% end %>
 				</ul>
 			</td>
 			</tr>
 			<% end %>
 		</table>
-		<%= link_to '<button class="btn btn-primary btn-sm">Add New Player</button>'.html_safe, new_player_path() %><br/>
+		<% if admin_signed_in? %>
+		  <%= link_to '<button class="btn btn-primary btn-sm">Add New Player</button>'.html_safe, new_player_path() %><br/>
+		<% end %>
 		<%= link_to '<button class="btn btn-primary btn-sm">View Games</button>'.html_safe, games_path() %><br/>
 		<%= link_to '<button class="btn btn-primary btn-sm">View all player stats</button>'.html_safe, participations_path() %>
 		

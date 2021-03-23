@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.2'
-#ruby '2.7.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.1'
@@ -64,3 +63,8 @@ gem "pg", "~> 1.2"
 
 gem "simple_calendar", "~> 2.0"
 #adding calendar gem
+
+#google oauth
+gem 'devise'
+gem 'omniauth', '~> 1.9.1'
+gem 'omniauth-google-oauth2'

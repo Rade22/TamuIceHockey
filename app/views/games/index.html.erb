@@ -7,16 +7,18 @@
 
 	<div class="body-div-game-index">
 		<div class="calendar">
-			<%= month_calendar do |date| %>  
-				<%= date %>
-				<% @games = Game.where(date: date.beginning_of_month.beginning_of_week..date.end_of_month.end_of_week) %>  
+			<%= month_calendar do |date, games| %>  
+                <%= date.day %>
 				<% @games.each do |game| %>  
 					<div>  
 						<% if game.date == date %>
 							<strong class="against-team"><%= game.against_team %></strong>
 							<div class="game-actions">
+
 								<br><%= link_to '<button class="btn btn-primary btn-sm">View Game</button>'.html_safe, game_path(game) %>
-								<%= link_to '<button class="btn btn-primary btn-sm">Edit Game</button>'.html_safe, edit_game_path(game) %>
+								<% if admin_signed_in? %>
+									<%= link_to '<button class="btn btn-primary btn-sm">Edit Game</button>'.html_safe, edit_game_path(game) %>
+								<% end %>
 							</div>
 						<% end %>
 					</div>  
@@ -24,9 +26,12 @@
 			<% end %>
 		</div>
 
-		<div class="new-game-div">
-			<%= link_to '<button class="btn btn-success">Add New Game</button>'.html_safe, new_game_path() %><br/>
-		</div>
+
+		<% if admin_signed_in? %>
+			<div class="new-game-div">
+				<%= link_to '<button class="btn btn-success">Add New Game</button>'.html_safe, new_game_path() %><br/>
+			</div>
+		<% end %>
 	</div>
 
     <%= render 'shared/footer' %>

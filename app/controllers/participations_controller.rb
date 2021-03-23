@@ -2,6 +2,7 @@
 
 # controller for participation controller
 class ParticipationsController < ApplicationController
+  before_action :authenticate_admin!, only: [:new, :create, :delete, :destroy, :edit, :update]
   def index
     @participation = Participation.all
   end

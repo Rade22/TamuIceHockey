@@ -26,6 +26,8 @@ class PlayersController < ApplicationController
 
   def delete
     @player = Player.find(params[:id])
+		rescue ActiveRecord::RecordNotFound
+		redirect_to :action => 'index'
   end
 
   def destroy

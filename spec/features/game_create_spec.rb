@@ -1,8 +1,12 @@
 require 'rails_helper'
+require 'helpers/login_helper'
 
 RSpec.describe 'Creating a game', type: :feature do
 	scenario 'valid inputs' do
+		login
+		Rails.logger.debug URI.parse(current_url).inspect
 		visit new_game_path
+		Rails.logger.debug URI.parse(current_url).inspect
 		fill_in 'game_against_team', with: 'Test3'
 		fill_in 'game_date', with: '2021-03-22'
 		fill_in 'game_time', with: '2:30 AM'

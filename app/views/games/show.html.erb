@@ -1,5 +1,6 @@
 <html lang="en">
 <%= render 'shared/header', stylesheet_link: 'games', page_title: "View Game" %>
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 <body>
     <%= render 'shared/navbar' %>
 
@@ -10,7 +11,10 @@
 
         <div class="game-stats">
             <h3>Texas A&M University vs. <%= @game.against_team%> </h3>
-            <h4> <%= @game.goals_for%> - <%= @game.goals_against%> <%= @overtime %> </h4>
+            <h3><%= @scrimmage_game %></h3>
+            <div style="display:flex;flex-direction:row;justify-content:center;">
+                <h4 style="color:darkgreen;"> <%= @game.goals_for%></h4> <h4><pre> - </pre> </h4> <h4 style="color:red;"><%= @game.goals_against%></h4> <h4><%= @overtime %> </h4>
+            </div>
 
             <div class="game-info">
                 <h3>Game Information:</h3>
@@ -40,10 +44,7 @@
                 <%= link_to '<button class="btn btn-success">Edit Game</button>'.html_safe, edit_game_path(@game) %>
             </div>
         <% end %>
-
-        
     </div>
+    
     <%= render 'shared/footer' %>
 </body>
-
-    

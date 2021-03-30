@@ -6,5 +6,7 @@ class Game < ApplicationRecord
     def start_time
         self.date
     end
+
+    validates :state, presence: true, length: {maximum: 2}
 end
 

@@ -38,7 +38,7 @@
 
                     <div class="input_field">
                         <%= form.label :state %><br>
-                        <%= form.text_field :state, placeholder: "State..."%>
+                        <%= form.select(:state, options_for_select(us_states, @game.state))%>
                     </div>
                 </div>
 
@@ -54,13 +54,8 @@
                     </div>
 
                     <div class="input_field">
-                        <%= form.label :is_overtime? %><br>
-                        <%= form.check_box :is_overtime%>
-                    </div>
-
-                    <div class="input_field">
                         <%= form.label :powerplay_attempts %><br>
-                        <%= form.number_field :powerplay_attempts, min: 0, placeholder: "Powerplay Attempts..." %>
+                        <%= form.number_field :powerplay_attemps, min: 0, placeholder: "Powerplay Attempts..." %>
                     </div>
 
                     <div class="input_field">
@@ -72,6 +67,17 @@
                         <%= form.label :total_penalties %><br>
                         <%= form.number_field :total_penalties , min: 0, placeholder: "Total Penalties..."%>
                     </div>
+
+                    <div class="input_field">
+                        <%= form.label :is_overtime? %>
+                        <%= form.check_box :is_overtime%>
+                    </div>
+
+                    <div class="input_field">
+                        <%= form.label :is_scrimmage? %>
+                        <%= form.check_box :scrimmage%>
+                    </div>
+
                 </div>
             </div>
 

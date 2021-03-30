@@ -232,10 +232,11 @@ body, html {
 .simple-calendar {
     .calendar-title {
         color: maroon;
+        font-size: 30px;
     }
     .calendar-heading {
         text-align: center;
-        font-size: 30px;
+        font-size: 20px;
         justify-content: space-evenly;
         width: 100%;
     }
@@ -245,7 +246,7 @@ body, html {
     th {
         text-align: center;
     }
-    .day {text-align: center;}
+    .day {text-align: left;}
     .wday-0 {}//sunday
     .wday-1 {}//monday
     .wday-2 {}
@@ -260,8 +261,8 @@ body, html {
   
     .start-date {}
   
-    .prev-month {background: rgb(255, 255, 255); opacity: 0.5;}
-    .next-month {background: rgb(255, 255, 255); opacity: 0.5;}
+    .prev-month {background: rgb(255, 255, 255); opacity: 0.4;}
+    .next-month {background: rgb(255, 255, 255); opacity: 0.4;}
     .current-month {}
   
     .has-events {}

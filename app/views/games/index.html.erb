@@ -32,6 +32,9 @@
 				<%= link_to '<button class="btn btn-success">Add New Game</button>'.html_safe, new_game_path() %><br/>
 			</div>
 		<% end %>
+
+		
+		<%= line_chart @game.group(:goals_for).count %>
 	</div>
 
     <%= render 'shared/footer' %>

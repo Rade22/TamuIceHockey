@@ -37,7 +37,12 @@
 
                 <div class="input_field">
                     <%= form.label :state %><br>
-                    <%= form.text_field :state, placeholder: "State..."%>
+                    <%= form.select(:state, options_for_select(us_states))%>
+                </div>
+
+                <div class="input_field">
+                    <%= form.label :is_scrimmage? %>
+                    <%= form.check_box :scrimmage%>
                 </div>
 
                 <div class="submit-button">

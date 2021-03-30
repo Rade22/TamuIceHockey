@@ -12,7 +12,7 @@
 				<% @games.each do |game| %>  
 					<div>  
 						<% if game.date == date %>
-							<strong class="against-team"><%= game.against_team %></strong>
+							<strong class="against-team"><%= game.against_team %> <% if game.scrimmage == true %>(Scrimmage)<%end%></strong>
 							<div class="game-actions">
 
 								<%= link_to '<button class="btn btn-primary btn-sm">View Game</button>'.html_safe, game_path(game) %>

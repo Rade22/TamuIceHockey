@@ -1,24 +1,34 @@
-<nav class="navbar navbar-expand-md">
+<nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
         <div class= "logo-image">
-            <%= image_tag("HockeyLogo.png", width: '75px', height: '75px')%>
+            <%= link_to image_tag("HockeyLogo.png", width: '75px', height: '75px'), 'https://www.tamuicehockey.com/', target: "_blank"%>
         </div>
 
         <%#For collapse NavBar%>
         <a class="navbar-toggler" type="a" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon bg-secondary"></span>
+            <span class="navbar-toggler-icon" id="nav-button"></span>
         </a>
 
         <%# Deimplemented disabling current page's button, but might be reimplemented later %>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav button-div">
+                <h3 style="color: white; margin-bottom: 10px;" id="small-page-title">Welcome!</h3>
+                
+                <div class= "login-sm">
+                    <% if admin_signed_in? %>
+                    <%= link_to "Log Out", destroy_admin_session_path %>
+                    <% else %>
+                    <%= link_to "Admin Login", admin_google_oauth2_omniauth_authorize_path %>
+                    <% end %>
+			    </div>
+                
                 <%= link_to '<button>Home</button>'.html_safe, root_path() %>
                 <div class= "vertical-line"></div>
 				<%= link_to '<button>View Games</button>'.html_safe, games_path() %>
                 <div class= "vertical-line"></div>
                 <%= link_to '<button>View Players</button>'.html_safe, players_path() %>
                 <div class= "vertical-line"></div>
-                <button>View Analytics</button>
+                 <%= link_to '<button disabled>View Analytics</button>'.html_safe %>
             </div>
             <div class= "navbar-nav login">
 				<% if admin_signed_in? %>
@@ -26,8 +36,7 @@
 				<% else %>
 				  <%= link_to "Admin Login", admin_google_oauth2_omniauth_authorize_path %>
 				<% end %>
-			    
-				</div>
+			</div>
         </div>
     </div>
 </nav>

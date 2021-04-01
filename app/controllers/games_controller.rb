@@ -6,7 +6,9 @@ class GamesController < ApplicationController
   def index
     start_date = params.fetch(:start_date, Date.today).to_date
     @games = Game.where(date: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
-    @game = Game.all   
+    @game = Game.all
+    
+    # @game_powerplayAttemps = Game.where(params[:powerplay_attemps])
   end
 
   def show
@@ -14,6 +16,10 @@ class GamesController < ApplicationController
     
     if @game.is_overtime == true
       @overtime = "(Overtime)"
+    end
+
+    if @game.scrimmage == true
+      @scrimmage_game = "(Scrimmage)"
     end
   end
 
@@ -30,8 +36,14 @@ class GamesController < ApplicationController
     end
   end
 
+
   def delete
     @game = Game.find(params[:id])
+	
+	rescue ActiveRecord::RecordNotFound
+		redirect_to :action => 'index'
+
+	
   end
 
   def destroy
@@ -58,10 +70,10 @@ class GamesController < ApplicationController
   end
 
   def games_params
-    params.require(:game).permit(:against_team, :date, :time, :city, :ring_name, :state)
+    params.require(:game).permit(:against_team, :date, :time, :city, :ring_name, :state, :scrimmage)
   end
 
   def gamesedit_params
-    params.require(:game).permit(:against_team, :date, :time, :city, :ring_name, :state, :goals_for, :goals_against, :is_overtime, :powerplay_attemps, :killed_penalties, :total_penalties)
+    params.require(:game).permit(:against_team, :date, :time, :city, :ring_name, :state, :goals_for, :goals_against, :is_overtime, :powerplay_attemps, :killed_penalties, :total_penalties, :scrimmage)
   end
 end

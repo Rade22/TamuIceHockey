@@ -13,8 +13,8 @@
 					<div>  
 						<% if game.date == date %>
 							<strong class="against-team"><%= game.against_team %> <% if game.scrimmage == true %>(Scrimmage)<%end%></strong>
+							<%= game.goals_for %> - <%= game.goals_against %>
 							<div class="game-actions">
-
 								<%= link_to '<button class="btn btn-primary btn-sm">View Game</button>'.html_safe, game_path(game) %>
 								<% if admin_signed_in? %>
 									<%= link_to '<button class="btn btn-primary btn-sm">Edit Game</button>'.html_safe, edit_game_path(game) %>
@@ -33,7 +33,9 @@
 			</div>
 		<% end %>
 	</div>
-
-    <%= render 'shared/footer' %>
+	<%= line_chart [
+		{name: "Goals scored", data: @game_graph.group(:date).group(:against_team).sum(:goals_for) },
+		{name: "Goals against", data: Game.group_by_day(:date, format: "%m %y").group(:against_team).sum(:goals_against)}	] %>
+	<%= render 'shared/footer' %>
 </body>
 </html>

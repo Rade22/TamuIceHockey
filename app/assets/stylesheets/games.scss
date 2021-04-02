@@ -62,12 +62,45 @@ body, html {
     margin: 10px;
 }
 
-.game-stats-add, .game-stats-delete{
+.game-stats-add {
+    //padding-left: 10px;
+    color: black;
+    background-color: white;
+    width: 250px;
+    border-radius: 3%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.title{
+    color: black !important;
+    text-align: center;
+    width: 100%;
+}
+
+.submit-button{
+    display: flex;
+    justify-content: center;
+}
+
+
+.game-stats-delete{
     padding-left: 10px;
     color: white;
 }
 
-.body-div-game-show, .body-div-game-edit, .body-div-game-add, .body-div-game-delete{
+.body-div-game-add, .body-div-game-edit {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to left, #bdc3c7, #414345); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    width: 100%;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+
+.body-div-game-show, .body-div-game-delete{
     background: linear-gradient(to left, #bdc3c7, #414345); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     width: 100%;
 }
@@ -78,8 +111,10 @@ body, html {
     padding-bottom: 10px;
 }
 
-.edit-game-div button{
-    margin-right: 25px;
+.edit-game-div{
+    display: flex;
+    justify-content: space-evenly;
+    width: 450px;
 }
 
 //Games Add CSS start
@@ -97,22 +132,32 @@ body, html {
 }
 
 //Games Edit CSS start
-.game-info-edit, .submit-button{
+.game-info-edit{
     padding-left: 10px;
-    color: white;
+    color: black;
 }
 
 .games-stats-edit{
-    color: white;
+    color: black;
 }
 
-.game-edit{
-    display: flex;
-    flex-direction: row;
-}
+
 
 .add-button {
     background-color: powderblue;
+}
+
+.game-edit{
+    margin-bottom: 20px;
+    background-color: white;
+    margin-top: 20px;
+    border-radius: 3%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.input-div{
+    display: flex;
+    flex-direction: row;
 }
 
 
@@ -142,7 +187,8 @@ body, html {
 
 .simple-calendar {
     .calendar-title {
-        color: maroon;
+        font-size: 50px;
+        color: #500000;
     }
     .calendar-heading {
         text-align: center;
@@ -150,13 +196,20 @@ body, html {
         justify-content: space-evenly;
         width: 100%;
     }
+
+    @media (max-width: 615px){
+        .calendar-heading{
+            font-size: 20px;
+        }
+    }
+
     tr {
         text-align: center;
     }
     th {
         text-align: center;
     }
-    .day {text-align: center;}
+    .day {text-align: left;}
     .wday-0 {}//sunday
     .wday-1 {}//monday
     .wday-2 {}
@@ -165,15 +218,39 @@ body, html {
     .wday-5 {}
     .wday-6 {}
   
-    .today {}
+    .today {background-color: rgb(192, 120, 120);}
     .past {}
     .future {}
   
     .start-date {}
   
-    .prev-month {background: rgb(255, 255, 255); opacity: 0.5;}
-    .next-month {background: rgb(255, 255, 255); opacity: 0.5;}
+    .prev-month {background: rgb(255, 255, 255); opacity: 0.3;}
+    .next-month {background: rgb(255, 255, 255); opacity: 0.3;}
     .current-month {}
   
     .has-events {}
+
+    .scrimmage-game{
+        background-color: lightyellow;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        border-radius: 3%;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        margin-bottom: 5px;
+    }
+
+    .season-game{
+        background-color: rgb(200, 232, 238);
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        border-radius: 3%;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        margin-bottom: 5px;
+    }
   }

@@ -7,16 +7,6 @@ class GamesController < ApplicationController
     start_date = params.fetch(:start_date, Date.today).to_date
     @games = Game.where(date: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
     @game = Game.all
-    
-    @scrimmage_games = Array.new(@games.size)
-    for i in 0...@games.size
-      if true == true
-        @is_scrimmage = "(Scrimmage)"
-      else
-        @is_scrimmage = ""
-      end
-      @scrimmage_games.insert(i,@is_scrimmage)
-    end
   end
 
   def show

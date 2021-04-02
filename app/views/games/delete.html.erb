@@ -14,7 +14,7 @@
           <p><%= @game.against_team %></p>
 
           <div class="form-buttons">
-            <%= f.submit("Delete Game", class: "btn btn-danger") %>
+            <%= f.submit("Delete Game", class: "btn btn-danger",  data: {confirm: "Are you sure?"} ) %>
           </div>
         <% end %>
       </div>

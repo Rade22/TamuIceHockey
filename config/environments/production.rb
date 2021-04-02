@@ -121,4 +121,6 @@ Rails.application.configure do
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
   config.action_controller.include_all_helpers = true
+  config.serve_static_assets = true
+  config.assets.compile = true
 end

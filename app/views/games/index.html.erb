@@ -34,12 +34,6 @@
 		<% end %>
 	</div>
 
-	<%# <%= line_chart [
-		{name: "Goals against", data: Game.group_by_day(:date, format: "%m %y").group(:against_team).sum(:goals_against)}	
-	] %> 
-
-	<%= bar_chart Game.group_by_day_of_week(:created_at, format: "%a").count%>
-
     <%= render 'shared/footer' %>
 </body>
 </html>

@@ -25,15 +25,6 @@ body, html {
     justify-content: space-evenly;
 }
 
-// .game-actions button{
-//     background-color: rgb(236, 160, 160);
-//     border: 2px solid;
-// }
-
-// .game-actions button:hover{
-//     background-color: #500000;
-// }
-
 @media(max-width: 1450px){
     .game-actions{
         display: flex;
@@ -71,12 +62,45 @@ body, html {
     margin: 10px;
 }
 
-.game-stats-add, .game-stats-delete{
+.game-stats-add {
+    //padding-left: 10px;
+    color: black;
+    background-color: white;
+    width: 250px;
+    border-radius: 3%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.title{
+    color: black !important;
+    text-align: center;
+    width: 100%;
+}
+
+.submit-button{
+    display: flex;
+    justify-content: center;
+}
+
+
+.game-stats-delete{
     padding-left: 10px;
     color: white;
 }
 
-.body-div-game-show, .body-div-game-edit, .body-div-game-add, .body-div-game-delete{
+.body-div-game-add, .body-div-game-edit {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to left, #bdc3c7, #414345); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    width: 100%;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+
+.body-div-game-show, .body-div-game-delete{
     background: linear-gradient(to left, #bdc3c7, #414345); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     width: 100%;
 }
@@ -87,8 +111,10 @@ body, html {
     padding-bottom: 10px;
 }
 
-.edit-game-div button{
-    margin-right: 25px;
+.edit-game-div{
+    display: flex;
+    justify-content: space-evenly;
+    width: 450px;
 }
 
 //Games Add CSS start
@@ -106,22 +132,32 @@ body, html {
 }
 
 //Games Edit CSS start
-.game-info-edit, .submit-button{
+.game-info-edit{
     padding-left: 10px;
-    color: white;
+    color: black;
 }
 
 .games-stats-edit{
-    color: white;
+    color: black;
 }
 
-.game-edit{
-    display: flex;
-    flex-direction: row;
-}
+
 
 .add-button {
     background-color: powderblue;
+}
+
+.game-edit{
+    margin-bottom: 20px;
+    background-color: white;
+    margin-top: 20px;
+    border-radius: 3%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.input-div{
+    display: flex;
+    flex-direction: row;
 }
 
 
@@ -152,7 +188,7 @@ body, html {
 .simple-calendar {
     .calendar-title {
         font-size: 50px;
-        color: maroon;
+        color: #500000;
     }
     .calendar-heading {
         text-align: center;
@@ -160,6 +196,13 @@ body, html {
         justify-content: space-evenly;
         width: 100%;
     }
+
+    @media (max-width: 615px){
+        .calendar-heading{
+            font-size: 20px;
+        }
+    }
+
     tr {
         text-align: center;
     }

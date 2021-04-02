@@ -35,7 +35,7 @@
 	</div>
 	<%= line_chart [
 		{name: "Goals scored", data: @game_graph.group(:date).group(:against_team).sum(:goals_for) },
-		{name: "Goals against", data: Game.group_by_day(:date, format: "%m %y").group(:against_team).sum(:goals_against)}	] %>
+		{name: "Goals against", data: @game_graph.group(:date).group(:against_team).sum(:goals_against)} ] %>
 	<%= render 'shared/footer' %>
 </body>
 </html>

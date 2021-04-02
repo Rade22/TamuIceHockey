@@ -59,7 +59,7 @@
 						<%= link_to "Edit Stats Entry", edit_participation_path(participation) %>
 					</li>
 					<li>
-						<%= link_to "Delete Stats Entry", delete_participation_path(participation), data: {confirm: 'You sure about that?'} %>
+						<%= link_to '<button class="btn btn-danger" title="Click to go to confirmation page">Delete Entry</button>'.html_safe, delete_participation_path(participation), data: {confirm: "Are you sure?"} %>
 					</li>
 					<% end %>
 				</ul>
@@ -75,5 +75,3 @@
 		<%= render 'shared/footer' %>
 </body>
 </html>
-
-	

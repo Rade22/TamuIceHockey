@@ -28,7 +28,7 @@
                 <div class= "vertical-line"></div>
                 <%= link_to '<button>View Players</button>'.html_safe, players_path() %>
                 <div class= "vertical-line"></div>
-                 <%= link_to '<button disabled>View Analytics</button>'.html_safe %>
+                <%= link_to '<button>View Analytics</button>'.html_safe, analytics_path() %>
             </div>
             <div class= "navbar-nav login">
 				<% if admin_signed_in? %>

@@ -21,11 +21,16 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :participations do
+ resources :participations do
     member do
       get :delete
       get :games
       get :playerParticipations
+    end
+  end 
+
+  resources :analytics do
+    member do
     end
   end
 

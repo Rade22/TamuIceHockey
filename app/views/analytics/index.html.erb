@@ -1,8 +1,13 @@
 <html lang="en">
-
 <%= render 'shared/header', stylesheet_link: 'games', page_title: "Games Page" %>
+
 <body>
-<%= render 'shared/navbar' %>
-<%= render 'shared/footer' %>
+    <%= render 'shared/navbar' %>
+
+    <%= line_chart [
+		{name: "Goals scored", data: @game_graph.group(:date).group(:against_team).sum(:goals_for) },
+		{name: "Goals against", data: @game_graph.group(:date).group(:against_team).sum(:goals_against)} ] %>
+
+    <%= render 'shared/footer' %>
 </body>
 </html>

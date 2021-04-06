@@ -1,0 +1,33 @@
+<div class="card mb-3" style="max-width: 100%;">
+  <div class="row g-0">
+    <div class="col-md-4">
+        <%= image_tag local_assigns[:player_image], style: 'height:333px;width:500px;' %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h1 class="card-title"> <%=local_assigns[:player_firstname] %> <%=local_assigns[:player_lastname] %> </h5>
+        <h3 class="card-text">#<%=local_assigns[:player_number] %> </h3>
+        <h4 class="card-text"> <%=local_assigns[:player_position] %> </h4>
+        <h3 class="card-text">Total Games: <%= @games_total[local_assigns[:player_id].id] %> </h3>
+
+        <% if local_assigns[:player_position].eql?("Goalie") %>
+            
+        
+        <% else %>
+            
+
+        <% end %>
+
+
+        <div class="btn-div">
+            <%= link_to '<button class="btn btn-primary"> View Profile </button>'.html_safe, player_path(local_assigns[:player_id]) %>
+            <%= link_to '<button class="btn btn-primary"> View Games </button>'.html_safe, playerParticipations_participation_path(local_assigns[:player_id]) %>
+            <% if admin_signed_in? %>
+			    <%= link_to '<button class="btn btn-primary"> Edit Profile </button>'.html_safe, edit_player_path(local_assigns[:player_id]) %>
+                <%= link_to '<button class="btn btn-primary"> Create/Edit Stats </button>'.html_safe, games_participation_path(local_assigns[:player_id]) %>
+		    <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -5,6 +5,9 @@ class PlayersController < ApplicationController
   before_action :authenticate_admin!, only: [:new, :create, :delete, :destroy, :edit, :update]
   def index
     @player = Player.all
+    @games_total = Participation.group(:player_id).count  
+    
+    
   end
 
   def show
@@ -18,6 +21,7 @@ class PlayersController < ApplicationController
   def create
     @player = Player.new(players_params)
     if @player.save
+      @player.active = true
       redirect_to players_path, notice: 'Player saved'
     else
       render :new
@@ -54,7 +58,7 @@ class PlayersController < ApplicationController
   end
 
   def players_params
-    params.require(:player).permit(:first_name, :last_name, :position, :number)
+    params.require(:player).permit(:first_name, :last_name, :position, :number, :image_link, :active)
   end
 end
 

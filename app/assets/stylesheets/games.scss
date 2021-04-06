@@ -53,6 +53,11 @@ body, html {
     color: white;
     width: 50%;
     margin: auto;
+    margin-bottom: 10px;
+    background-color: white;
+    color: black;
+    border-radius: 3%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .game-info{
@@ -60,11 +65,18 @@ body, html {
     text-align: center;
     padding-left: 10px;
     margin: 10px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
 }
 
 .game-played{
     border: 1px solid white;
     margin-bottom: 15px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    margin: 10px;
 }
 
 .game-played-stats{
@@ -113,6 +125,18 @@ body, html {
 
 .game-stats-delete{
     padding-left: 10px;
+    color: black;
+    text-align: center;
+    background-color: white;
+    margin: auto;
+    margin-bottom: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding-bottom: 5px;
+    width: 50%;
+    border-radius: 3%;
+}
+
+.game-delete-title{
     color: white;
 }
 

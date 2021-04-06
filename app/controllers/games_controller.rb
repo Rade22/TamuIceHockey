@@ -19,6 +19,15 @@ class GamesController < ApplicationController
     if @game.scrimmage == true
       @scrimmage_game = "(Scrimmage)"
     end
+
+    if @game.PowerPlayGoals && (@game.powerplay_attemps != 0 && @game.powerplay_attemps)
+      @powerPlayPercentage = (@game.PowerPlayGoals.to_f / @game.powerplay_attemps.to_f).round(2)
+    end
+
+    if @game.killed_penalties && (@game.total_penalties != 0 && @game.total_penalties)
+      @killPercentage = (@game.killed_penalties.to_f / @game.total_penalties.to_f).round(2)
+    end
+
   end
 
   def new
@@ -72,6 +81,6 @@ class GamesController < ApplicationController
   end
 
   def gamesedit_params
-    params.require(:game).permit(:against_team, :date, :time, :city, :ring_name, :state, :goals_for, :goals_against, :is_overtime, :powerplay_attemps, :killed_penalties, :total_penalties, :scrimmage)
+    params.require(:game).permit(:against_team, :date, :time, :city, :ring_name, :state, :goals_for, :goals_against, :is_overtime, :powerplay_attemps, :killed_penalties, :total_penalties, :scrimmage, :PowerPlayGoals)
   end
 end

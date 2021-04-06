@@ -9,7 +9,7 @@ body div{
     }
 }
 
-@media(max-width:991.75px) {
+@media(max-width:990px) {
     .navbar .navbar-brand {float:none;display: inline-block;}
     .navbar .navbar-nav>.nav-item { float: none; margin-left: .1rem;}
     .navbar .navbar-nav {float:none !important;}
@@ -151,6 +151,8 @@ body div{
       }
     }
   }
+
+
 
 //Home page image https://www.w3schools.com/howto/howto_css_blurred_background.asp
 body, html {

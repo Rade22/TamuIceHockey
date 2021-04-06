@@ -14,3 +14,4 @@ ActiveStorage.start()
 
 require("chartkick")
 require("chart.js")
+

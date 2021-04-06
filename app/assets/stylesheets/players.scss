@@ -65,7 +65,6 @@ body div{
 }
 
 .navbar{
-    //background-color: #500000;
     background-color: #500000;
 }
 
@@ -215,6 +214,7 @@ body, html {
 }
 
 
+
 .player-info {
     border: 1px solid white;
     text-align: left;
@@ -229,4 +229,36 @@ body, html {
     color: white;
     width: 50%;
     margin: auto;
+}
+
+.input_field{
+    margin: 10px;
+    color: white
+}
+
+//start of index page/cards
+
+.player-title{
+    text-align: center;
+    
+}
+
+.card{
+    margin: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.card-title{
+    text-align: center;
+}
+
+.card-text{
+    text-align: center;
+}
+
+.btn-div{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    
 }

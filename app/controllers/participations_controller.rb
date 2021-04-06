@@ -46,7 +46,8 @@ class ParticipationsController < ApplicationController
 
   def delete
     @participation = Participation.find(params[:id])
-    destroy
+    @player = Player.find(@participation.player_id)
+    @game = Game.find(@participation.game_id)
   end
 
   def destroy

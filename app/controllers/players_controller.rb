@@ -4,6 +4,9 @@
 class PlayersController < ApplicationController
   before_action :authenticate_admin!, only: %i[new create delete destroy edit update]
   before_action :fetch_player, only: [:new]
+  
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
+  
   def index
     @player = Player.all
   end
@@ -50,6 +53,10 @@ class PlayersController < ApplicationController
     else
       render 'edit'
     end
+  end
+  
+  def not_found
+	redirect_to :action => "index"
   end
 
   def players_params

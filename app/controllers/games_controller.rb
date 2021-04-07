@@ -3,6 +3,10 @@
 # controller for games model
 class GamesController < ApplicationController
   before_action :authenticate_admin!, only: %i[new create delete destroy edit update]
+  
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
+	
+	
   def index
     start_date = params.fetch(:start_date, Date.today).to_date
     @games = Game.where(date: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
@@ -57,6 +61,10 @@ class GamesController < ApplicationController
     else
       render 'edit'
     end
+  end
+  
+  def not_found
+	redirect_to :action => "index"
   end
 
   def games_params

@@ -2,7 +2,7 @@
 
 # controller for games model
 class GamesController < ApplicationController
-  before_action :authenticate_admin!, only: [:new, :create, :delete, :destroy, :edit, :update]
+  before_action :authenticate_admin!, only: %i[new create delete destroy edit update]
   def index
     start_date = params.fetch(:start_date, Date.today).to_date
     @games = Game.where(date: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
@@ -11,14 +11,10 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
-    
-    if @game.is_overtime == true
-      @overtime = "(Overtime)"
-    end
 
-    if @game.scrimmage == true
-      @scrimmage_game = "(Scrimmage)"
-    end
+    @overtime = '(Overtime)' if @game.is_overtime == true
+
+    @scrimmage_game = '(Scrimmage)' if @game.scrimmage == true
   end
 
   def new
@@ -34,14 +30,10 @@ class GamesController < ApplicationController
     end
   end
 
-
   def delete
     @game = Game.find(params[:id])
-	
-	rescue ActiveRecord::RecordNotFound
-		redirect_to :action => 'index'
-
-	
+  rescue ActiveRecord::RecordNotFound
+    redirect_to action: 'index'
   end
 
   def destroy
@@ -72,6 +64,7 @@ class GamesController < ApplicationController
   end
 
   def gamesedit_params
-    params.require(:game).permit(:against_team, :date, :time, :city, :ring_name, :state, :goals_for, :goals_against, :is_overtime, :powerplay_attemps, :killed_penalties, :total_penalties, :scrimmage)
+    params.require(:game).permit(:against_team, :date, :time, :city, :ring_name, :state, :goals_for, :goals_against,
+                                 :is_overtime, :powerplay_attemps, :killed_penalties, :total_penalties, :scrimmage)
   end
 end

@@ -1,5 +1,6 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
+Rails.application.routes.draw do
   root to: 'players#home'
 
   devise_for :admins, controllers: { omniauth_callbacks: 'admins/omniauth_callbacks' }
@@ -29,10 +30,7 @@ Rails.application.routes.draw do
     end
   end
 
-  
-  
-  get 'participations/new/:id/:player_id', to: 'participations#new' #this is incredibly janky, figure out how to do this not badly
-
+  get 'participations/new/:id/:player_id', to: 'participations#new' # this is incredibly janky, figure out how to do this not badly
 
   get ':controller(/:action(/:id))'
 

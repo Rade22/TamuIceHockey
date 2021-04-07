@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 
 class Game < ApplicationRecord
-    extend SimpleCalendar
-    
-    def start_time
-        self.date
-    end
+  extend SimpleCalendar
 
-    validates :state, presence: true, length: {maximum: 2}
+  def start_time
+    date
+  end
+
+  validates :state, presence: true, length: { maximum: 2 }
 end
-

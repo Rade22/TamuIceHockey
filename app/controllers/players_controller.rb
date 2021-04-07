@@ -2,7 +2,8 @@
 
 # controller for players model
 class PlayersController < ApplicationController
-  before_action :authenticate_admin!, only: [:new, :create, :delete, :destroy, :edit, :update]
+  before_action :authenticate_admin!, only: %i[new create delete destroy edit update]
+  before_action :fetch_player, only: [:new]
   def index
     @player = Player.all
   end
@@ -11,9 +12,7 @@ class PlayersController < ApplicationController
     @player = Player.find(params[:id])
   end
 
-  def new
-    @player = Player.new
-  end
+  def new; end
 
   def create
     @player = Player.new(players_params)
@@ -26,8 +25,8 @@ class PlayersController < ApplicationController
 
   def delete
     @player = Player.find(params[:id])
-		rescue ActiveRecord::RecordNotFound
-		redirect_to :action => 'index'
+  rescue ActiveRecord::RecordNotFound
+    redirect_to action: 'index'
   end
 
   def destroy
@@ -56,5 +55,10 @@ class PlayersController < ApplicationController
   def players_params
     params.require(:player).permit(:first_name, :last_name, :position, :number)
   end
-end
 
+  private
+
+  def fetch_player
+    @player = Player.all
+  end
+end

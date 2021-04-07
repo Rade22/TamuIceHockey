@@ -1,18 +1,71 @@
 body div{
-    //border: 1px solid black;
+    // border: 1px solid black;
 }
 
-@media (max-width: 900px){
+@media (max-width: 910px){
     .footer div{
         flex-direction: column;
-        display: flex;
-        justify-content: center;
+        align-items: center;
     }
+}
+
+@media(max-width:990px) {
+    .navbar .navbar-brand {float:none;display: inline-block;}
+    .navbar .navbar-nav>.nav-item { float: none; margin-left: .1rem;}
+    .navbar .navbar-nav {float:none !important;}
+    .nav-item{width:100%;text-align:left;} 
+    .navbar-toggler {display: block !important;}
+    .navbar-toggleable-sm.collapse {display:none !important}
+    .navbar-toggleable-sm.collapse.in {display:block !important}
+
+    .button-div{
+        display: flex;
+        align-items: center;
+    }
+
+    .button-div a{
+        margin-top: 10px;
+    }
+
+    .login {
+        display: none !important;
+    }
+
+    .vertical-line{
+        display: none;
+    }
+
+    .bg-text{
+        //display: none;
+    }
+
+    #small-page-title{
+        display: contents !important;
+    }
+
+    .login-sm{
+        display: contents !important;
+    }
+
+    .login-sm a{
+        color:white;
+        &:hover{
+            color: white;
+        }
+    }
+
+}
+
+.login-sm{
+    display: none;
+}
+
+#small-page-title{
+    display: none;
 }
 
 .navbar{
     background-color: #500000;
-    box-shadow: 1px 1px 1px 1px black;
 }
 
 .container-fluid{
@@ -59,7 +112,7 @@ body div{
     font-family: cursive;
     display: inline-block;
     padding: .75rem 1.25rem;
-    color: #500000;
+    color: indianred;
     text-transform: uppercase;
     border-radius: 1rem;
     font-size: .75rem;
@@ -76,7 +129,7 @@ body div{
       width: 100%;
       height: 100%;
       border-radius: 1rem;
-      background-color: darken(white, 25%);
+      background-color: white;
       z-index: -2;
     }
     &:before {
@@ -87,17 +140,19 @@ body div{
       width: 0%;
       height: 100%;
       border-radius: 1rem;
-      background-color: white;
+      background-color: black;
       transition: all .3s;
       z-index: -1;
     }
     &:hover {
-      color: #500000;
+      color: white;
       &:before {
         width: 100%;
       }
     }
   }
+
+
 
 //Home page image https://www.w3schools.com/howto/howto_css_blurred_background.asp
 body, html {
@@ -105,7 +160,8 @@ body, html {
 }
 
 .bg-image {
-    background-image: url("HomePicture.jpg");
+    display: flex;
+    background-image: url("HomePicture.png");
 
     filter: grayscale(100%);
 
@@ -123,13 +179,14 @@ body, html {
     font-weight: bold;
     border: 3px solid white;
     position: absolute;
-    top: 50%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
     width: 50%;
     padding: 20px;
     text-align: center;
+    word-wrap: break-word;
 }
 
 .footer{
@@ -159,6 +216,7 @@ body, html {
 }
 
 
+
 .player-info {
     border: 1px solid white;
     text-align: left;
@@ -173,4 +231,36 @@ body, html {
     color: white;
     width: 50%;
     margin: auto;
+}
+
+.input_field{
+    margin: 10px;
+    color: white
+}
+
+//start of index page/cards
+
+.player-title{
+    text-align: center;
+    
+}
+
+.card{
+    margin: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.card-title{
+    text-align: center;
+}
+
+.card-text{
+    text-align: center;
+}
+
+.btn-div{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    
 }

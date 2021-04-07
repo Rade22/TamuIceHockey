@@ -1,16 +1,20 @@
 <html lang="en">
 <%= render 'shared/header', stylesheet_link: 'games', page_title: "View Game" %>
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 <body>
     <%= render 'shared/navbar' %>
 
     <div class="body-div-game-show">
-        <div class="title">
+        <div class="title" style="color:white !important;">
             <h1>Game Statistics</h1>
         </div>
 
         <div class="game-stats">
             <h3>Texas A&M University vs. <%= @game.against_team%> </h3>
-            <h4> <%= @game.goals_for%> - <%= @game.goals_against%> <%= @overtime %> </h4>
+            <h3><%= @scrimmage_game %></h3>
+            <div style="display:flex;flex-direction:row;justify-content:center;">
+                <h4 style="color:darkgreen;"> <%= @game.goals_for%></h4> <h4><pre> - </pre> </h4> <h4 style="color:red;"><%= @game.goals_against%></h4> <h4><%= @overtime %> </h4>
+            </div>
 
             <div class="game-info">
                 <h3>Game Information:</h3>
@@ -19,18 +23,40 @@
             </div>
 
             <% if @game.goals_for %>
-                <div class="game-played-stats">
-                    <h3>Total Game Statistics:</h3>
-                    <% if @game.powerplay_attemps %>
-                        <h4>Powerplay Attempts: <%= @game.powerplay_attemps%></h4>
-                    <%end%>
+                <div class="game-played">
+                    <div class="game-played-title">
+                        <h3>Total Game Statistics:</h3>
+                    </div>
 
-                    <% if @game.killed_penalties %>
-                        <h4>Killed Penalties: <%= @game.killed_penalties%></h4>
-                    <%end%>
-                    <% if @game.total_penalties %>
-                        <h4>Total Penalties: <%= @game.total_penalties%></h4>
-                    <%end%>
+                    <div class="game-played-stats">
+                        <div class="stat-box">
+                            <% if @game.PowerPlayGoals %>
+                                <h4>Powerplay Goals: <%= @game.PowerPlayGoals%></h4>
+                            <%end%>
+
+                            <% if @game.powerplay_attemps %>
+                                <h4>Powerplay Attempts: <%= @game.powerplay_attemps%></h4>
+                            <%end%>
+
+                            <% if @powerPlayPercentage %>
+                                <h4>Powerplay Percentage: <%= @powerPlayPercentage%>%</h4>
+                            <%end%>
+                        </div>
+
+                        <div class="stat-box">
+                            <% if @game.killed_penalties %>
+                                <h4>Killed Penalties: <%= @game.killed_penalties%></h4>
+                            <%end%>
+
+                            <% if @game.total_penalties %>
+                                <h4>Total Penalties: <%= @game.total_penalties%></h4>
+                            <%end%>
+
+                            <% if @killPercentage %>
+                                <h4>Penalty Kill Percentage: <%= @killPercentage%>%</h4>
+                            <%end%>
+                        </div>
+                    </div>
                 </div>
             <%end%>
         </div>
@@ -44,5 +70,3 @@
     
     <%= render 'shared/footer' %>
 </body>
-
-    

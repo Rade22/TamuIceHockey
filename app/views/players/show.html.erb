@@ -16,6 +16,9 @@
           <h4><i class="fa fa-map-marker" style="font-size:48px;color:#500000;"></i> Position: <%= @player.position %> </h3>
           <h4><i class="fa fa-map-marker" style="font-size:48px;color:#500000;"></i> Number: <%= @player.number %> </h3>
         </div></div>
+        <div>
+        <%= image_tag @player.image_link %>
+        </div>
 
         <% if admin_signed_in? %>
           <%= link_to '<button class="btn btn-primary btn-sm">Create/Edit Player Stats</button>'.html_safe, games_participation_path(@player) %><br/>

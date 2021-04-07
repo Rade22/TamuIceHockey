@@ -2,94 +2,6 @@ body div{
     //border: 1px solid black;
 }
 
-.navbar{
-    background-color: #500000;
-    box-shadow: 1px 1px 1px 1px black;
-}
-
-.container-fluid{
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-}
-
-.logo-image {
-    background-color: white;
-    margin-right: 15%;
-}
-
-.button-div{
-    display: flex;
-    justify-content: space-evenly;
-    
-    width: 100%;
-}
-
-.vertical-line{
-    border-left: 3px solid white;
-}
-
-.login {
-    display: flex;
-    justify-content:flex-end;
-
-    font-size: x-small;
-
-    padding-bottom: 50px;
-    margin-left: 15%;
-}
-
-.login a{
-    color:white;
-    &:hover{
-        color: white;
-    }
-}
-
-// button animation https://dev.to/webdeasy/top-20-css-buttons-animations-f41
-.button-div button{
-    font-family: Tahoma;
-    display: inline-block;
-    padding: .75rem 1.25rem;
-    color: #500000;
-    text-transform: uppercase;
-    border-radius: 1rem;
-    font-size: .75rem;
-    letter-spacing: .15rem;
-    transition: all 1.5s;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    &:after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 1rem;
-      background-color: darken(white, 25%);
-      z-index: -2;
-    }
-    &:before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0%;
-      height: 100%;
-      border-radius: 1rem;
-      background-color: white;
-      transition: all .3s;
-      z-index: -1;
-    }
-    &:hover {
-      color: #500000;
-      &:before {
-        width: 100%;
-      }
-    }
-  }
 
 //Home page image https://www.w3schools.com/howto/howto_css_blurred_background.asp
 body, html {
@@ -111,7 +23,6 @@ body, html {
     display: flex;
     width: 100%;
     justify-content: space-evenly;
-    margin-top: 5px;
 }
 
 @media(max-width: 1450px){
@@ -142,21 +53,103 @@ body, html {
     color: white;
     width: 50%;
     margin: auto;
+    margin-bottom: 10px;
+    background-color: white;
+    color: black;
+    border-radius: 3%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.game-info, .game-played-stats{
+.game-info{
     border: 1px solid white;
-    text-align: left;
+    text-align: center;
     padding-left: 10px;
+    margin: 10px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+.game-played{
+    border: 1px solid white;
+    margin-bottom: 15px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
     margin: 10px;
 }
 
-.game-stats-add, .game-stats-delete{
+.game-played-stats{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+@media (max-width: 1000px){
+    .game-played-stats{
+        flex-direction: column !important;
+        justify-content: center !important;
+    }
+}
+
+.stat-box{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding-left: 5px;
+}
+
+.game-stats-add {
+    //padding-left: 10px;
+    color: black;
+    background-color: white;
+    width: 250px;
+    border-radius: 3%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.title{
+    color: black !important;
+    text-align: center;
+    width: 100%;
+}
+
+.submit-button{
+    display: flex;
+    justify-content: center;
+}
+
+
+.game-stats-delete{
     padding-left: 10px;
+    color: black;
+    text-align: center;
+    background-color: white;
+    margin: auto;
+    margin-bottom: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding-bottom: 5px;
+    width: 50%;
+    border-radius: 3%;
+}
+
+.game-delete-title{
     color: white;
 }
 
-.body-div-game-show, .body-div-game-edit, .body-div-game-add, .body-div-game-delete{
+.body-div-game-add, .body-div-game-edit {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to left, #bdc3c7, #414345); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    width: 100%;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+
+.body-div-game-show, .body-div-game-delete{
     background: linear-gradient(to left, #bdc3c7, #414345); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     width: 100%;
 }
@@ -167,8 +160,10 @@ body, html {
     padding-bottom: 10px;
 }
 
-.edit-game-div button{
-    margin-right: 25px;
+.edit-game-div{
+    display: flex;
+    justify-content: space-evenly;
+    width: 450px;
 }
 
 //Games Add CSS start
@@ -186,25 +181,49 @@ body, html {
 }
 
 //Games Edit CSS start
-.game-info-edit, .submit-button{
+.game-info-edit{
     padding-left: 10px;
-    color: white;
+    color: black;
+}
+
+@media (max-width: 415px){
+    .input-div{
+        display: flex;
+        flex-direction: column !important;
+    }
+    
+    .game-info-edit{
+        padding-left: 0px !important;
+    }
 }
 
 .games-stats-edit{
-    color: white;
+    color: black;
 }
 
-.game-edit{
-    display: flex;
-    flex-direction: row;
-}
+
 
 .add-button {
     background-color: powderblue;
 }
 
+.game-edit{
+    margin-bottom: 20px;
+    background-color: white;
+    margin-top: 20px;
+    border-radius: 3%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
 
+.input-div{
+    display: flex;
+    flex-direction: row;
+}
+
+.game-delete-title{
+    text-align: center;
+    color: white;
+}
 
 
 //footer CSS start
@@ -231,7 +250,8 @@ body, html {
 
 .simple-calendar {
     .calendar-title {
-        color: maroon;
+        font-size: 50px;
+        color: #500000;
     }
     .calendar-heading {
         text-align: center;
@@ -239,13 +259,20 @@ body, html {
         justify-content: space-evenly;
         width: 100%;
     }
+
+    @media (max-width: 615px){
+        .calendar-heading{
+            font-size: 20px;
+        }
+    }
+
     tr {
         text-align: center;
     }
     th {
         text-align: center;
     }
-    .day {text-align: center;}
+    .day {text-align: left;}
     .wday-0 {}//sunday
     .wday-1 {}//monday
     .wday-2 {}
@@ -254,15 +281,39 @@ body, html {
     .wday-5 {}
     .wday-6 {}
   
-    .today {}
+    .today {background-color: rgb(192, 120, 120);}
     .past {}
     .future {}
   
     .start-date {}
   
-    .prev-month {background: rgb(255, 255, 255); opacity: 0.5;}
-    .next-month {background: rgb(255, 255, 255); opacity: 0.5;}
+    .prev-month {background: rgb(255, 255, 255); opacity: 0.3;}
+    .next-month {background: rgb(255, 255, 255); opacity: 0.3;}
     .current-month {}
   
     .has-events {}
+
+    .scrimmage-game{
+        background-color: lightyellow;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        border-radius: 3%;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        margin-bottom: 5px;
+    }
+
+    .season-game{
+        background-color: rgb(200, 232, 238);
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        border-radius: 3%;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        margin-bottom: 5px;
+    }
   }

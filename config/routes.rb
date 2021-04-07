@@ -21,11 +21,16 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :participations do
+ resources :participations do
     member do
       get :delete
       get :games
       get :playerParticipations
+    end
+  end 
+
+  resources :analytics do
+    member do
     end
   end
 
@@ -39,5 +44,6 @@ Rails.application.routes.draw do
   resources :players
   resources :games
   resources :participations
+  resources :analytics
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

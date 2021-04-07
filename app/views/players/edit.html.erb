@@ -38,6 +38,20 @@
                 <% @player.errors.full_messages_for(:number).each do |message| %>
                     <div><%= message %></div>
                 <% end %>
+            </div>
+
+            <div class = "input_field">
+                <%= form.label :image_link %><br>
+                <%= form.text_field :image_link , required: true, placeholder: "Image_link" %>
+                <% @player.errors.full_messages_for(:image_link).each do |message| %>
+                    <div><%= message %></div>
+                <% end %>
+            </div>
+
+            <div class="input_field">
+                    <%= form.label "Is player active?" %>
+                    <%= form.check_box :active%>
+            </div>
         
             <div class = "submit-button">
                 <%= form.submit class: "btn btn-success" %>

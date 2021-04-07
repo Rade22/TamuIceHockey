@@ -53,6 +53,11 @@
                 </div>
 
                 <div class="input_field">
+                    <%= form.label :Powerplay_Goals %><br>
+                    <%= form.number_field :PowerPlayGoals , min: 0, placeholder: "Powerplay Goals..."%>
+                </div>
+
+                <div class="input_field">
                     <%= form.label :powerplay_attempts %><br>
                     <%= form.number_field :powerplay_attemps, min: 0, placeholder: "Powerplay Attempts..." %>
                 </div>

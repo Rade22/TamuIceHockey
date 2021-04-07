@@ -53,13 +53,52 @@ body, html {
     color: white;
     width: 50%;
     margin: auto;
+    margin-bottom: 10px;
+    background-color: white;
+    color: black;
+    border-radius: 3%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.game-info, .game-played-stats{
+.game-info{
     border: 1px solid white;
-    text-align: left;
+    text-align: center;
     padding-left: 10px;
     margin: 10px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    border-radius: 3%;
+}
+
+.game-played{
+    border: 1px solid white;
+    margin-bottom: 15px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    margin: 10px;
+    border-radius: 3%;
+}
+
+.game-played-stats{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+@media (max-width: 1000px){
+    .game-played-stats{
+        flex-direction: column !important;
+        justify-content: center !important;
+    }
+}
+
+.stat-box{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding-left: 5px;
 }
 
 .game-stats-add {
@@ -88,6 +127,18 @@ body, html {
 
 .game-stats-delete{
     padding-left: 10px;
+    color: black;
+    text-align: center;
+    background-color: white;
+    margin: auto;
+    margin-bottom: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding-bottom: 5px;
+    width: 50%;
+    border-radius: 3%;
+}
+
+.game-delete-title{
     color: white;
 }
 
@@ -124,6 +175,7 @@ body, html {
 
 .input_field{
     margin: 10px;
+    color: black !important;
 }
 
 .submit-button input{
@@ -135,6 +187,17 @@ body, html {
 .game-info-edit{
     padding-left: 10px;
     color: black;
+}
+
+@media (max-width: 415px){
+    .input-div{
+        display: flex;
+        flex-direction: column !important;
+    }
+    
+    .game-info-edit{
+        padding-left: 0px !important;
+    }
 }
 
 .games-stats-edit{
@@ -160,7 +223,10 @@ body, html {
     flex-direction: row;
 }
 
-
+.game-delete-title{
+    text-align: center;
+    color: white;
+}
 
 
 //footer CSS start

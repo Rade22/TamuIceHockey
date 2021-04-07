@@ -64,11 +64,10 @@ gem "pg", "~> 1.2"
 
 #gem 'bootstrap', '~> 5.0.0.beta2'
 
-gem "simple_calendar", "~> 2.0"
+gem 'simple_calendar', '~> 2.0'
 #adding calendar gem
 
 #google oauth
 gem 'devise'
 gem 'omniauth', '~> 1.9.1'
 gem 'omniauth-google-oauth2'
-

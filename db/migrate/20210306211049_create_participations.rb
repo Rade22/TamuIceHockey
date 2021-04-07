@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# migration to create participation table
 class CreateParticipations < ActiveRecord::Migration[6.1]
   def change
     create_table :participations do |t|

@@ -2,7 +2,10 @@
 
 # controller for games model
 class GamesController < ApplicationController
-  before_action :authenticate_admin!, only: [:new, :create, :delete, :destroy, :edit, :update]
+  before_action :authenticate_admin!, only: %i[new create delete destroy edit update]
+  
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
+
   def index
     start_date = params.fetch(:start_date, Date.today).to_date
     @games = Game.where(date: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
@@ -12,23 +15,18 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
-    
-    if @game.is_overtime == true
-      @overtime = "(Overtime)"
-    end
 
-    if @game.scrimmage == true
-      @scrimmage_game = "(Scrimmage)"
-    end
+    @overtime = '(Overtime)' if @game.is_overtime == true
+
+    @scrimmage_game = '(Scrimmage)' if @game.scrimmage == true
 
     if @game.PowerPlayGoals && (@game.powerplay_attemps != 0 && @game.powerplay_attemps)
-      @powerPlayPercentage = (@game.PowerPlayGoals.to_f / @game.powerplay_attemps.to_f).round(2)
+      @powerplay_percentage = (@game.PowerPlayGoals.to_f / @game.powerplay_attemps).round(2)
     end
 
     if @game.killed_penalties && (@game.total_penalties != 0 && @game.total_penalties)
-      @killPercentage = (@game.killed_penalties.to_f / @game.total_penalties.to_f).round(2)
+      @kill_percentage = (@game.killed_penalties.to_f / @game.total_penalties).round(2)
     end
-
   end
 
   def new
@@ -44,14 +42,10 @@ class GamesController < ApplicationController
     end
   end
 
-
   def delete
     @game = Game.find(params[:id])
-	
-  	rescue ActiveRecord::RecordNotFound
-	  	redirect_to :action => 'index'
-
-	
+  rescue ActiveRecord::RecordNotFound
+    redirect_to action: 'index'
   end
 
   def destroy
@@ -76,12 +70,20 @@ class GamesController < ApplicationController
       render 'edit'
     end
   end
+  
+  def not_found
+	redirect_to :action => "index"
+  end
+
 
   def games_params
     params.require(:game).permit(:against_team, :date, :time, :city, :ring_name, :state, :scrimmage)
   end
 
   def gamesedit_params
-    params.require(:game).permit(:against_team, :date, :time, :city, :ring_name, :state, :goals_for, :goals_against, :is_overtime, :powerplay_attemps, :killed_penalties, :total_penalties, :scrimmage, :PowerPlayGoals)
+    params.require(:game).permit(:against_team, :date, :time, :city,
+                                 :ring_name, :state, :goals_for, :goals_against,
+                                 :is_overtime, :powerplay_attemps, :killed_penalties,
+                                 :total_penalties, :scrimmage, :PowerPlayGoals)
   end
 end

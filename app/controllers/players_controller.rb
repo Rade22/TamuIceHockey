@@ -3,9 +3,9 @@
 # controller for players model
 class PlayersController < ApplicationController
   before_action :authenticate_admin!, only: %i[new create delete destroy edit update]
-  
+
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
-  
+
   def index
     @player = Player.all
     @games_total = Participation.group(:player_id).count
@@ -57,11 +57,10 @@ class PlayersController < ApplicationController
       render 'edit'
     end
   end
-  
-  def not_found
-	redirect_to :action => "index"
-  end
 
+  def not_found
+    redirect_to action: 'index'
+  end
 
   def players_params
     params.require(:player).permit(:first_name, :last_name, :position, :number, :image_link, :active)

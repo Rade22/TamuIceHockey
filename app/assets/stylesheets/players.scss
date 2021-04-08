@@ -4,8 +4,13 @@ body div{
 
 @media (max-width: 910px){
     .footer div{
+        display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    .sponsors{
+        width:93% !important;
     }
 }
 

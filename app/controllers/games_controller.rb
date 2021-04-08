@@ -3,7 +3,7 @@
 # controller for games model
 class GamesController < ApplicationController
   before_action :authenticate_admin!, only: %i[new create delete destroy edit update]
-  
+
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   def index
@@ -70,11 +70,10 @@ class GamesController < ApplicationController
       render 'edit'
     end
   end
-  
-  def not_found
-	redirect_to :action => "index"
-  end
 
+  def not_found
+    redirect_to action: 'index'
+  end
 
   def games_params
     params.require(:game).permit(:against_team, :date, :time, :city, :ring_name, :state, :scrimmage)

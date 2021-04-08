@@ -6,11 +6,22 @@
     
     <%= line_chart [
 		{name: "Goals scored", data: @game_graph.group(:date).group(:against_team).sum(:goals_for) },
-		{name: "Goals against", data: @game_graph.group(:date).group(:against_team).sum(:goals_against)} ] %>
+		{name: "Goals against", data: @game_graph.group(:date).group(:against_team).sum(:goals_against)} ], library: {
+      title: {text: 'Score per games'},
+    } %>
 
-    <%= line_chart @participation_graph.group(:player_id).sum(:goals_skater) %>
-    <%= bar_chart Player.group(:position).count, height: '500px', library: {
-      backgroundColor: "#eee",
+    <%= line_chart @participation_graph.group(:player_id).sum(:goals_skater), library: {
+      title: {text: 'Score goals by players'},
+      xAxis: {
+        allowDecimals: false,
+        title: {
+          text: 'Player number'
+        }
+      }
+    } %>
+
+
+    <%= column_chart Player.group(:position).count, height: '500px', library: {
       title: {text: 'Player by postion'},
       yAxis: {
         allowDecimals: false,
@@ -24,6 +35,7 @@
         }
       }
     } %>
+
     <%= render 'shared/footer' %>
 </body>
 </html>

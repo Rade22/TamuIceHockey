@@ -18,7 +18,7 @@
 
             <div class="game-info">
                 <h3>Game Information:</h3>
-                <h4><i class="fa fa-map-marker" style="font-size:48px;color:#500000;"></i> <%= @game.ring_name%>, <%= @game.city %>, <%= @game.state %> @ <%= @game.time.hour %>:<%= @game.time.min %> </h4>
+                <h4><i class="fa fa-map-marker" style="font-size:48px;color:#500000;"></i> <%= @game.ring_name%>, <%= @game.city %>, <%= @game.state %> @ <%= @game.time.strftime('%I:%M %p') %> </h4>
                 <h4><i class="fa fa-calendar" style="font-size:32px;color:#500000;"></i> <%= @game.date.month %>/<%= @game.date.day %>/<%= @game.date.year %> </h4>
             </div>
 

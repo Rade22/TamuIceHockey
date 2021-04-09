@@ -12,6 +12,7 @@ class PlayersController < ApplicationController
 
   def show
     @player = Player.find(params[:id])
+    @player_perform = Participation.group(:player_id)
   end
 
   def new

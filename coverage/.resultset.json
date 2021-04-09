@@ -1,31 +1,29 @@
 {
   "RSpec": {
     "coverage": {
-      "C:/Users/Rylan Wade/Desktop/TamuIceHockey/TamuIceHockey/spec/features/game_create_spec.rb": {
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/spec/features/create_player_spec.rb": {
         "lines": [
-          1,
+          null,
+          null,
           1,
           null,
           1,
           1,
           1,
           1,
-          1,
-          1,
-          1,
           0,
           0,
           0,
           0,
           0,
           0,
-          0,
-          0,
+          null,
+          null,
           null,
           null
         ]
       },
-      "C:/Users/Rylan Wade/Desktop/TamuIceHockey/TamuIceHockey/spec/rails_helper.rb": {
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/spec/rails_helper.rb": {
         "lines": [
           null,
           1,
@@ -59,23 +57,6 @@
           0,
           0,
           null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
           1,
           null,
           1,
@@ -105,13 +86,12 @@
           null,
           null,
           1,
-          null,
           null,
           null,
           null
         ]
       },
-      "C:/Users/Rylan Wade/Desktop/TamuIceHockey/TamuIceHockey/config/environment.rb": {
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/config/environment.rb": {
         "lines": [
           null,
           null,
@@ -122,7 +102,7 @@
           1
         ]
       },
-      "C:/Users/Rylan Wade/Desktop/TamuIceHockey/TamuIceHockey/config/application.rb": {
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/config/application.rb": {
         "lines": [
           null,
           null,
@@ -147,10 +127,11 @@
           null,
           null,
           null,
+          null,
           null
         ]
       },
-      "C:/Users/Rylan Wade/Desktop/TamuIceHockey/TamuIceHockey/config/boot.rb": {
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/config/boot.rb": {
         "lines": [
           null,
           null,
@@ -160,7 +141,7 @@
           1
         ]
       },
-      "C:/Users/Rylan Wade/Desktop/TamuIceHockey/TamuIceHockey/config/environments/test.rb": {
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/config/environments/test.rb": {
         "lines": [
           null,
           null,
@@ -227,7 +208,7 @@
           null
         ]
       },
-      "C:/Users/Rylan Wade/Desktop/TamuIceHockey/TamuIceHockey/config/initializers/application_controller_renderer.rb": {
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/config/initializers/application_controller_renderer.rb": {
         "lines": [
           null,
           null,
@@ -240,7 +221,7 @@
           null
         ]
       },
-      "C:/Users/Rylan Wade/Desktop/TamuIceHockey/TamuIceHockey/config/initializers/assets.rb": {
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/config/initializers/assets.rb": {
         "lines": [
           null,
           null,
@@ -260,7 +241,7 @@
           null
         ]
       },
-      "C:/Users/Rylan Wade/Desktop/TamuIceHockey/TamuIceHockey/config/initializers/backtrace_silencers.rb": {
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/config/initializers/backtrace_silencers.rb": {
         "lines": [
           null,
           null,
@@ -274,7 +255,7 @@
           1
         ]
       },
-      "C:/Users/Rylan Wade/Desktop/TamuIceHockey/TamuIceHockey/config/initializers/content_security_policy.rb": {
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/config/initializers/content_security_policy.rb": {
         "lines": [
           null,
           null,
@@ -309,7 +290,7 @@
           null
         ]
       },
-      "C:/Users/Rylan Wade/Desktop/TamuIceHockey/TamuIceHockey/config/initializers/cookies_serializer.rb": {
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/config/initializers/cookies_serializer.rb": {
         "lines": [
           null,
           null,
@@ -320,7 +301,7 @@
           1
         ]
       },
-      "C:/Users/Rylan Wade/Desktop/TamuIceHockey/TamuIceHockey/config/initializers/devise.rb": {
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/config/initializers/devise.rb": {
         "lines": [
           null,
           null,
@@ -637,7 +618,7 @@
           null
         ]
       },
-      "C:/Users/Rylan Wade/Desktop/TamuIceHockey/TamuIceHockey/config/initializers/filter_parameter_logging.rb": {
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/config/initializers/filter_parameter_logging.rb": {
         "lines": [
           null,
           null,
@@ -649,7 +630,7 @@
           null
         ]
       },
-      "C:/Users/Rylan Wade/Desktop/TamuIceHockey/TamuIceHockey/config/initializers/inflections.rb": {
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/config/initializers/inflections.rb": {
         "lines": [
           null,
           null,
@@ -670,7 +651,7 @@
           null
         ]
       },
-      "C:/Users/Rylan Wade/Desktop/TamuIceHockey/TamuIceHockey/config/initializers/mime_types.rb": {
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/config/initializers/mime_types.rb": {
         "lines": [
           null,
           null,
@@ -679,7 +660,7 @@
           null
         ]
       },
-      "C:/Users/Rylan Wade/Desktop/TamuIceHockey/TamuIceHockey/config/initializers/permissions_policy.rb": {
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/config/initializers/permissions_policy.rb": {
         "lines": [
           null,
           null,
@@ -695,7 +676,7 @@
           null
         ]
       },
-      "C:/Users/Rylan Wade/Desktop/TamuIceHockey/TamuIceHockey/config/initializers/wrap_parameters.rb": {
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/config/initializers/wrap_parameters.rb": {
         "lines": [
           null,
           null,
@@ -715,7 +696,7 @@
           null
         ]
       },
-      "C:/Users/Rylan Wade/Desktop/TamuIceHockey/TamuIceHockey/config/routes.rb": {
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/config/routes.rb": {
         "lines": [
           1,
           null,
@@ -748,6 +729,11 @@
           null,
           null,
           null,
+          1,
+          1,
+          null,
+          null,
+          null,
           null,
           null,
           1,
@@ -755,6 +741,7 @@
           null,
           1,
           null,
+          1,
           1,
           1,
           1,
@@ -762,7 +749,7 @@
           null
         ]
       },
-      "C:/Users/Rylan Wade/Desktop/TamuIceHockey/TamuIceHockey/app/models/admin.rb": {
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/app/models/admin.rb": {
         "lines": [
           1,
           null,
@@ -770,13 +757,14 @@
           1,
           null,
           1,
-          1,
+          0,
+          null,
           0,
           null,
           null
         ]
       },
-      "C:/Users/Rylan Wade/Desktop/TamuIceHockey/TamuIceHockey/app/models/application_record.rb": {
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/app/models/application_record.rb": {
         "lines": [
           null,
           null,
@@ -786,34 +774,13 @@
           null
         ]
       },
-      "C:/Users/Rylan Wade/Desktop/TamuIceHockey/TamuIceHockey/app/helpers/application_helper.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          1,
-          null
-        ]
-      },
-      "C:/Users/Rylan Wade/Desktop/TamuIceHockey/TamuIceHockey/app/helpers/games_helper.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          1,
-          1,
-          0,
-          null,
-          null
-        ]
-      },
-      "C:/Users/Rylan Wade/Desktop/TamuIceHockey/TamuIceHockey/app/helpers/hello_world_helper.rb": {
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/app/helpers/analytics_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "C:/Users/Rylan Wade/Desktop/TamuIceHockey/TamuIceHockey/app/helpers/participations_helper.rb": {
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/app/helpers/application_helper.rb": {
         "lines": [
           null,
           null,
@@ -822,7 +789,102 @@
           null
         ]
       },
-      "C:/Users/Rylan Wade/Desktop/TamuIceHockey/TamuIceHockey/app/helpers/players_helper.rb": {
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/app/helpers/games_helper.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          1,
+          1,
+          0,
+          null,
+          null,
+          1,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/app/helpers/hello_world_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/app/helpers/participations_helper.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/app/helpers/players_helper.rb": {
         "lines": [
           null,
           null,
@@ -834,7 +896,31 @@
           null
         ]
       },
-      "C:/Users/Rylan Wade/Desktop/TamuIceHockey/TamuIceHockey/spec/helpers/login_helper.rb": {
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/spec/features/game_create_spec.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null
+        ]
+      },
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/spec/helpers/login_helper.rb": {
         "lines": [
           1,
           null,
@@ -843,7 +929,261 @@
           null
         ]
       },
-      "C:/Users/Rylan Wade/Desktop/TamuIceHockey/TamuIceHockey/app/controllers/players_controller.rb": {
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/spec/features/game_delete_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/spec/features/game_update_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null
+        ]
+      },
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/spec/features/player_delete_spec.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null
+        ]
+      },
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/spec/features/player_stats_spec.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null
+        ]
+      },
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/spec/features/player_update_spec.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null
+        ]
+      },
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/spec/helpers/analytics_helper_spec.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/spec/helpers/hello_world_helper_spec.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/spec/models/admin_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/spec/models/game_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null
+        ]
+      },
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/app/models/game.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/spec/models/player_spec.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/app/models/player.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/spec/requests/analytics_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/spec/views/analytics/index.html.erb_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/app/controllers/players_controller.rb": {
         "lines": [
           null,
           null,
@@ -851,7 +1191,10 @@
           1,
           1,
           1,
-          0,
+          1,
+          1,
+          null,
+          null,
           null,
           null,
           1,
@@ -866,9 +1209,25 @@
           0,
           0,
           0,
+          0,
           null,
           0,
           null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
           null,
           null,
           1,
@@ -880,22 +1239,30 @@
           0,
           0,
           0,
+          null,
           0,
-          0,
+          null,
           null,
           null,
           1,
           0,
           null,
           null,
+          null
+        ]
+      },
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/app/controllers/admins/sessions_controller.rb": {
+        "lines": [
+          1,
           1,
           0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
           null,
           null,
           1,
@@ -904,141 +1271,120 @@
           null
         ]
       },
-      "C:/Users/Rylan Wade/Desktop/TamuIceHockey/TamuIceHockey/app/controllers/application_controller.rb": {
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/app/controllers/games_controller.rb": {
         "lines": [
+          null,
+          null,
+          null,
           1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
           null,
           null
         ]
       },
-      "C:/Users/Rylan Wade/Desktop/TamuIceHockey/TamuIceHockey/app/controllers/admins/omniauth_callbacks_controller.rb": {
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/app/models/participation.rb": {
         "lines": [
-          1,
-          1,
-          1,
-          null,
-          1,
-          0,
-          0,
-          0,
-          null,
-          1,
-          1,
-          null,
           null,
           null,
           1,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          null,
           1,
           1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
           1,
-          5,
-          null,
+          1,
           null
         ]
       },
-      "C:/Users/Rylan Wade/Desktop/TamuIceHockey/TamuIceHockey/app/controllers/admins/sessions_controller.rb": {
+      "/home/hnathehe2/Desktop/CSCE_431/TamuIceHockey/app/controllers/analytics_controller.rb": {
         "lines": [
           1,
           1,
           0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null
-        ]
-      },
-      "C:/Users/Rylan Wade/Desktop/TamuIceHockey/TamuIceHockey/app/controllers/games_controller.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          0,
-          0,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
           0,
           null,
           null
         ]
       }
     },
-    "timestamp": 1616482868
+    "timestamp": 1617905021
   }
 }

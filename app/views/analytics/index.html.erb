@@ -4,6 +4,7 @@
 <body>
     <%= render 'shared/navbar' %>
     
+    <%= trythis %>
     <%= line_chart [
 		{name: "Goals scored", data: @goal_score_season },
 		{name: "Goals against", data: @goal_against_season} ], library: {
@@ -38,8 +39,10 @@
 
     <%= column_chart Game.group(:state).count %>
 
-    <%= pie_chart ({"Win"=>@win_game, "Lose"=>@lose_game, "Overtime" => @over_game}) %>
-    <%= @temp_2 %>
+    <%= pie_chart ({"Win" => @win_game, "Lose" => @lose_game, "Overtime" => @over_game}) %>
+    
+    <%= pie_chart ({"Powerplay goals" => @powerplay_goal, "Other goals" => @normal_goal}) %>
+
 
     <%= render 'shared/footer' %>
 </body>

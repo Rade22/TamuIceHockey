@@ -8,3 +8,4 @@ class Player < ApplicationRecord
   		self.image_link ||= '/assets/HockeyLogo.png'
 	end
 end
+

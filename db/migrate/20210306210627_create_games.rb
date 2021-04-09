@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# migration to create games table
 class CreateGames < ActiveRecord::Migration[6.1]
   def change
     create_table :games do |t|

@@ -28,8 +28,8 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
-gem "chartkick"
-gem "groupdate"
+gem 'chartkick'
+gem 'groupdate'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -54,20 +54,19 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
 
   gem 'simplecov', require: false
-
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
-gem "pg", "~> 1.2"
+gem 'pg', '~> 1.2'
 
-#gem 'bootstrap', '~> 5.0.0.beta2'
+# gem 'bootstrap', '~> 5.0.0.beta2'
 
 gem 'simple_calendar', '~> 2.0'
-#adding calendar gem
+# adding calendar gem
 
-#google oauth
+# google oauth
 gem 'devise'
 gem 'omniauth', '~> 1.9.1'
 gem 'omniauth-google-oauth2'

@@ -5,4 +5,25 @@ AllCops:
     - node_modules/node-sass/src/libsass/extconf.rb
     - node_modules/node-sass/src/libsass/contrib/libsass.spec
     - db/schema.rb
-    - db/migrate/20210212002213_create_player_stats.rb
+    - db/seeds.rb
+    - config/**/*
+    - test/**/*
+    - app/channels/**/*
+    - app/helpers/*
+    - app/jobs/*
+    - app/mailers/*
+    - Rakefile
+    - bin/rails
+    - config.ru
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/features/*
+    - db/migrate/*
+    
+Layout/EndOfLine:
+  Enabled: False
+  
+Metrics/MethodLength:
+  Exclude:
+    - db/migrate/*

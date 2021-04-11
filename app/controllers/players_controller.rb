@@ -61,4 +61,3 @@ class PlayersController < ApplicationController
     params.require(:player).permit(:first_name, :last_name, :position, :number, :image_link, :active)
   end
 end
-

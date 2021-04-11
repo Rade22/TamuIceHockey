@@ -4,11 +4,15 @@ module AnalyticsHelper
   end
 
   def win_lose_overtime
-    pie_chart ({"Win" => @win_game, "Lose" => @lose_game, "Overtime" => @over_game}) 
+    pie_chart ({"Win" => @win_game, "Lose" => @lose_game, "Overtime" => @over_game}), library: {
+      title: {text: 'Result of game'}
+    } 
   end
 
   def game_location_by_state
-    column_chart Game.group(:state).count
+    column_chart Game.group(:state).count, library: {
+      title: {text: 'Game loccation by states'}
+    }
   end
 
   def player_position_count
@@ -48,5 +52,13 @@ module AnalyticsHelper
     }
   end
 
+  def penalties_vs_powerplays
+    line_chart [
+      {name: "Power plays", data: @powerplay_season} ,
+      {name: "Penaltie kills", data: @penalty_season}], library: {
+      title: {text: 'Power plays vs Penaltie kills per games'},
+    }
+  end
+  
 
 end

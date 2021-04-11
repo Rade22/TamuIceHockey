@@ -37,8 +37,17 @@ Rails.application.routes.draw do
   
   
   get 'participations/new/:id/:player_id', to: 'participations#new' #this is incredibly janky, figure out how to do this not badly
-
-
+  
+  get '/help' => 'pages#help'
+  get '/add_player' => 'pages#add_player'
+  get '/login' => 'pages#login'
+  get '/edit_player' => 'pages#edit_player'
+  get '/delete_player' => 'pages#delete_player'
+  get '/add_game' => 'pages#add_game'
+  get '/edit_game' => 'pages#edit_game'
+  get '/delete_game' => 'pages#delete_game'
+  get '/view_game' => 'pages#view_game'
+  
   get ':controller(/:action(/:id))'
 
   resources :players

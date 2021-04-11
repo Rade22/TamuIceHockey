@@ -3,46 +3,18 @@
 
 <body>
     <%= render 'shared/navbar' %>
-    
-    <%= trythis %>
-    <%= line_chart [
-		{name: "Goals scored", data: @goal_score_season },
-		{name: "Goals against", data: @goal_against_season} ], library: {
-      title: {text: 'Score per games'},
-    } %>
+      
+    <%= goals_for_vs_goals_against %>
 
-    <%= line_chart @participation_graph.group(:player_id).sum(:goals_skater), library: {
-      title: {text: 'Score goals by players'},
-      xAxis: {
-        allowDecimals: false,
-        title: {
-          text: 'Player number'
-        }
-      }
-    } %>
+    <%= score_by_skater %>
 
+    <%= player_position_count %>
 
-    <%= column_chart Player.group(:position).count, height: '500px', library: {
-      title: {text: 'Player by postion'},
-      yAxis: {
-        allowDecimals: false,
-        title: {
-          text: 'Players count'
-        }
-      },
-      xAxis: {
-        title: {
-          text: 'People'
-        }
-      }
-    } %>
+    <%= game_location_by_state %>
 
-    <%= column_chart Game.group(:state).count %>
+    <%= win_lose_overtime %>
 
-    <%= pie_chart ({"Win" => @win_game, "Lose" => @lose_game, "Overtime" => @over_game}) %>
-    
-    <%= pie_chart ({"Powerplay goals" => @powerplay_goal, "Other goals" => @normal_goal}) %>
-
+    <%= goal_source_powerplay_other %>
 
     <%= render 'shared/footer' %>
 </body>

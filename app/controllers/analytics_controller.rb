@@ -6,15 +6,17 @@ class AnalyticsController < ApplicationController
     @temp_goal_score_season = Game.order(:date).group(:date).group(:against_team).sum(:goals_for)
     @temp_goal_score_season.each do |temp|
       raw_value = temp[0]
-      raw_value[0] = raw_value[0].strftime("%Y %m %d")
-      @goal_score_season.append([raw_value,temp[1]])
+      raw_value[0] = raw_value[0].strftime("%d %B %Y")
+      raw_value[1] = " " + raw_value[1]
+      @goal_score_season.append([raw_value, temp[1]])
     end
     @goal_against_season = []
     @temp_goal_against_season = Game.order(:date).group(:date).group(:against_team).sum(:goals_against)
     @temp_goal_against_season.each do |temp|
       raw_value = temp[0]
-      raw_value[0] = raw_value[0].strftime("%Y %m %d")
-      @goal_against_season.append([raw_value,temp[1]])
+      raw_value[0] = raw_value[0].strftime("%d %B %Y")
+      raw_value[1] = " " + raw_value[1]
+      @goal_against_season.append([raw_value, temp[1]])
     end
     #for the graph score per game
 
@@ -43,9 +45,5 @@ class AnalyticsController < ApplicationController
     @total_goal = @game_order.sum(:goals_for)
     @powerplay_goal = @game_order.sum(:PowerPlayGoals)
     @normal_goal = @total_goal - @powerplay_goal
-    def trythis
-      pie_chart ({"Powerplay goals" => @powerplay_goal, "Other goals" => @normal_goal})
-    end
-    
   end
 end

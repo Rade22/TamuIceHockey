@@ -5,14 +5,13 @@ class PlayersController < ApplicationController
   before_action :authenticate_admin!, only: [:new, :create, :delete, :destroy, :edit, :update]
   def index
     @player = Player.all
-    @games_total = Participation.group(:player_id).count  
-    
-    
+    @games_total = Participation.group(:player_id).count
   end
 
   def show
     @player = Player.find(params[:id])
-    @player_perform = Participation.group(:player_id)
+    @player_perform = Participation.where(player_id: params[:id])
+    @game_info = Game.all
   end
 
   def new

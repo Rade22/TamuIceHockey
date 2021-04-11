@@ -33,12 +33,17 @@ class AnalyticsController < ApplicationController
     #for the graph %win lose pie chart
     @win_game = 0
     @lose_game = 0
-    @over_game = 0
+    @overtime_win_game = 0
+    @overtime_lose_game = 0
     @game_order.each do |game|
       if game.date < Date.today
         if game.goals_for.nil? == false and game.goals_against.nil? == false
           if game.is_overtime
-            @over_game += 1
+            if game.goals_for > game.goals_against
+              @overtime_win_game += 1
+            else
+              @overtime_lose_game += 1
+            end
           elsif game.goals_for > game.goals_against
             @win_game += 1
           else
@@ -78,5 +83,17 @@ class AnalyticsController < ApplicationController
     end
     #for penalties_vs_powerplays
 
+    #for powerplays vs powerplays goals
+    @powerplay_goals_season = []
+    @temp_powerplay_goals_season = @game_order.group(:date).group(:against_team).sum(:PowerPlayGoals)
+    @temp_powerplay_goals_season.each do |temp|
+      if temp[0][0] <= Date.today
+        raw_value = temp[0]
+        raw_value[0] = raw_value[0].strftime("%d %B %Y")
+        raw_value[1] = " " + raw_value[1]
+        @powerplay_goals_season.append([raw_value, temp[1]])
+      end
+    end
+    #for powerplays vs powerplays goals
   end
 end

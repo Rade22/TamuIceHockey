@@ -25,9 +25,15 @@
         <% end %>
         <%= link_to '<button class="btn btn-primary btn-sm">Home</button>'.html_safe, root_path, :class => 'go back' %><br/>
     
-        <%= line_chart @player_perform.group(:game_id).sum(:goals_skater) %>
-
-        <%= line_chart @player_perform.group(:game_id).sum(:penalty_minutes_skater) %>
+        <% if @player.position != "Goalie" %>
+          <%= goal_score_skater %>
+          <%= goal_assist_skater %>
+          <%= penalty_minutes_skater %>
+        <% end %>
+        
+        <% if @player.position == "Goalie" %>
+          <%= goal_save_goalie %>
+        <% end %>
         
     </div>
     

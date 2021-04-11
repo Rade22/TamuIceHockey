@@ -2,10 +2,7 @@
 
 # controller for players model
 class PlayersController < ApplicationController
-  before_action :authenticate_admin!, only: %i[new create delete destroy edit update]
-  
-  rescue_from ActiveRecord::RecordNotFound, with: :not_found
-  
+  before_action :authenticate_admin!, only: [:new, :create, :delete, :destroy, :edit, :update]
   def index
     @player = Player.all
     @games_total = Participation.group(:player_id).count
@@ -13,6 +10,8 @@ class PlayersController < ApplicationController
 
   def show
     @player = Player.find(params[:id])
+    @player_perform = Participation.where(player_id: params[:id])
+    @game_info = Game.all
   end
 
   def new
@@ -31,8 +30,8 @@ class PlayersController < ApplicationController
 
   def delete
     @player = Player.find(params[:id])
-  rescue ActiveRecord::RecordNotFound
-    redirect_to action: 'index'
+		rescue ActiveRecord::RecordNotFound
+		redirect_to :action => 'index'
   end
 
   def destroy
@@ -57,11 +56,6 @@ class PlayersController < ApplicationController
       render 'edit'
     end
   end
-  
-  def not_found
-	redirect_to :action => "index"
-  end
-
 
   def players_params
     params.require(:player).permit(:first_name, :last_name, :position, :number, :image_link, :active)

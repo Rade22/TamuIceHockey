@@ -3,27 +3,32 @@
 
 <body>
     <%= render 'shared/navbar' %>
-    
-    <%= line_chart [
-		{name: "Goals scored", data: @game_graph.group(:date).group(:against_team).sum(:goals_for) },
-		{name: "Goals against", data: @game_graph.group(:date).group(:against_team).sum(:goals_against)} ] %>
+    <div class="team-stats">
 
-    <%= line_chart @participation_graph.group(:player_id).sum(:goals_skater) %>
-    <%= bar_chart Player.group(:position).count, height: '500px', library: {
-      backgroundColor: "#eee",
-      title: {text: 'Player by postion'},
-      yAxis: {
-        allowDecimals: false,
-        title: {
-          text: 'Players count'
+    </div>
+    
+    <div class="team-charts">
+      <%= line_chart [
+      {name: "Goals scored", data: @game_graph.group(:date).group(:against_team).sum(:goals_for) },
+      {name: "Goals against", data: @game_graph.group(:date).group(:against_team).sum(:goals_against)} ] %>
+
+      <%= line_chart @participation_graph.group(:player_id).sum(:goals_skater) %>
+      <%= bar_chart Player.group(:position).count, height: '500px', library: {
+        backgroundColor: "#eee",
+        title: {text: 'Player by postion'},
+        yAxis: {
+          allowDecimals: false,
+          title: {
+            text: 'Players count'
+          }
+        },
+        xAxis: {
+          title: {
+            text: 'People'
+          }
         }
-      },
-      xAxis: {
-        title: {
-          text: 'People'
-        }
-      }
-    } %>
+      } %>
+    </div>
     <%= render 'shared/footer' %>
 </body>
 </html>

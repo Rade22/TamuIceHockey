@@ -319,4 +319,28 @@ body, html {
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         margin-bottom: 5px;
     }
+
+    .won-game{
+        background-color: rgb(31, 202, 68);
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        border-radius: 3%;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        margin-bottom: 5px;
+    }
+
+    .lost-game{
+        background-color: rgb(228, 4, 4);
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        border-radius: 3%;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        margin-bottom: 5px;
+    }
   }

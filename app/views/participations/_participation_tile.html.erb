@@ -2,8 +2,8 @@
   <div class="row g-0">
     <div class="col-md-4">
       <div class="card-body">
-        <h3 class="card-title">Player: <%= full_name(local_assigns[:player_obj]) %></h3>
-        <h3 class="card-title">Game: Texas A&M <%= game_identity(local_assigns[:game_obj])%><h3>
+        <h3 class="card-title"><%= full_name(local_assigns[:player_obj]) %></h3>
+        <h3 class="card-title">Texas A&M <%= game_identity(local_assigns[:game_obj])%><h3>
       </div>
     </div>
     <div class="col-md-8">
@@ -16,6 +16,13 @@
             <% if local_assigns[:participation_obj].saves_goalie %>
                 <p class="card-text">Saves: <%= local_assigns[:participation_obj].saves_goalie %></p>
             <% end %>
+            <% if local_assigns[:participation_obj].saves_goalie != 0 %>
+              <% if (local_assigns[:participation_obj].saves_goalie.to_f / local_assigns[:participation_obj].shots_against_goalie.to_f) > 1.to_f %>
+                <p class="card-text">  Saves Percentage: Overshoot error, make sure Saves <= Shots Against</p>
+              <% else %>
+                <p class="card-text">Save Percentage: <%= ((local_assigns[:participation_obj].saves_goalie.to_f / local_assigns[:participation_obj].shots_against_goalie.to_f) * 100).round(2) %>%</p>
+              <% end %>
+            <%end%>
             <% if local_assigns[:participation_obj].goals_against_goalie %>
                 <p class="card-text">Goals Against: <%= local_assigns[:participation_obj].goals_against_goalie %></p>
             <% end %>
@@ -29,8 +36,11 @@
             <% if local_assigns[:participation_obj].assists_skater %>
                 <p class="card-text">Assists: <%= local_assigns[:participation_obj].assists_skater %></p>
             <% end %>
-            <% if local_assigns[:participation_obj].powerplay_goals_skater %>
-                <p class="card-text">Powerplay Goals: <%= local_assigns[:participation_obj].powerplay_goals_skater %></p>
+            <% if local_assigns[:participation_obj].powerplay_goals_skater && local_assigns[:participation_obj].shots_against_goalie > 0 && local_assigns[:participation_obj].shots_against_goalie >= local_assigns[:participation_obj].saves_goalie %>
+				<p class="card-text">Powerplay Goals: <%= local_assigns[:participation_obj].powerplay_goals_skater %></p>
+            <% end %>
+            <% if local_assigns[:participation_obj].goals_skater && local_assigns[:participation_obj].assists_skater %>
+                <p class="card-text">Points: <%= local_assigns[:participation_obj].goals_skater + local_assigns[:participation_obj].assists_skater %> </p>
             <% end %>
             <% if local_assigns[:participation_obj].penalty_minutes_skater %>
                 <p class="card-text">Penalty Minutes: <%= local_assigns[:participation_obj].penalty_minutes_skater %></p>

@@ -234,7 +234,16 @@ body, html {
 }
 
 .participations-stats-edit, participation-stats-delete {
-    color: white;
+    padding-left: 10px;
+    color: black;
+    text-align: center;
+    background-color: white;
+    margin: auto;
+    margin-bottom: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding-bottom: 5px;
+    width: 50%;
+    border-radius: 3%;
 }
 
 .participation-edit, .container-manager {
@@ -251,6 +260,12 @@ body, html {
 
 .card{
     margin-top: 10px;
+}
+
+.card-body{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
 }
 
 

@@ -3,14 +3,14 @@
 <body>
     <%= render 'shared/navbar' %>
 
-    <div class="body-div-participation-delete">
+    <div class="body-div-game-delete">
       <div class="title">
         <h2>Delete Stats</h2>
       </div>
 
-      <div class="participation-stats-delete">
+      <div class="game-stats-delete">
         <%= form_for(@participation, :method => 'delete') do |f|%>
-          <p>Are you sure you want to permanently delete this stats entry?</p>
+          <h4>Are you sure you want to permanently delete this stats entry?</h4>
           <p><%= full_name(@player)%>, <%= game_identity(@game) %></p>
 
           <div class="form-buttons">

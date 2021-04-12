@@ -1,0 +1,84 @@
+<div class="body-div-participation-add">
+	  <div class="title">
+	    <h1>Edit Player Statistics</h1>
+	  </div>
+	  <div class="title">
+	    <h2>
+		  <%= full_name(@player) %>
+		</h2>
+      </div>
+	  <div class="title">
+		<h2>
+		  <%= game_identity(@game) %>
+		</h2>
+	  </div>
+
+	  <div class="participation-add">
+
+	<%= form_with model: @participation  do |form| %>
+	
+	<div class="container-manager">
+	<!--Container for Skater Options-->
+	<% if @player == nil || !@player.position.eql?("Goalie") %>
+	<div class="skater-container">
+	  <div class="subtitle">
+	    <br><strong>Skater Options:</strong>
+      </div>
+	  <div class="input_field">
+	    <%= form.label "Goals" %><br>
+	    <%= form.number_field :goals_skater,  min: 0, placeholder: 0 %>
+	  </div>
+
+	  <div class="input_field">
+	    <%= form.label "Assists" %><br>
+ 	   <%= form.number_field :assists_skater,  min: 0, placeholder: 0 %>
+	  </div>
+
+	  <div class="input_field">
+	    <%= form.label "Powerplay Goals" %><br>
+	    <%= form.number_field :powerplay_goals_skater,  min: 0, placeholder: 0 %>
+	  </div>
+
+	  <div class="input_field">
+	    <%= form.label "Penalty Minutes" %><br>
+	    <%= form.number_field :penalty_minutes_skater,  min: 0, placeholder: 0 %>
+	  </div>
+	</div>
+	<% end %>
+
+	<!--Container for Goalie Options-->
+	<% if @player == nil || @player.position.eql?("Goalie") %>
+	<div class="goalie-container">
+	  <div class="subtitle">
+	    <br><strong>Goalie Options:</strong>
+	  </div>
+	  <div class="input_field">
+        <%= form.label "Time on ice (minutes)" %><br>
+        <%= form.number_field :time_on_ice_goalie,  min: 0, placeholder: 0, value: @participation.time_on_ice_goalie.to_i %>
+      </div>
+
+      <div class="input_field">
+        <%= form.label "Shots against" %><br>
+        <%= form.number_field :shots_against_goalie,  min: 0, placeholder: 0 %>
+      </div>
+
+      <div class="input_field">
+        <%= form.label "Saves" %><br>
+        <%= form.number_field :saves_goalie,  min: 0, placeholder: 0 %>
+      </div>
+
+      <div class="input_field">
+        <%= form.label "Goals against" %><br>
+        <%= form.number_field :goals_against_goalie,  min: 0, placeholder: 0 %>
+      </div>
+	</div>
+	<% end %>
+
+	</div>
+
+	<div class="submit-button">
+		<%= form.submit class: "btn btn-success" %>
+	</div>
+
+	<% end %>
+	</div>

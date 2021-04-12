@@ -5,10 +5,9 @@ require 'rails_helper'
 RSpec.describe Participation, type: :feature do
   before(:all) do
     @player = Player.create(first_name: 'Rylan', last_name: 'Wade', position: 'Center', number: 10)
-    @game = Game.create(against_team: 'Test', date: '2021-02-24 00:00:00 UTC', ring_name: 'Texas', score: 1,
-                        opposing_score: 2)
+    @game = Game.create(against_team: 'Test', date: '2021-02-24 00:00:00 UTC', state: 'TX')
   end
-  
+
   it 'checks that a participation can be created' do
     @participation = Participation.create(player_id: @player.id, game_id: @game.id)
     expect(@participation).to be_valid

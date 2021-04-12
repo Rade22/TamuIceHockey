@@ -16,6 +16,13 @@
             <% if local_assigns[:participation_obj].saves_goalie %>
                 <p class="card-text">Saves: <%= local_assigns[:participation_obj].saves_goalie %></p>
             <% end %>
+            <% if local_assigns[:participation_obj].saves_goalie != 0 %>
+              <% if (local_assigns[:participation_obj].saves_goalie.to_f / local_assigns[:participation_obj].shots_against_goalie.to_f) > 1.to_f %>
+                <p class="card-text">  Saves Percentage: Overshoot error, make sure Saves <= Shots Against</p>
+              <% else %>
+                <p class="card-text">Save Percentage: <%= ((local_assigns[:participation_obj].saves_goalie.to_f / local_assigns[:participation_obj].shots_against_goalie.to_f) * 100).round(2) %>%</p>
+              <% end %>
+            <%end%>
             <% if local_assigns[:participation_obj].goals_against_goalie %>
                 <p class="card-text">Goals Against: <%= local_assigns[:participation_obj].goals_against_goalie %></p>
             <% end %>

@@ -4,23 +4,59 @@
 <body>
     <%= render 'shared/navbar' %>
 
-    <%= goals_for_vs_goals_against %>
-
-    <%= score_by_skater %>
-
-    <%= assist_by_skater %>
-
-    <%= win_lose_overtime %>
-
-    <%= penalties_vs_powerplays %>
-
-    <%= goal_source_powerplay_other %>
-
-    <%= powerplays_vs_powerplay_goals %>
-    
-    <%= player_position_count %>
-
-    <%= game_location_by_state %>
+    <table class="team_stat">
+        <tr>
+            <th>Team</th>
+            <th>Game played</th>
+            <th>Total score</th>
+            <th>Win</th>
+            <th>Win OVT</th>
+            <th>Lose</th>
+            <th>Lose OVT</th>
+            <th>Goals scored</th>
+            <th>Goals received</th>
+            <th>Goal difference</th>
+        </tr>
+        <tr>
+            <td>Texas A&M</td>
+            <td><%=@total_game%></td>
+            <td><%=@total_score%></td>
+            <td><%=@win_game%></td>
+            <td><%=@overtime_win_game%></td>
+            <td><%=@lose_game%></td>
+            <td><%=@overtime_lose_game%></td>
+            <td><%=@total_goal_for%></td>
+            <td><%=@total_goal_against%></td>
+            <td><%=@total_goal_for - @total_goal_against%></td>
+        </tr>
+    </table>
+    <div class="graphs">
+        <%= goals_for_vs_goals_against %>
+    </div>
+    <div class="graphs">
+        <%= score_by_skater %>
+    </div>
+    <div class="graphs">
+        <%= assist_by_skater %>
+    </div>
+    <div class="graphs">
+        <%= win_lose_overtime %>
+    </div>
+    <div class="graphs">
+        <%= penalties_vs_powerplays %>
+    </div>
+    <div>
+        <%= goal_source_powerplay_other %>
+    </div>
+    <div class="graphs">
+        <%= powerplays_vs_powerplay_goals %>
+    </div>
+    <div class="graphs">
+        <%= player_position_count %>
+    </div>
+    <div class="graphs">
+        <%= game_location_by_state %>
+    </div>
     <%= render 'shared/footer' %>
 </body>
 </html>

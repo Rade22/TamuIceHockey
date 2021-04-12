@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_12_024653) do
+ActiveRecord::Schema.define(version: 2021_04_12_052547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,14 +41,7 @@ ActiveRecord::Schema.define(version: 2021_04_12_024653) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "scrimmage"
-    t.integer "PowerPlayGoals"
-  end
-
-  create_table "logins", force: :cascade do |t|
-    t.string "username"
-    t.string "hashed_password"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.integer "powerplay_goals"
   end
 
   create_table "participations", force: :cascade do |t|

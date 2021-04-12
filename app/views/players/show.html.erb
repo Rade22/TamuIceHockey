@@ -8,7 +8,7 @@
         <div class="title" style="color:white !important;">
           <h1><%= @player.first_name + " " + @player.last_name + " "%>Analytics</h1>
         </div>
-        
+
         <div class="player-analytics">
           <% if @player.position != "Goalie" %>
             <div class="graph">
@@ -23,7 +23,13 @@
           <% end %>
           
           <% if @player.position == "Goalie" %>
-            <%= goal_save_goalie %>
+            <div class="graphs">
+              <%= goal_save_goalie %>
+            </div>
+
+            <div class="graphs">
+              <%= goal_assist_skater %>
+            </div>
           <% end %>
         </div>
         

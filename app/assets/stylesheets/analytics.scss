@@ -1,3 +1,23 @@
 // Place all the styles related to the Analytics controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.graphs{
+    width: 95%;
+    margin: auto;
+    padding: 40px;
+}
+
+.team_stat{
+    width: 95%;
+    margin: auto;
+    margin-top: 22px;
+    padding: 22px;
+    text-align: center;
+    border: 1px solid maroon;
+}
+
+tr, th{
+    border: 1px solid maroon;
+    padding: 8px;
+  }

@@ -25,11 +25,8 @@ class AnalyticsController < ApplicationController
     end
     #for the graph score per game
 
-
-    
     @participation_graph = Participation.order(:player_id)
     
-
     #for the graph %win lose pie chart
     @win_game = 0
     @lose_game = 0
@@ -54,10 +51,16 @@ class AnalyticsController < ApplicationController
     end
     #for the graph %win lose pie chart
 
+    @total_score = 3*@win_game + 2*@overtime_win_game + @overtime_lose_game
+    @total_game = @win_game + @lose_game + @overtime_win_game + @overtime_lose_game
+    #get total goals for
+    #get total goals against
+
     #for the graph goal_source_powerplay_other
-    @total_goal = @game_order.sum(:goals_for)
+    @total_goal_for = @game_order.sum(:goals_for)
+    @total_goal_against = @game_order.sum(:goals_against)
     @powerplay_goal = @game_order.sum(:PowerPlayGoals)
-    @normal_goal = @total_goal - @powerplay_goal
+    @normal_goal = @total_goal_for - @powerplay_goal
     #for the graph goal_source_powerplay_other
 
     #for penalties_vs_powerplays

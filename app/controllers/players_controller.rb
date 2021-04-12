@@ -135,7 +135,7 @@ class PlayersController < ApplicationController
     @player = Player.find(params[:id])
     if @player.update(players_params)
       flash[:update] = 'Player has been successfully updated!'
-      redirect_to(player_path)
+      redirect_to(players_path)
     else
       render 'edit'
     end

@@ -19,7 +19,7 @@ module AnalyticsHelper
     column_chart Game.group(:state).count, 
     colors: ["#800000"],
     library: {
-      title: {text: 'Game loccation by states'}
+      title: {text: 'Game location by states'}
     }
   end
 

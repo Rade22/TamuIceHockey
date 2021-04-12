@@ -21,5 +21,7 @@ module TamuIceHockey
     #
     # config.eager_load_paths << Rails.root.join("extras")
     config.time_zone = 'Central Time (US & Canada)'
+
+    Time.zone = 'Central Time (US & Canada)'
   end
 end

@@ -13,8 +13,18 @@
     justify-content: space-evenly;
     flex-direction: column;
     width: 100%;
+    height: 100%;
     margin-left: 10px;
 }
+
+@media (max-width: 510px){
+    .help-div{
+        display: flex;
+        flex-direction: column !important;
+        height: 1000px !important;
+    }
+}
+
 
 .help-div{
     display: flex;

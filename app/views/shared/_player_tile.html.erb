@@ -8,24 +8,42 @@
         <h1 class="card-title"> <%=local_assigns[:player_firstname] %> <%=local_assigns[:player_lastname] %> </h5>
         <h3 class="card-text">#<%=local_assigns[:player_number] %> </h3>
         <h4 class="card-text"> <%=local_assigns[:player_position] %> </h4>
-        <h3 class="card-text">Total Games: <%= @games_total[local_assigns[:player_id].id] %> </h3>
+        <div class="card-stats">
+          <p class="card-text">Total Games: <%= @games_total[local_assigns[:player_id].id] %> </p>
 
-        <% if local_assigns[:player_position].eql?("Goalie") %>
-            
-        
-        <% else %>
-            
-
-        <% end %>
+          <% if local_assigns[:player_position].eql?("Goalie") %>
+          <p class="card-text">Goals Against: <%= @goalie_goals_against_total[local_assigns[:player_id].id] %> </p>
+          <p class="card-text">Time on Ice: <%= @goalie_time_on_ice_total[local_assigns[:player_id].id] %> </p>
+          <% if @games_total[local_assigns[:player_id].id] && @games_total[local_assigns[:player_id].id] != 0 %>
+            <p class="card-text">Goals Against Average: <%= @goalie_goals_against_total[local_assigns[:player_id].id] / @games_total[local_assigns[:player_id].id]%> </p>
+            <% if @goalie_shots_against_total[local_assigns[:player_id].id] != 0 %>
+              <% if (@goalie_saves_total[local_assigns[:player_id].id].to_f / @goalie_shots_against_total[local_assigns[:player_id].id].to_f).to_f > 1.to_f%>
+                <p class="card-text">  Saves Percentage: Overshoot error, make sure Saves <= Shots Against</p>
+              <% else %>
+                <p class="card-text">Saves Percentage: <%= ((@goalie_saves_total[local_assigns[:player_id].id].to_f / @goalie_shots_against_total[local_assigns[:player_id].id].to_f) * 100).round(2)%>%</p>
+              <% end %>
+            <% end %>
+          <% end %>
+          
+          <% else %>
+            <p class="card-text">Total Points: <%= @skater_assists_total[local_assigns[:player_id].id] + @skater_goals_total[local_assigns[:player_id].id]%> </p>
+            <% if @games_total[local_assigns[:player_id].id] && @games_total[local_assigns[:player_id].id] != 0 %>
+              <p class="card-text">Points Per Game: <%= (@skater_assists_total[local_assigns[:player_id].id] + @skater_goals_total[local_assigns[:player_id].id]) / @games_total[local_assigns[:player_id].id]%>  </p>
+            <% end %>
+            <p class="card-text">Total Goals: <%= @skater_goals_total[local_assigns[:player_id].id] %> </p>
+            <p class="card-text">Total Assists: <%= @skater_assists_total[local_assigns[:player_id].id] %> </p>
+            <p class="card-text">Powerplay Goals: <%= @skater_ppg_total[local_assigns[:player_id].id] %> </p>
+          <% end %>
+        </div>
 
 
         <div class="btn-div">
-            <%= link_to '<button class="btn btn-primary"> View Profile </button>'.html_safe, player_path(local_assigns[:player_id]) %>
-            <%= link_to '<button class="btn btn-primary"> View Games </button>'.html_safe, playerParticipations_participation_path(local_assigns[:player_id]) %>
+            <%= link_to '<button class="btn btn-primary"> Player Analytics </button>'.html_safe, player_path(local_assigns[:player_id]) %>
+            <%= link_to '<button class="btn btn-primary"> View Player Stats </button>'.html_safe, playerParticipations_participation_path(local_assigns[:player_id]) %>
             <% if admin_signed_in? %>
 			    <%= link_to '<button class="btn btn-primary"> Edit Profile </button>'.html_safe, edit_player_path(local_assigns[:player_id]) %>
                 <%= link_to '<button class="btn btn-primary"> Create/Edit Stats </button>'.html_safe, games_participation_path(local_assigns[:player_id]) %>
-		    <% end %>
+		      <% end %>
         </div>
       </div>
     </div>

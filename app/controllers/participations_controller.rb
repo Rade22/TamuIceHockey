@@ -50,7 +50,7 @@ class ParticipationsController < ApplicationController
     @participation = Participation.find(params[:id])
     @participation.destroy
     flash.notice = 'Delete Participation Successfully'
-    redirect_to participations_path
+    redirect_to players_path
   end
 
   def edit

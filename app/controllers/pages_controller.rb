@@ -26,4 +26,13 @@ class PagesController < ApplicationController
 	
 	def view_game
 	end
+	
+	def add_player_stats
+	end
+	
+	def edit_player_stats
+	end
+	
+	def delete_player_stats
+	end
 end

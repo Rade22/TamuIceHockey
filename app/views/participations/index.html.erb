@@ -19,59 +19,13 @@
 			<%= msg %>
 		</div>
 		<% end %>
-		<table class="center">
-			<tr>
-				<th>Name</th>
-				<th>Game</th>
-				<th>Goals</th>
-				<th>Assists</th>
-				<th>Powerplay Goals</th>
-				<th>Penalty Minutes</th>
-				<th>Action</th>
-			</tr>
-			<% @participation.each do |participation| %>
-			</tr>
-			<td>
-					<%= full_name(Player.find(participation.player_id)) %>
-					</td>
-			<td>
-				<%= game_identity(Game.find(participation.game_id)) %>
-				</td>
-			<td>
-				<%= participation.goals_skater %>
-			</td>
-				<td>
-					<%= participation.assists_skater %>
-				</td>
-				<td>
-					<%= participation.powerplay_goals_skater %>
-				</td>
-				<td>
-					<%= participation.penalty_minutes_skater %>
-				</td>
-			<td>
-				<ul>
-					<li>
-						<%= link_to "View Stats Entry", participation_path(participation) %>
-					</li>
-					<% if admin_signed_in? %>
-					<li>
-						<%= link_to "Edit Stats Entry", edit_participation_path(participation) %>
-					</li>
-					<li>
-						<%= link_to '<button class="btn btn-danger" title="Click to go to confirmation page">Delete Entry</button>'.html_safe, delete_participation_path(participation), data: {confirm: "Are you sure?"} %>
-					</li>
-					<% end %>
-				</ul>
-			</td>
-			</tr>
-			<% end %>
-		</table>
 
+		<% @participation.each do |participation| %>
+			<%=render 'participation_tile', participation_obj: participation, player_obj: Player.find(participation.player_id), game_obj: Game.find(participation.game_id) %>
+		<%end%>
 		<div class="new-participation-div">
 			<%= link_to '<button class="btn btn-success">Add New Participation</button>'.html_safe, new_participation_path() %><br/>
 		</div>
-
 		<%= render 'shared/footer' %>
 </body>
 </html>

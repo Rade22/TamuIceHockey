@@ -69,7 +69,7 @@ class ParticipationsController < ApplicationController
     end
   end
 
-  def player_participations
+  def playerParticipations
     @player = Player.find(params[:id])
     @participation = Participation.where(player_id: @player.id)
   end

@@ -7,9 +7,9 @@
 
 		<div class="body-div-participation-show">
           <div class="title">
-            <h1>Participation for:</h1>
+            <h1 style="color:white;">View Participation for:</h1>
           </div>
-          <div class="participation-stats">
+          <div class="participation-stats" style="text-align:center;">
             <h3><%= full_name(@player) %></h3>
             <h3>Texas A&M <%= game_identity(@game) %></h3>
           <div>
@@ -17,7 +17,6 @@
 
         <% if @player.position.eql?("Goalie") %>
             <div class="participation-info">
-                <h3>Recorded Stats:</h3>
                 <% if @participation.shots_against_goalie %>
                   <h4>Shots Against: <%= @participation.shots_against_goalie %></h4>
                 <% end %>
@@ -33,7 +32,6 @@
             </div>
         <% else %>
             <div class="participation-info">
-                <h3>Recorded Stats:</h3>
                 <% if @participation.goals_skater %>
                   <h4>Goals: <%= @participation.goals_skater %></h4>
                 <% end %>
@@ -54,9 +52,8 @@
       </div>
 
         <% if admin_signed_in? %>
-          <%= link_to '<button class="btn btn-primary btn-sm">Edit Stats</button>'.html_safe, edit_participation_path(@participation) %><br/>
+          <%= link_to '<button class="btn btn-primary">Edit Stats</button>'.html_safe, edit_participation_path(@participation) %><br/>
         <% end %>
-        <%= link_to '<button class="btn btn-primary btn-sm">Home</button>'.html_safe, root_path, :class => 'go back' %><br/>
     </div>
 
 		<%= render 'shared/footer' %>

@@ -39,13 +39,6 @@ class PlayersController < ApplicationController
       @skater_assists_total[player.id] = @stat
     end
 
-    @skater_penalty_mins_total = {}
-    @player.each do |player|
-      @player_perform = Participation.where(player_id: player.id)
-      @stat = @player_perform.sum(:penalty_minutes_skater)
-      @skater_penalty_mins_total[player.id] = @stat
-    end
-
     @skater_ppg_total = {}
     @player.each do |player|
       @player_perform = Participation.where(player_id: player.id)
@@ -121,8 +114,8 @@ class PlayersController < ApplicationController
 
   def delete
     @player = Player.find(params[:id])
-		rescue ActiveRecord::RecordNotFound
-		redirect_to :action => 'index'
+  rescue ActiveRecord::RecordNotFound
+    redirect_to action: 'index'
   end
 
   def destroy
@@ -142,7 +135,7 @@ class PlayersController < ApplicationController
     @player = Player.find(params[:id])
     if @player.update(players_params)
       flash[:update] = 'Player has been successfully updated!'
-      redirect_to(player_path)
+      redirect_to(players_path)
     else
       render 'edit'
     end

@@ -2,15 +2,33 @@
 
 # controller for games model
 class GamesController < ApplicationController
-  before_action :authenticate_admin!, only: %i[new create delete destroy edit update]
+  before_action :authenticate_admin!, :set_time_zone, only: %i[new create delete destroy edit update]
 
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
+
+  def set_time_zone
+    Time.zone = 'Central Time (US & Canada)'
+  end
 
   def index
     start_date = params.fetch(:start_date, Date.today).to_date
     @games = Game.where(date: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
     @game = Game.all
     @game_graph = Game.order(:date)
+
+    @game_type = []
+    @games.each do |game|
+      if game.goals_for && game.goals_against && (game.goals_for > game.goals_against)
+        @calendar_color = 'won-game'
+      elsif game.goals_for && game.goals_against && (game.goals_against > game.goals_for)
+        @calendar_color = 'lost-game'
+      elsif game.scrimmage == true
+        @calendar_color = 'scrimmage-game'
+      elsif game.scrimmage == false
+        @calendar_color = 'season-game'
+      end
+      @game_type.append(@calendar_color)
+    end
   end
 
   def show
@@ -21,11 +39,11 @@ class GamesController < ApplicationController
     @scrimmage_game = '(Scrimmage)' if @game.scrimmage == true
 
     if @game.PowerPlayGoals && (@game.powerplay_attemps != 0 && @game.powerplay_attemps)
-      @powerplay_percentage = (@game.PowerPlayGoals.to_f / @game.powerplay_attemps).round(2)
+      @powerplay_percentage = ((@game.PowerPlayGoals.to_f / @game.powerplay_attemps) * 100).round(2)
     end
 
     if @game.killed_penalties && (@game.total_penalties != 0 && @game.total_penalties)
-      @kill_percentage = (@game.killed_penalties.to_f / @game.total_penalties).round(2)
+      @kill_percentage = ((@game.killed_penalties.to_f / @game.total_penalties) * 100).round(2)
     end
   end
 

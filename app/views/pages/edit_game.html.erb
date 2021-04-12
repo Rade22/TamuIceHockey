@@ -1,0 +1,64 @@
+<html>
+  <%= render 'shared/header', stylesheet_link: 'pages', page_title: "Help" %>
+	<head>
+		<style>
+		
+			table, th, td {
+			border: 1px solid black;
+			}
+			table.center {
+			margin-left: auto;
+			margin-right: auto;
+			}
+			
+			.button {
+				background-color: #4CAF50; /* Green */
+				border: none;
+				color: white;
+				padding: 15px 32px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				margin: 4px 2px;
+				cursor: pointer;
+				border-radius: 12px;
+				box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+			}
+			
+		</style>
+	</head>
+	
+	<body>
+	  <%= render 'shared/navbar' %>
+	  <div class="help-title">
+			
+			<h2>Edit Game / Add Game Statistics:</h2>
+			<p>
+			Once on the Games page, you will first need to navigate to the game you want to edit. After 
+			finding the desired game, you must press the blue "Edit Game" button.
+			</p>
+			
+			<%= image_tag("edit_game.png", size:"500x250") %>
+			
+			<p>
+			This button will take you to the edit game page where you will find all of the game information 
+			you filled out when you created the game as well as some new fields related to statistics. Once
+			you are satisfied with the changes, click the green button at the bottom of the page called 
+			"Update Game".
+			</p>
+			
+			<%= image_tag("update_game.png", size:"500x250") %>
+			
+			<p>
+			Once updated, you will be taken back to the Games page where you can, once again, navigate to the
+			game to confirm the changes.
+			</p>
+			
+			<br>
+			<br>
+			
+		</div>
+	
+	<%= render 'shared/footer' %>
+<html>

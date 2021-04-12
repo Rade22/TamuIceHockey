@@ -249,6 +249,15 @@ body, html {
     justify-content: center;
 }
 
+.card{
+    margin-top: 10px;
+}
+
+.card-body{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
 
 
 

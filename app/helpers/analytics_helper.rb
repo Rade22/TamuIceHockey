@@ -8,7 +8,7 @@ module AnalyticsHelper
   end
 
   def win_lose_overtime
-    pie_chart ({"Win" => @win_game, "Win Overtime" => @overtime_win_game, "Lose" => @lose_game, "Lose Overtime" => @overtime_lose_game}), 
+    pie_chart ({"Won" => @win_game, "Won Overtime" => @overtime_win_game, "Lost" => @lose_game, "Lost Overtime" => @overtime_lose_game}), 
     colors: ["#800000", "#8B0000", "#72435C", "#7B435C"],
     library: {
       title: {text: 'Result of game'}
@@ -19,7 +19,7 @@ module AnalyticsHelper
     column_chart Game.group(:state).count, 
     colors: ["#800000"],
     library: {
-      title: {text: 'Game loccation by states'}
+      title: {text: 'Game location by states'}
     }
   end
 
@@ -36,7 +36,7 @@ module AnalyticsHelper
       },
       xAxis: {
         title: {
-          text: 'People'
+          text: 'Number of players'
         }
       }
     }
@@ -46,7 +46,7 @@ module AnalyticsHelper
     line_chart [{name: "Total goals", data: @participation_graph.group(:player_id).sum(:goals_skater)}], 
     colors: ["#800000"],
     library: {
-      title: {text: 'Total score goals by players'},
+      title: {text: 'Total scored goals by each player'},
       xAxis: {
         crosshair: true,
         allowDecimals: false,
@@ -64,7 +64,7 @@ module AnalyticsHelper
     line_chart [{name: "Total assists", data: @participation_graph.group(:player_id).sum(:assists_skater)}], 
     colors: ["#800000"],
     library: {
-      title: {text: 'Total score assists by players'},
+      title: {text: 'Total goal assists by each player'},
       xAxis: {
         crosshair: true,
         allowDecimals: false,
@@ -80,10 +80,10 @@ module AnalyticsHelper
 
   def goals_for_vs_goals_against
     line_chart [
-		{name: "Goals scored", data: @goal_score_season },
+		{name: "Goals for", data: @goal_score_season },
 		{name: "Goals against", data: @goal_against_season} ],
     colors: ["#800000","#000"], library: {
-      title: {text: 'Goal per games'},
+      title: {text: 'Goals per game'},
       yAxis: { 
         crosshair: true
       },
@@ -100,7 +100,7 @@ module AnalyticsHelper
       {name: "Penaltie kills", data: @penalty_season}], 
     colors: ["#800000","#000"],
     library: {
-      title: {text: 'Power plays vs Penaltie kills per games'},
+      title: {text: 'Power plays vs Penaltie kills per game'},
       yAxis: { 
         crosshair: true
       },
@@ -116,7 +116,7 @@ module AnalyticsHelper
       {name: "Power play goals", data: @powerplay_goals_season}],
     colors: ["#800000","#000"],
     library: {
-      title: {text: 'Power plays vs Power play goals per games'},
+      title: {text: 'Power plays vs Power play goals per game'},
       yAxis: { 
         crosshair: true
       },

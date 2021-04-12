@@ -59,7 +59,7 @@ class AnalyticsController < ApplicationController
     #for the graph goal_source_powerplay_other
     @total_goal_for = @game_order.sum(:goals_for)
     @total_goal_against = @game_order.sum(:goals_against)
-    @powerplay_goal = @game_order.sum(:PowerPlayGoals)
+    @powerplay_goal = @game_order.sum(:powerplay_goals)
     @normal_goal = @total_goal_for - @powerplay_goal
     #for the graph goal_source_powerplay_other
 
@@ -88,7 +88,7 @@ class AnalyticsController < ApplicationController
 
     #for powerplays vs powerplays goals
     @powerplay_goals_season = []
-    @temp_powerplay_goals_season = @game_order.group(:date).group(:against_team).sum(:PowerPlayGoals)
+    @temp_powerplay_goals_season = @game_order.group(:date).group(:against_team).sum(:powerplay_goals)
     @temp_powerplay_goals_season.each do |temp|
       if temp[0][0] <= Date.today
         raw_value = temp[0]

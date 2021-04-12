@@ -5,35 +5,21 @@
     <%= render 'shared/navbar' %>
 
     <div class="body-div-player-show">
-        <div class="title">
-          <h1>Player Profile</h1>
+        <div class="title" style="color:white !important;">
+          <h1><%= @player.first_name + " " + @player.last_name + " "%>Analytics</h1>
         </div>
         
-        <div class="player-stats">
-        <div class="player-info">
-          <h4><i class="fa fa-map-marker" style="font-size:48px;color:#500000;"></i> First Name: <%= @player.first_name%> </h3>
-          <h4><i class="fa fa-map-marker" style="font-size:48px;color:#500000;"></i> Last Name: <%=@player.last_name%> </h3>
-          <h4><i class="fa fa-map-marker" style="font-size:48px;color:#500000;"></i> Position: <%= @player.position %> </h3>
-          <h4><i class="fa fa-map-marker" style="font-size:48px;color:#500000;"></i> Number: <%= @player.number %> </h3>
-        </div></div>
-        <div>
-        <%= image_tag @player.image_link %>
+        <div class="player-analytics">
+          <% if @player.position != "Goalie" %>
+            <%= goal_score_skater %>
+            <%= goal_assist_skater %>
+            <%= penalty_minutes_skater %>
+          <% end %>
+          
+          <% if @player.position == "Goalie" %>
+            <%= goal_save_goalie %>
+          <% end %>
         </div>
-
-        <% if admin_signed_in? %>
-          <%= link_to '<button class="btn btn-primary btn-sm">Create/Edit Player Stats</button>'.html_safe, games_participation_path(@player) %><br/>
-        <% end %>
-        <%= link_to '<button class="btn btn-primary btn-sm">Home</button>'.html_safe, root_path, :class => 'go back' %><br/>
-    
-        <% if @player.position != "Goalie" %>
-          <%= goal_score_skater %>
-          <%= goal_assist_skater %>
-          <%= penalty_minutes_skater %>
-        <% end %>
-        
-        <% if @player.position == "Goalie" %>
-          <%= goal_save_goalie %>
-        <% end %>
         
     </div>
     

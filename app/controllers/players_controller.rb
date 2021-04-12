@@ -39,13 +39,6 @@ class PlayersController < ApplicationController
       @skater_assists_total[player.id] = @stat
     end
 
-    @skater_penalty_mins_total = {}
-    @player.each do |player|
-      @player_perform = Participation.where(player_id: player.id)
-      @stat = @player_perform.sum(:penalty_minutes_skater)
-      @skater_penalty_mins_total[player.id] = @stat
-    end
-
     @skater_ppg_total = {}
     @player.each do |player|
       @player_perform = Participation.where(player_id: player.id)

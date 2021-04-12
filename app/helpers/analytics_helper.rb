@@ -1,7 +1,7 @@
 module AnalyticsHelper
   def goal_source_powerplay_other
     pie_chart ({"Powerplay goals" => @powerplay_goal, "Other goals" => @normal_goal}),
-    colors: ["#800000", "#8B0000"],
+    colors: ["#000", "#800000"],
     library: {
       title: {text: 'Goals source'}
     }

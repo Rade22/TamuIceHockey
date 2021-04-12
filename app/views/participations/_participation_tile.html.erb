@@ -2,8 +2,8 @@
   <div class="row g-0">
     <div class="col-md-4">
       <div class="card-body">
-        <h3 class="card-title">Player: <%= full_name(local_assigns[:player_obj]) %></h3>
-        <h3 class="card-title">Game: Texas A&M <%= game_identity(local_assigns[:game_obj])%><h3>
+        <h3 class="card-title"><%= full_name(local_assigns[:player_obj]) %></h3>
+        <h3 class="card-title">Texas A&M <%= game_identity(local_assigns[:game_obj])%><h3>
       </div>
     </div>
     <div class="col-md-8">
@@ -38,6 +38,9 @@
             <% end %>
             <% if local_assigns[:participation_obj].powerplay_goals_skater %>
                 <p class="card-text">Powerplay Goals: <%= local_assigns[:participation_obj].powerplay_goals_skater %></p>
+            <% end %>
+            <% if local_assigns[:participation_obj].goals_skater && local_assigns[:participation_obj].assists_skater %>
+                <p class="card-text">Points: <%= local_assigns[:participation_obj].goals_skater + local_assigns[:participation_obj].assists_skater %> </p>
             <% end %>
             <% if local_assigns[:participation_obj].penalty_minutes_skater %>
                 <p class="card-text">Penalty Minutes: <%= local_assigns[:participation_obj].penalty_minutes_skater %></p>

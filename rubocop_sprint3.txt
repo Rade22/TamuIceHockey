@@ -1,0 +1,88 @@
+Inspecting 50 files
+...CCC.CC......C...............CC..........C......
+
+Offenses:
+
+app/controllers/analytics_controller.rb:3:1: C: Style/Documentation: Missing top-level class documentation comment.
+class AnalyticsController < ApplicationController
+^^^^^
+app/controllers/analytics_controller.rb:4:3: C: Metrics/AbcSize: Assignment Branch Condition size for index is too high. [<47, 101, 29> 115.1/17]
+  def index ...
+  ^^^^^^^^^
+app/controllers/analytics_controller.rb:4:3: C: Metrics/CyclomaticComplexity: Cyclomatic complexity for index is too high. [18/7]
+  def index ...
+  ^^^^^^^^^
+app/controllers/analytics_controller.rb:4:3: C: Metrics/MethodLength: Method has too many lines. [72/10]
+  def index ...
+  ^^^^^^^^^
+app/controllers/analytics_controller.rb:4:3: C: Metrics/PerceivedComplexity: Perceived complexity for index is too high. [20/8]
+  def index ...
+  ^^^^^^^^^
+app/controllers/application_controller.rb:3:1: C: Style/Documentation: Missing top-level class documentation comment.
+class ApplicationController < ActionController::Base
+^^^^^
+app/controllers/games_controller.rb:13:3: C: Metrics/AbcSize: Assignment Branch Condition size for index is too high. [<10, 23, 13> 28.25/17]
+  def index ...
+  ^^^^^^^^^
+app/controllers/games_controller.rb:13:3: C: Metrics/CyclomaticComplexity: Cyclomatic complexity for index is too high. [10/7]
+  def index ...
+  ^^^^^^^^^
+app/controllers/games_controller.rb:13:3: C: Metrics/MethodLength: Method has too many lines. [17/10]
+  def index ...
+  ^^^^^^^^^
+app/controllers/games_controller.rb:13:3: C: Metrics/PerceivedComplexity: Perceived complexity for index is too high. [11/8]
+  def index ...
+  ^^^^^^^^^
+app/controllers/games_controller.rb:34:3: C: Metrics/AbcSize: Assignment Branch Condition size for show is too high. [<5, 23, 12> 26.42/17]
+  def show ...
+  ^^^^^^^^
+app/controllers/games_controller.rb:34:3: C: Metrics/CyclomaticComplexity: Cyclomatic complexity for show is too high. [9/7]
+  def show ...
+  ^^^^^^^^
+app/controllers/games_controller.rb:34:3: C: Metrics/PerceivedComplexity: Perceived complexity for show is too high. [9/8]
+  def show ...
+  ^^^^^^^^
+app/controllers/games_controller.rb:45:5: C: Style/GuardClause: Use a guard clause (return unless @game.killed_penalties && (@game.total_penalties != 0 && @game.total_penalties)) instead of wrapping the code inside a conditional expression.
+    if @game.killed_penalties && (@game.total_penalties != 0 && @game.total_penalties)
+    ^^
+app/controllers/participations_controller.rb:16:3: C: Metrics/AbcSize: Assignment Branch Condition size for new is too high. [<5, 28, 4> 28.72/17]
+  def new ...
+  ^^^^^^^
+app/controllers/participations_controller.rb:72:7: C: Naming/MethodName: Use snake_case for method names.
+  def playerParticipations
+      ^^^^^^^^^^^^^^^^^^^^
+app/controllers/players_controller.rb:4:1: C: Metrics/ClassLength: Class has too many lines. [109/100]
+class PlayersController < ApplicationController ...
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/players_controller.rb:9:3: C: Metrics/AbcSize: Assignment Branch Condition size for index is too high. [<48, 58, 9> 75.82/17]
+  def index ...
+  ^^^^^^^^^
+app/controllers/players_controller.rb:9:3: C: Metrics/CyclomaticComplexity: Cyclomatic complexity for index is too high. [10/7]
+  def index ...
+  ^^^^^^^^^
+app/controllers/players_controller.rb:9:3: C: Metrics/MethodLength: Method has too many lines. [57/10]
+  def index ...
+  ^^^^^^^^^
+app/controllers/players_controller.rb:9:3: C: Metrics/PerceivedComplexity: Perceived complexity for index is too high. [10/8]
+  def index ...
+  ^^^^^^^^^
+app/controllers/players_controller.rb:14:121: C: Layout/LineLength: Line is too long. [136/120]
+    # for each stat, a dictionary is created, they the player obeject is looped through to add only that players stats to the dictionary
+                                                                                                                        ^^^^^^^^^^^^^^^^
+app/controllers/players_controller.rb:15:121: C: Layout/LineLength: Line is too long. [123/120]
+    # each stat is then summed and assigned back into the dictionary so that it can be pulled form _playerEditForm.html.erb
+                                                                                                                        ^^^
+app/models/player.rb:3:1: C: Style/Documentation: Missing top-level class documentation comment.
+class Player < ApplicationRecord
+^^^^^
+db/migrate/20210412024653_game_date_timestamp.rb:3:1: C: Style/Documentation: Missing top-level class documentation comment.
+class GameDateTimestamp < ActiveRecord::Migration[6.1]
+^^^^^
+db/migrate/20210412052547_change_powerplay_goals_name_convention.rb:3:1: C: Style/Documentation: Missing top-level class documentation comment.
+class ChangePowerplayGoalsNameConvention < ActiveRecord::Migration[6.1]
+^^^^^
+spec/models/participation_spec.rb:5:1: C: Metrics/BlockLength: Block has too many lines. [32/25]
+RSpec.describe Participation, type: :feature do ...
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+50 files inspected, 27 offenses detected

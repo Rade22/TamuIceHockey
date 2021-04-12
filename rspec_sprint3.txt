@@ -1,0 +1,117 @@
+
+Creating a player
+Capybara starting Puma...
+* Version 5.2.2 , codename: Fettisdagsbulle
+* Min threads: 0, max threads: 4
+* Listening on http://127.0.0.1:58137
+.  valid inputs
+.  no name
+.  no player number
+
+Creating a game
+.  no against team
+.  no date
+.  valid inputs
+
+Deleting a game
+.  success
+
+Updating a game
+.  valid inputs
+.  remove opposing team
+.  varying inputs
+
+Edit player
+.  valid inputs
+.  remove name
+.  remove number
+
+AnalyticsHelper
+*  add some examples to (or delete) C:/Users/Rylan Wade/Desktop/Project/TamuIceHockey/spec/helpers/analytics_helper_spec.rb (PENDING: Not yet implemented)
+
+PagesHelper
+*  add some examples to (or delete) C:/Users/Rylan Wade/Desktop/Project/TamuIceHockey/spec/helpers/pages_helper_spec.rb (PENDING: Not yet implemented)
+
+Admin
+*  add some examples to (or delete) C:/Users/Rylan Wade/Desktop/Project/TamuIceHockey/spec/models/admin_spec.rb (PENDING: Not yet implemented)
+
+Game
+.  checks that a game can be created
+.  checks that a game cannot be created with a 3+ length abriviation
+.  checks that a game can be updated
+.  checks that a game can be destroyed
+
+Participation
+.  checks that a participation can be created
+.  checks that a participation cannot be created without player_id
+.  checks that a participation cannot be created without game_id
+.  checks that a participation can be updated
+.  checks that a participation can be destroyed
+.  checks that a participation cannot be created without corresponding player/game objects
+
+Player
+.  checks that a player can be created
+.  checks that a player without an image link has it set to the default properly
+.  checks that a player can be updated
+.  checks that a player can be destroyed
+
+Pages
+  GET /index
+*    add some examples (or delete) C:/Users/Rylan Wade/Desktop/Project/TamuIceHockey/spec/requests/pages_spec.rb (PENDING: Not yet implemented)
+
+analytics/index.html.erb
+*  add some examples to (or delete) C:/Users/Rylan Wade/Desktop/Project/TamuIceHockey/spec/views/analytics/index.html.erb_spec.rb (PENDING: Not yet implemented)
+
+
+Pending: (Failures listed here are expected and do not affect your suite's status)
+
+  1) AnalyticsHelper add some examples to (or delete) C:/Users/Rylan Wade/Desktop/Project/TamuIceHockey/spec/helpers/analytics_helper_spec.rb
+     # Not yet implemented
+     # ./spec/helpers/analytics_helper_spec.rb:16
+
+  2) PagesHelper add some examples to (or delete) C:/Users/Rylan Wade/Desktop/Project/TamuIceHockey/spec/helpers/pages_helper_spec.rb
+     # Not yet implemented
+     # ./spec/helpers/pages_helper_spec.rb:16
+
+  3) Admin add some examples to (or delete) C:/Users/Rylan Wade/Desktop/Project/TamuIceHockey/spec/models/admin_spec.rb
+     # Not yet implemented
+     # ./spec/models/admin_spec.rb:6
+
+  4) Pages GET /index add some examples (or delete) C:/Users/Rylan Wade/Desktop/Project/TamuIceHockey/spec/requests/pages_spec.rb
+     # Not yet implemented
+     # ./spec/requests/pages_spec.rb:7
+
+  5) analytics/index.html.erb add some examples to (or delete) C:/Users/Rylan Wade/Desktop/Project/TamuIceHockey/spec/views/analytics/index.html.erb_spec.rb
+     # Not yet implemented
+     # ./spec/views/analytics/index.html.erb_spec.rb:6
+
+Pending: (Failures listed here are expected and do not affect your suite's status)
+
+  1) AnalyticsHelper add some examples to (or delete) C:/Users/Rylan Wade/Desktop/Project/TamuIceHockey/spec/helpers/analytics_helper_spec.rb
+     # Not yet implemented
+     # ./spec/helpers/analytics_helper_spec.rb:16
+
+  2) PagesHelper add some examples to (or delete) C:/Users/Rylan Wade/Desktop/Project/TamuIceHockey/spec/helpers/pages_helper_spec.rb
+     # Not yet implemented
+     # ./spec/helpers/pages_helper_spec.rb:16
+
+  3) Admin add some examples to (or delete) C:/Users/Rylan Wade/Desktop/Project/TamuIceHockey/spec/models/admin_spec.rb
+     # Not yet implemented
+     # ./spec/models/admin_spec.rb:6
+
+  4) Pages GET /index add some examples (or delete) C:/Users/Rylan Wade/Desktop/Project/TamuIceHockey/spec/requests/pages_spec.rb
+     # Not yet implemented
+     # ./spec/requests/pages_spec.rb:7
+
+  5) analytics/index.html.erb add some examples to (or delete) C:/Users/Rylan Wade/Desktop/Project/TamuIceHockey/spec/views/analytics/index.html.erb_spec.rb
+     # Not yet implemented
+     # ./spec/views/analytics/index.html.erb_spec.rb:6
+
+Finished in 1 minute 20.96 seconds (files took 29.52 seconds to load)
+32 examples, 0 failures, 5 pending
+
+Finished in 1 minute 20.96 seconds (files took 29.52 seconds to load)
+32 examples, 0 failures, 5 pending
+
+
+Coverage report generated for RSpec to C:/Users/Rylan Wade/Desktop/Project/TamuIceHockey/coverage. 526 / 605 LOC (86.94%) covered.

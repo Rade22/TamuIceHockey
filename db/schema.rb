@@ -1,4 +1,3 @@
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -45,13 +44,6 @@ ActiveRecord::Schema.define(version: 2021_04_12_052547) do
     t.integer "powerplay_goals"
   end
 
-  create_table "logins", force: :cascade do |t|
-    t.string "username"
-    t.string "hashed_password"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "participations", force: :cascade do |t|
     t.integer "player_id"
     t.integer "game_id"
@@ -64,8 +56,8 @@ ActiveRecord::Schema.define(version: 2021_04_12_052547) do
     t.integer "powerplay_goals_skater"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "time_on_ice_goalie"
     t.integer "powerplay_minutes_skater"
+    t.integer "time_on_ice_goalie"
   end
 
   create_table "players", force: :cascade do |t|

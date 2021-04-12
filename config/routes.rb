@@ -52,6 +52,7 @@ Rails.application.routes.draw do
   get '/add_player_stats' => 'pages#add_player_stats'
   get '/edit_player_stats' => 'pages#edit_player_stats'
   get '/delete_player_stats' => 'pages#delete_player_stats'
+  get '/view_player_stats' => 'pages#view_player_stats'
   
   get ':controller(/:action(/:id))'
 

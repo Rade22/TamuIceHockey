@@ -266,3 +266,57 @@ body, html {
     width: 100%;
     
 }
+
+
+//Players Edit CSS start
+.player-info-edit{
+    padding-left: 10px;
+    color: black;
+}
+
+@media (max-width: 415px){
+    .input-div{
+        display: flex;
+        flex-direction: column !important;
+    }
+    
+    .player-info-edit{
+        padding-left: 0px !important;
+    }
+}
+
+
+
+.add-button {
+    background-color: powderblue;
+}
+
+.player-edit{
+    margin-bottom: 20px;
+    background-color: white;
+    margin-top: 20px;
+    border-radius: 3%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.input-div{
+    display: flex;
+    flex-direction: row;
+}
+
+.player-delete-title{
+    text-align: center;
+    color: white;
+}
+
+.new-player-div, .edit-player-div, .show-player-div, .delete-player-div{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+.edit-player-div{
+    display: flex;
+    justify-content: space-evenly;
+    width: 450px;
+}

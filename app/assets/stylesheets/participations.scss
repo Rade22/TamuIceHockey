@@ -162,12 +162,13 @@ body, html {
 }
 
 .participation-stats {
+    background-color: white;
+    width: 30%;
+    border-radius: 3%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-top: 3%;
     display: flex;
     flex-direction: column;
-    text-align: center;
-    color: white;
-    width: 50%;
-    margin: auto;
 }
 
 .participation-info, .participation-played-stats {
@@ -178,13 +179,23 @@ body, html {
 }
 
 .participation-add, .participation-delete {
-    padding-left: 10px;
-    color: white;
+    color: black;
+    background-color: white;
+    width: 30%;
+    border-radius: 3%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
 }
 
 .body-div-participation-show, .body-div-participation-edit, .body-div-participation-add, .body-div-participation-delete {
+    display: flex;
+    align-items: center;
     background: linear-gradient(to left, #bdc3c7, #414345); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     width: 100%;
+    flex-direction: column;
+    padding-bottom: 20px;
 }
 
 .new-participation-div, .edit-participation-div, .show-participation-div, .delete-participation-div {
@@ -204,11 +215,16 @@ body, html {
 
 .input_field {
     margin: 10px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
 }
 
 .submit-button input {
     margin-bottom: 10px;
     margin-top: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 //Participations Edit CSS start
@@ -224,6 +240,13 @@ body, html {
 .participation-edit, .container-manager {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+}
+
+.skater-container, .goalier-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 

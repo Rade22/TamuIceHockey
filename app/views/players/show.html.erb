@@ -11,14 +11,14 @@
 
         <div class="player-analytics">
           <% if @player.position != "Goalie" %>
-            <div class="graphs">
-              <%= goal_score_skater %>
+            <div class="graph">
+            <%= goal_score_skater %>
             </div>
-            <div class="graphs">
-              <%= goal_assist_skater %>
+            <div class="graph">
+            <%= goal_assist_skater %>
             </div>
-            <div class="graphs">
-              <%= penalty_minutes_skater %>
+            <div class="graph">
+            <%= penalty_minutes_skater %>
             </div>
           <% end %>
           

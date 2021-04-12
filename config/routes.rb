@@ -34,10 +34,12 @@ Rails.application.routes.draw do
     end
   end
 
+
   
   
   get 'participations/new/:id/:player_id', to: 'participations#new' #this is incredibly janky, figure out how to do this not badly
   
+  #helper page
   get '/help' => 'pages#help'
   get '/add_player' => 'pages#add_player'
   get '/login' => 'pages#login'
@@ -47,6 +49,9 @@ Rails.application.routes.draw do
   get '/edit_game' => 'pages#edit_game'
   get '/delete_game' => 'pages#delete_game'
   get '/view_game' => 'pages#view_game'
+  get '/add_player_stats' => 'pages#add_player_stats'
+  get '/edit_player_stats' => 'pages#edit_player_stats'
+  get '/delete_player_stats' => 'pages#delete_player_stats'
   
   get ':controller(/:action(/:id))'
 

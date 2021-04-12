@@ -35,4 +35,7 @@ class PagesController < ApplicationController
 	
 	def delete_player_stats
 	end
+	
+	def view_player_stats
+	end
 end

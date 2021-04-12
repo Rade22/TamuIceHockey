@@ -43,6 +43,11 @@
 	    <%= form.number_field :powerplay_goals_skater,  min: 0, placeholder: 0, :value => 0 %>
 	  </div>
 
+		<div class="input_field">
+			<%= form.label "Powerplay Minutes" %><br>
+				<%= form.number_field :powerplay_minutes_skater,  min: 0, placeholder: 0, :value ="> 0 "%>
+			</div>
+
 	  <div class="input_field">
 	    <%= form.label "Penalty Minutes" %><br>
 	    <%= form.number_field :penalty_minutes_skater,  min: 0, placeholder: 0, :value => 0 %>

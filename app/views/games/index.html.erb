@@ -27,15 +27,12 @@
 			</div>
 
 
-			<% if admin_signed_in? %>
-				<div class="new-game-div">
-					<%= link_to '<button class="btn btn-success">Add New Game</button>'.html_safe, new_game_path() %><br/>
-				</div>
-			<% end %>
-		</div>
-		<%= line_chart [
-			{name: "Goals scored", data: @game_graph.group(:date).group(:against_team).sum(:goals_for) },
-			{name: "Goals against", data: @game_graph.group(:date).group(:against_team).sum(:goals_against)} ] %>
-		<%= render 'shared/footer' %>
-	</body>
+		<% if admin_signed_in? %>
+			<div class="new-game-div">
+				<%= link_to '<button class="btn btn-success">Add New Game</button>'.html_safe, new_game_path() %><br/>
+			</div>
+		<% end %>
+	</div>
+	<%= render 'shared/footer' %>
+</body>
 </html>

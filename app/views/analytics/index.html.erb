@@ -3,32 +3,24 @@
 
 <body>
     <%= render 'shared/navbar' %>
-    <div class="team-stats">
 
-    </div>
+    <%= goals_for_vs_goals_against %>
+
+    <%= score_by_skater %>
+
+    <%= assist_by_skater %>
+
+    <%= win_lose_overtime %>
+
+    <%= penalties_vs_powerplays %>
+
+    <%= goal_source_powerplay_other %>
+
+    <%= powerplays_vs_powerplay_goals %>
     
-    <div class="team-charts">
-      <%= line_chart [
-      {name: "Goals scored", data: @game_graph.group(:date).group(:against_team).sum(:goals_for) },
-      {name: "Goals against", data: @game_graph.group(:date).group(:against_team).sum(:goals_against)} ] %>
+    <%= player_position_count %>
 
-      <%= line_chart @participation_graph.group(:player_id).sum(:goals_skater) %>
-      <%= bar_chart Player.group(:position).count, height: '500px', library: {
-        backgroundColor: "#eee",
-        title: {text: 'Player by postion'},
-        yAxis: {
-          allowDecimals: false,
-          title: {
-            text: 'Players count'
-          }
-        },
-        xAxis: {
-          title: {
-            text: 'People'
-          }
-        }
-      } %>
-    </div>
+    <%= game_location_by_state %>
     <%= render 'shared/footer' %>
 </body>
 </html>

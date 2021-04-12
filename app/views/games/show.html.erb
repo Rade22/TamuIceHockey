@@ -18,44 +18,48 @@
 
             <div class="game-info">
                 <h3>Game Information:</h3>
-                <h4><i class="fa fa-map-marker" style="font-size:48px;color:#500000;"></i> <%= @game.ring_name%>, <%= @game.city %>, <%= @game.state %> @ <%= @game.time.hour %>:<%= @game.time.min %> </h4>
+                <h4><i class="fa fa-map-marker" style="font-size:48px;color:#500000;"></i> <%= @game.ring_name%>, <%= @game.city %>, <%= @game.state %> @ <%= @game.time.strftime('%I:%M %p') %> </h4>
                 <h4><i class="fa fa-calendar" style="font-size:32px;color:#500000;"></i> <%= @game.date.month %>/<%= @game.date.day %>/<%= @game.date.year %> </h4>
             </div>
 
-            <% if @game.goals_for %>
+            <% if @game.powerplay_attemps || @game.total_penalties %>
                 <div class="game-played">
                     <div class="game-played-title">
                         <h3>Total Game Statistics:</h3>
                     </div>
 
                     <div class="game-played-stats">
-                        <div class="stat-box">
-                            <% if @game.PowerPlayGoals %>
-                                <h4>Powerplay Goals: <%= @game.PowerPlayGoals%></h4>
-                            <%end%>
+                        <% if @game.powerplay_attemps%>
+                            <div class="stat-box">
+                                <% if @game.PowerPlayGoals %>
+                                    <h4>Powerplay Goals: <%= @game.PowerPlayGoals%></h4>
+                                <%end%>
 
-                            <% if @game.powerplay_attemps %>
-                                <h4>Powerplay Attempts: <%= @game.powerplay_attemps%></h4>
-                            <%end%>
+                                <% if @game.powerplay_attemps %>
+                                    <h4>Powerplay Attempts: <%= @game.powerplay_attemps%></h4>
+                                <%end%>
 
-                            <% if @powerPlayPercentage %>
-                                <h4>Powerplay Percentage: <%= @powerPlayPercentage%>%</h4>
-                            <%end%>
-                        </div>
+                                <% if @powerplay_percentage %>
+                                    <h4>Powerplay Percentage: <%= @powerplay_percentage%>%</h4>
+                                <%end%>
+                            </div>
+                        <%end%>
 
-                        <div class="stat-box">
-                            <% if @game.killed_penalties %>
-                                <h4>Killed Penalties: <%= @game.killed_penalties%></h4>
-                            <%end%>
+                        <% if @game.total_penalties %>
+                            <div class="stat-box">
+                                <% if @game.killed_penalties %>
+                                    <h4>Killed Penalties: <%= @game.killed_penalties%></h4>
+                                <%end%>
 
-                            <% if @game.total_penalties %>
-                                <h4>Total Penalties: <%= @game.total_penalties%></h4>
-                            <%end%>
+                                <% if @game.total_penalties %>
+                                    <h4>Total Penalties: <%= @game.total_penalties%></h4>
+                                <%end%>
 
-                            <% if @killPercentage %>
-                                <h4>Penalty Kill Percentage: <%= @killPercentage%>%</h4>
-                            <%end%>
-                        </div>
+                                <% if @kill_percentage %>
+                                    <h4>Penalty Kill Percentage: <%= @kill_percentage%>%</h4>
+                                <%end%>
+                            </div>
+                        <%end%>
                     </div>
                 </div>
             <%end%>

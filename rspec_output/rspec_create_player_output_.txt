@@ -1,0 +1,19 @@
+
+Creating a player
+Capybara starting Puma...
+* Version 5.2.2 , codename: Fettisdagsbulle
+* Min threads: 0, max threads: 4
+* Listening on http://127.0.0.1:62820
+.  valid inputs
+.  no name
+.  no player number
+
+
+Finished in 14.27 seconds (files took 11.36 seconds to load)
+3 examples, 0 failures
+
+Finished in 14.27 seconds (files took 11.36 seconds to load)
+3 examples, 0 failures
+
+
+Coverage report generated for RSpec to C:/Users/Rylan Wade/Desktop/Project/TamuIceHockey/coverage. 171 / 194 LOC (88.14%) covered.

@@ -1,0 +1,40 @@
+<html>
+  <%= render 'shared/header', stylesheet_link: 'pages', page_title: "Help" %>
+	<head>
+		<style>
+		
+			table, th, td {
+			border: 1px solid black;
+			}
+			table.center {
+			margin-left: auto;
+			margin-right: auto;
+			}
+			
+		</style>
+	</head>
+	
+	<body>
+	  <%= render 'shared/navbar' %>
+	  <div class="help-title">
+			
+			<h2>Edit Player:</h2>
+			<p>
+			Like with creating a player, you will first need to navigate to the Players page through 
+			the button at the top of the screen in the navbar. Once on the Player page, you will need 
+			to scroll until you find the player you want to edit. On this player's card, you should 
+			notice a set of blue buttons. Click the button labeled "Edit Profile". This will direct
+			you to page seen below. It is on this page that you will be able to make any changes to
+			the player's profile. Once you are satisfied with the changes, simply press the green
+			button labeled "Update Player". This will take you back to the Player's page where you
+			can once again find the desired player in order to confirm your changes.
+			</p>
+			
+			<br>
+			<br>
+			
+			
+		</div>
+	
+	<%= render 'shared/footer' %>
+<html>

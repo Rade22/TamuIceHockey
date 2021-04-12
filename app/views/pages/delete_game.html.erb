@@ -1,0 +1,75 @@
+<html>
+  <%= render 'shared/header', stylesheet_link: 'pages', page_title: "Help" %>
+	<head>
+		<style>
+		
+			table, th, td {
+			border: 1px solid black;
+			}
+			table.center {
+			margin-left: auto;
+			margin-right: auto;
+			}
+			
+			.button {
+				background-color: #4CAF50; /* Green */
+				border: none;
+				color: white;
+				padding: 15px 32px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				margin: 4px 2px;
+				cursor: pointer;
+				border-radius: 12px;
+				box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+			}
+			
+		</style>
+	</head>
+	
+	<body>
+	  <%= render 'shared/navbar' %>
+	  <div class="help-title">
+			
+			<h2>Delete Game:</h2>
+			<p>
+			Navigate to the Games page using the white "Games" button at the top of the screen. Once you are 
+			on the Games page, you will need to navigate through the calendar until you find the game you are 
+			wanting to delete. After you have found the game, you will want to press the "Edit Game" button 
+			as seen below.
+			</p>
+			
+			<%= image_tag("edit_game.png", size:"500x250") %>
+			
+			<p>
+			Once you are on the page seen below, you need to press the red "Delete Game" button at the bottom 
+			of the screen.
+			</p>
+			
+			<%= image_tag("delete1_game.png", size:"500x250") %>
+			
+			<p>
+			This should direct you to a confirmation page like the one seen in the image below. It is here where
+			you will want to, once again, click the red "Delete Game" button.
+			</p>
+			
+			<%= image_tag("delete1_game.png", size:"500x250") %>
+			
+			<p>
+			At this point, a final confirmation box should appear in the center of the page. This will be your last
+			point before the game is completely deleted. If you are still sure about deleting the game, press the "OK"
+			button and you will be redirected back to the Games page. You can navigate through the calendar to confirm 
+			the game's successful deletion.
+			</p>
+			
+			<%= image_tag("delete3_game.png", size:"500x250") %>
+			
+			<br>
+			<br>
+			
+		</div>
+	
+	<%= render 'shared/footer' %>
+<html>

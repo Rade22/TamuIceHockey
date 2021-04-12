@@ -1,0 +1,64 @@
+<html>
+  <%= render 'shared/header', stylesheet_link: 'pages', page_title: "Help" %>
+	<head>
+		<style>
+		
+			table, th, td {
+			border: 1px solid black;
+			}
+			table.center {
+			margin-left: auto;
+			margin-right: auto;
+			}
+			
+			.button {
+				background-color: #4CAF50; /* Green */
+				border: none;
+				color: white;
+				padding: 15px 32px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				margin: 4px 2px;
+				cursor: pointer;
+				border-radius: 12px;
+				box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+			}
+			
+		</style>
+	</head>
+	
+	<body>
+	  <%= render 'shared/navbar' %>
+	  <div class="help-title">
+			
+			<h2>Add Game:</h2>
+			<p>
+			Similar to adding players, you will first need to navigate to the Games page by clicking 
+			the white button labeled "Games" at the top of the page. Once on the Games pages, you will 
+			need to click the green button labeled "Add Game" as seen below.
+			</p>
+			
+			<%= image_tag("add_game.png", size:"500x250") %>
+			
+			<p>
+			Clicking this button will redirect you to the page seen below. It is here where you will 
+			fill out all of the information relevant to the game you are wanting to create. Once you 
+			finish, you will need to press the green button labeled "Create Game" like the one seen below.
+			</p>
+			
+			<%= image_tag("create_game.png", size:"500x250") %>
+			
+			<p>
+			You will be redirected back to the Games page where you should see the newly created game 
+			after navigating to the appropriate month on the calendar.
+			</p>
+			
+			<br>
+			<br>
+			
+		</div>
+	
+	<%= render 'shared/footer' %>
+<html>

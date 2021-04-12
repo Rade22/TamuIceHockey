@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe Game, type: :feature do
-
   it 'checks that a game can be created' do
     @game = Game.create(state: 'TX')
     expect(@game).to be_valid

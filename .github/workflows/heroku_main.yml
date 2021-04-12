@@ -15,4 +15,3 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "murmuring-taiga-60712"
           heroku_email: "zizzazzuz@tamu.edu"
-          usedocker: true

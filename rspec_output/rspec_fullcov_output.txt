@@ -1,0 +1,37 @@
+
+Creating a player
+Capybara starting Puma...
+* Version 5.2.2 , codename: Fettisdagsbulle
+* Min threads: 0, max threads: 4
+* Listening on http://127.0.0.1:49734
+.  valid inputs
+.  no name
+.  no player number
+
+Creating a game
+.  no against team
+.  no date
+.  valid inputs
+
+Deleting a game
+.  success
+
+Updating a game
+.  valid inputs
+.  remove opposing team
+.  varying inputs
+
+Edit player
+.  valid inputs
+.  remove name
+.  remove number
+
+
+Finished in 48.84 seconds (files took 16.38 seconds to load)
+13 examples, 0 failures
+
+Finished in 48.84 seconds (files took 16.38 seconds to load)
+13 examples, 0 failures
+
+
+Coverage report generated for RSpec to C:/Users/Rylan Wade/Desktop/Project/TamuIceHockey/coverage. 361 / 386 LOC (93.52%) covered.

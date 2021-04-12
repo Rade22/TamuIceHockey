@@ -2,9 +2,13 @@
 
 # controller for games model
 class GamesController < ApplicationController
-  before_action :authenticate_admin!, only: %i[new create delete destroy edit update]
+  before_action :authenticate_admin!, :set_time_zone, only: %i[new create delete destroy edit update]
 
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
+
+  def set_time_zone
+    Time.zone = 'Central Time (US & Canada)'
+  end
 
   def index
     start_date = params.fetch(:start_date, Date.today).to_date

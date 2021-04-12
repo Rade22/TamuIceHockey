@@ -1,22 +1,11 @@
 <html>
   <%= render 'shared/header', stylesheet_link: 'players', page_title: "Players Index" %>
-	<head>
-		<style>
-			table, th, td {
-			border: 1px solid black;
-			}
-			table.center {
-			margin-left: auto;
-			margin-right: auto;
-			}
-		</style>
-	</head>
 	<body>
 	  <%= render 'shared/navbar' %>
 		<div class="player-title">
-			<h2>Players:</h2>
+			<h2>Players</h2>
 			<% if admin_signed_in? %>
-			  <%= link_to '<button class="btn btn-success btn-sm">Add New Player</button>'.html_safe, new_player_path() %><br/>
+			  <%= link_to '<button class="btn btn-success">Add New Player</button>'.html_safe, new_player_path() %><br/>
 			<% end %>
 		</div>
 		<% flash.each do |type, msg| %>

@@ -1,30 +1,30 @@
 <html lang="en">
 
-<%= render 'shared/header', stylesheet_link: 'games', page_title: "Games Page" %>
+	<%= render 'shared/header', stylesheet_link: 'games', page_title: "Games Page" %>
 
-<body>
-    <%= render 'shared/navbar' %>
+	<body>
+		<%= render 'shared/navbar' %>
 
-	<div class="body-div-game-index">
-		<div class="calendar">
-			<%= month_calendar do |date, games| %>  
-                <%= date.day %>
-				<% @games.each do |game| %>    
-						<% if game.date == date %>
-							<div class="<%= game.scrimmage == true ? 'scrimmage-game' : 'season-game' %>">
-								<strong class="against-team"><%= game.against_team %> <% if game.scrimmage == true %>(Scrimmage)<%end%></strong>
-								<div class="game-actions">
-									<%= link_to '<button class="btn btn-primary btn-sm">View Game</button>'.html_safe, game_path(game) %>
-									<% if admin_signed_in? %>
-										<%= link_to '<button class="btn btn-primary btn-sm">Edit Game</button>'.html_safe, edit_game_path(game) %>
-									<% end %>
+		<div class="body-div-game-index">
+			<div class="calendar">
+				<%= month_calendar do |date, games| %>  
+					<%= date.day %>
+					<% @games.zip(@game_type).each do |game, game_type|%>    
+							<% if game.date == date %>
+								<div class="<%= game_type %>">
+									<strong class="against-team"><%= game.against_team %> <% if game.scrimmage == true %>(Scrimmage)<%end%></strong>
+									<div class="game-actions">
+										<%= link_to '<button class="btn btn-primary btn-sm">View Game</button>'.html_safe, game_path(game) %>
+										<% if admin_signed_in? %>
+											<%= link_to '<button class="btn btn-primary btn-sm">Edit Game</button>'.html_safe, edit_game_path(game) %>
+										<% end %>
+									</div>
 								</div>
-							</div>
-						<% end %>
-					</div>  
+							<% end %>
+						</div>  
+					<% end %>
 				<% end %>
-			<% end %>
-		</div>
+			</div>
 
 
 		<% if admin_signed_in? %>

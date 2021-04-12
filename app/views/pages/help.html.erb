@@ -1,48 +1,40 @@
 <html>
   <%= render 'shared/header', stylesheet_link: 'pages', page_title: "Help" %>
-	<head>
-		<style>
-		
-			table, th, td {
-			border: 1px solid black;
-			}
-			
-			table.center {
-			margin-left: auto;
-			margin-right: auto;
-			}
-			
-			.button {
-				color: blue;
-			}
-			
-		</style>
-	</head>
-	
 	<body>
-	  <%= render 'shared/navbar' %>
-	  <div class="help-title">
-	  
-			<%= link_to '<button>How to login</button>'.html_safe, '/login', class: "button" %>
-			<br>
-			<%= link_to '<button type="button">How to add a player</button>'.html_safe, '/add_player', class: "button" %>
-			<br>
-			<%= link_to '<button type="button">How to edit a player profile or add player statistics</button>'.html_safe, '/edit_player', class: "button" %>
-			<br>
-			<%= link_to '<button type="button">How to view player statistics</button>'.html_safe, '/edit_player', class: "button" %>
-			<br>
-			<%= link_to '<button type="button">How to delete a player</button>'.html_safe, '/delete_player', class: "button" %>
-			<br>
-			<%= link_to '<button type="button">How to add a game</button>'.html_safe, '/add_game', class: "button" %>
-			<br>
-			<%= link_to '<button type="button">How to edit a game or add game statistics</button>'.html_safe, '/edit_game', class: "button" %>
-			<br>
-			<%= link_to '<button type="button">How to view game statistics</button>'.html_safe, '/view_game', class: "button" %>
-			<br>
-			<%= link_to '<button type="button">How to delete game</button>'.html_safe, '/delete_game', class: "button" %>
-			<br>
-			
+	  	<%= render 'shared/navbar' %>
+		<div class="body">
+			<div class="help-title">
+				<h1>Helper Page</h1>
+			</div>
+			<div class="help-div">
+				<div class="help-buttons">
+				
+					<%= link_to '<button class="btn btn-primary">Login</button>'.html_safe, '/login', class: "button" %>
+					
+					<%= link_to '<button class="btn btn-primary">Add Player</button>'.html_safe, '/add_player', class: "button" %>
+					
+					<%= link_to '<button class="btn btn-primary">Edit Player / Add Player Statistics</button>'.html_safe, '/edit_player', class: "button" %>
+					
+					<%= link_to '<button class="btn btn-primary">View Player Statistics</button>'.html_safe, '/edit_player', class: "button" %>
+				</div>	
+
+				<div class="help-buttons">
+					<%= link_to '<button class="btn btn-primary">Delete Player</button>'.html_safe, '/delete_player', class: "button" %>
+	
+					<%= link_to '<button class="btn btn-primary">Add Game</button>'.html_safe, '/add_game', class: "button" %>
+					
+					<%= link_to '<button class="btn btn-primary">Edit Game / Add Game Statistics</button>'.html_safe, '/edit_game', class: "button" %>
+					
+					<%= link_to '<button class="btn btn-primary">View Game</button>'.html_safe, '/view_game', class: "button" %>
+				</div>
+
+				<div class="help-buttons">
+					<%= link_to '<button class="btn btn-primary">Delete Game</button>'.html_safe, '/delete_game', class: "button" %>
+				</div>
+				
+			</div>
 		</div>
 	
-	<%= render 'shared/footer' %>
+		<%= render 'shared/footer' %>
+	</body>
 <html>

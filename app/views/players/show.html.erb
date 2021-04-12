@@ -23,6 +23,7 @@
         <% if admin_signed_in? %>
           <%= link_to '<button class="btn btn-primary btn-sm">Create/Edit Player Stats</button>'.html_safe, games_participation_path(@player) %><br/>
         <% end %>
+        <%= link_to '<button class="btn btn-primary btn-sm">View Player Stats</button>'.html_safe, playerParticipations_participation_path(@player) %><br/>
         <%= link_to '<button class="btn btn-primary btn-sm">Home</button>'.html_safe, root_path, :class => 'go back' %><br/>
     
         <% if @player.position != "Goalie" %>

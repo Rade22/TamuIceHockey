@@ -4,8 +4,6 @@
 
 	<body>
 		<%= render 'shared/navbar' %>
-		<h1>Player: <%= @player.first_name + " " + @player.last_name + " "%>(<%= @player.position%>)</h1>
-
 		<% @participation.each do |participation| %>
 			<%=render 'participation_tile', participation_obj: participation, player_obj: @player, game_obj: Game.find(participation.game_id) %>
 		<%end%>

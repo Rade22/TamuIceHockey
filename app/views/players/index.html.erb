@@ -14,7 +14,7 @@
 		</div>
 		<% end %>
 			<% @player.each do |player| %>
-				<%= render 'shared/player_tile', player_image: player.image_link , player_firstname: player.first_name, player_lastname: player.last_name, player_number: player.number, player_position: player.position, player_id: player %> 
+				<%= render 'players/player_tile', player_image: player.image_link , player_firstname: player.first_name, player_lastname: player.last_name, player_number: player.number, player_position: player.position, player_id: player %> 
 			<% end %>
   <%= render 'shared/footer' %>
 </html>

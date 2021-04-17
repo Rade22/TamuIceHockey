@@ -77,7 +77,7 @@ class ParticipationsController < ApplicationController
   def participations_params
     params.require(:participation).permit(:player_id, :game_id, :time_on_ice_goalie,
                                           :shots_against_goalie, :saves_goalie, :goals_against_goalie,
-                                          :goals_skater, :assists_skater, :penalty_minutes_skater,
-                                          :powerplay_minutes_skater, :powerplay_goals_skater)
+                                          :goals_skater, :assists_skater, :penalty_minutes_skater, 
+                                          :powerplay_goals_skater)
   end
 end

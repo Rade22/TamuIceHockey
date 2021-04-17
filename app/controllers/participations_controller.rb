@@ -63,7 +63,7 @@ class ParticipationsController < ApplicationController
     @participation = Participation.find(params[:id])
     if @participation.update(participations_params)
       flash[:update] = 'Participation has been successfully updated!'
-      redirect_to(participation_path)
+      redirect_to playerParticipations_participation_path(Player.find(@participation.player_id))
     else
       render 'edit'
     end

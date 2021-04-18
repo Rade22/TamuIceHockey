@@ -1,7 +1,11 @@
 <div class="card mb-3" style="max-width: 100%;">
   <div class="row g-0">
     <div class="col-md-4" style="">
-        <%= image_tag local_assigns[:player_image], style: 'height:333px;width:500px;' %>
+      <%if local_assigns[:player_image].eql?("/assets/HockeyLogo.png")%>
+        <%= image_tag local_assigns[:player_image], style: 'height:333px;width:400px;', class: "player-picture"%>
+      <%else%>
+        <%= image_tag local_assigns[:player_image] %>
+      <%end%>
     </div>
     <div class="col-md-8">
       <div class="card-body">
@@ -10,10 +14,9 @@
         <h4 class="card-text"> <%=local_assigns[:player_position] %> </h4>
         <div class="card-stats">
           <p class="card-text">Total Games: <%= @games_total[local_assigns[:player_id].id] %> </p>
-
           <% if local_assigns[:player_position].eql?("Goalie") %>
-          <p class="card-text">Goals Against: <%= @goalie_goals_against_total[local_assigns[:player_id].id] %> </p>
-          <p class="card-text">Time on Ice: <%= @goalie_time_on_ice_total[local_assigns[:player_id].id] %> </p>
+            <p class="card-text">Goals Against: <%= @goalie_goals_against_total[local_assigns[:player_id].id] %> </p>
+            <p class="card-text">Time on Ice: <%= @goalie_time_on_ice_total[local_assigns[:player_id].id] %> </p>
           <% if @games_total[local_assigns[:player_id].id] && @games_total[local_assigns[:player_id].id] != 0 %>
             <p class="card-text">Goals Against Average: <%= @goalie_goals_against_total[local_assigns[:player_id].id] / @games_total[local_assigns[:player_id].id]%> </p>
             <% if @goalie_shots_against_total[local_assigns[:player_id].id] != 0 %>
@@ -41,8 +44,8 @@
             <%= link_to '<button class="btn btn-primary"> Player Analytics </button>'.html_safe, player_path(local_assigns[:player_id]) %>
             <%= link_to '<button class="btn btn-primary"> View Player Stats </button>'.html_safe, playerParticipations_participation_path(local_assigns[:player_id]) %>
             <% if admin_signed_in? %>
-			    <%= link_to '<button class="btn btn-primary"> Edit Profile </button>'.html_safe, edit_player_path(local_assigns[:player_id]) %>
-                <%= link_to '<button class="btn btn-primary"> Create/Edit Stats </button>'.html_safe, games_participation_path(local_assigns[:player_id]) %>
+			        <%= link_to '<button class="btn btn-primary"> Edit Profile </button>'.html_safe, edit_player_path(local_assigns[:player_id]) %>
+              <%= link_to '<button class="btn btn-primary"> Create/Edit Stats </button>'.html_safe, games_participation_path(local_assigns[:player_id]) %>
 		      <% end %>
         </div>
       </div>

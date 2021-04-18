@@ -251,6 +251,12 @@ body, html {
     width: 100%;
 }
 
+.calendar{
+    overflow-x: auto;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-bottom: 10px;
+}
+
 .simple-calendar {
     .calendar-title {
         font-size: 50px;

@@ -112,11 +112,11 @@ module AnalyticsHelper
   
   def powerplays_vs_powerplay_goals
     line_chart [
-      {name: "Power plays", data: @powerplay_season} ,
-      {name: "Power play goals", data: @powerplay_goals_season}],
+      {name: "Powerplays", data: @powerplay_season} ,
+      {name: "Powerplay goals", data: @powerplay_goals_season}],
     colors: ["#800000","#000"],
     library: {
-      title: {text: 'Power plays vs Power play goals per game'},
+      title: {text: 'Powerplays vs Powerplay goals per game'},
       yAxis: { 
         crosshair: true
       },

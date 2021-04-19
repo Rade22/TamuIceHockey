@@ -34,7 +34,7 @@ class ParticipationsController < ApplicationController
   def create
     @participation = Participation.new(participations_params)
     if @participation.save
-      redirect_to participations_path, notice: 'Participation saved'
+      redirect_to playerParticipations_participation_path(Player.find(@participation.player_id)), notice: 'Participation saved'
     else
       render :new
     end
@@ -63,7 +63,7 @@ class ParticipationsController < ApplicationController
     @participation = Participation.find(params[:id])
     if @participation.update(participations_params)
       flash[:update] = 'Participation has been successfully updated!'
-      redirect_to(participation_path)
+      redirect_to playerParticipations_participation_path(Player.find(@participation.player_id))
     else
       render 'edit'
     end
@@ -77,7 +77,7 @@ class ParticipationsController < ApplicationController
   def participations_params
     params.require(:participation).permit(:player_id, :game_id, :time_on_ice_goalie,
                                           :shots_against_goalie, :saves_goalie, :goals_against_goalie,
-                                          :goals_skater, :assists_skater, :penalty_minutes_skater,
-                                          :powerplay_minutes_skater, :powerplay_goals_skater)
+                                          :goals_skater, :assists_skater, :penalty_minutes_skater, 
+                                          :powerplay_goals_skater)
   end
 end

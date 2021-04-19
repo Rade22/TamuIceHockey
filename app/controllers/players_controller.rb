@@ -89,7 +89,8 @@ class PlayersController < ApplicationController
     @player = Player.new(players_params)
     if @player.save
       @player.active = true
-      redirect_to players_path, notice: 'Player saved'
+	  flash[:success] = 'Player saved'
+      redirect_to players_path
     else
       render :new
     end
@@ -106,7 +107,7 @@ class PlayersController < ApplicationController
     @participation = Participation.where(player_id: @player.id)
     @participation.destroy_all
     @player.destroy
-    flash.notice = 'Deleted Player Successfully'
+    flash[:success] = 'Deleted Player Successfully'
     redirect_to players_path
   end
 
@@ -117,7 +118,7 @@ class PlayersController < ApplicationController
   def update
     @player = Player.find(params[:id])
     if @player.update(players_params)
-      flash[:update] = 'Player has been successfully updated!'
+      flash[:success] = 'Player has been successfully updated!'
       redirect_to(players_path)
     else
       render 'edit'

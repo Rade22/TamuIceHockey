@@ -84,7 +84,7 @@ module AnalyticsHelper
 		{name: "Goals against", data: @goal_against_season} ],
     colors: ["#800000","#000"], library: {
       title: {text: 'Goals per game'},
-      yAxis: { 
+      yAxis: {
         crosshair: true
       },
       xAxis: {

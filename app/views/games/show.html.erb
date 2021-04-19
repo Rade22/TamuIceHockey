@@ -3,6 +3,13 @@
 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 <body>
     <%= render 'shared/navbar' %>
+	
+		</div>
+		<% flash.each do |key, message| %>
+		<div class="alert <%= flash_class(key) %> alert-dismissible fade show text-center" role="alert">
+		<%= message %>
+		</div>
+		<% end %>
 
     <div class="body-div-game-show">
         <div class="title" style="color:white !important;">

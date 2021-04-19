@@ -1,4 +1,3 @@
-
 # frozen_string_literal: true
 
 # controller for players model

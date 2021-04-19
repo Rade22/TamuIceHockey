@@ -96,11 +96,11 @@ module AnalyticsHelper
 
   def penalties_vs_powerplays
     line_chart [
-      {name: "Power plays", data: @powerplay_season} ,
-      {name: "Penaltie kills", data: @penalty_season}], 
+      {name: "Powerplays", data: @powerplay_season} ,
+      {name: "Penalty kills", data: @penalty_season}], 
     colors: ["#800000","#000"],
     library: {
-      title: {text: 'Power plays vs Penaltie kills per game'},
+      title: {text: 'Powerplays vs Penalty kills per game'},
       yAxis: { 
         crosshair: true
       },

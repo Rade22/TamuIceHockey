@@ -131,7 +131,7 @@ class PlayersController < ApplicationController
   def update
     @player = Player.find(params[:id])
     if @player.update(players_params)
-      flash[:update] = 'Player has been successfully updated!'
+      flash[:notice] = 'Player has been successfully updated!'
       redirect_to(players_path)
     else
       render 'edit'

@@ -5,6 +5,17 @@ module GamesHelper
   def game_identity(game)
     "vs #{game.against_team} on #{game.date.strftime('%Y-%m-%d')}"
   end
+  
+    def flash_class(level)
+		bootstrap_alert_class = {
+			"success" => "alert-success",
+			"error" => "alert-danger",
+			"notice" => "alert-info",
+			"alert" => "alert-danger",
+			"warn" => "alert-warning"
+	}
+	bootstrap_alert_class[level]
+	end
 
   def us_states
     [

@@ -11,8 +11,6 @@ class PlayersController < ApplicationController
     @participation = Participation.all
     @games_total = Participation.group(:player_id).count
 
-    # for each stat, a dictionary is created, they the player obeject is looped through to add only that players stats to the dictionary
-    # each stat is then summed and assigned back into the dictionary so that it can be pulled form _playerEditForm.html.erb
     @skater_goals_total = {}
     @player.each do |player|
       @player_perform = Participation.where(player_id: player.id)
@@ -75,18 +73,6 @@ class PlayersController < ApplicationController
       @stat = @player_perform.sum(:shots_against_goalie)
       @goalie_shots_against_total[player.id] = @stat
     end
-
-    # @goalie_wins_total = {}
-    # @player.each do |player|
-    #   if player.position.eql?("Goalie")
-    #     @player_perform = Participation.where(player_id: player.id)
-    #     @player_perform.each do |perform|
-    #       @game = perform.game_id
-    #       @game_instance = Game.where(game_id: @game)
-    #       @goals_for = @game_instance.goals_for
-    #     end
-    #   end
-    # end
   end
 
   def show

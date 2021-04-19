@@ -4,32 +4,35 @@
 <body>
     <%= render 'shared/navbar' %>
 
-    <table class="team_stat">
-        <tr>
-            <th>Team</th>
-            <th>Game played</th>
-            <th>Total Points</th>
-            <th>Win</th>
-            <th>Win OVT</th>
-            <th>Lose</th>
-            <th>Lose OVT</th>
-            <th>Goals scored</th>
-            <th>Goals received</th>
-            <th>Goal difference</th>
-        </tr>
-        <tr>
-            <td>Texas A&M</td>
-            <td><%=@total_game%></td>
-            <td><%=@total_score%></td>
-            <td><%=@win_game%></td>
-            <td><%=@overtime_win_game%></td>
-            <td><%=@lose_game%></td>
-            <td><%=@overtime_lose_game%></td>
-            <td><%=@total_goal_for%></td>
-            <td><%=@total_goal_against%></td>
-            <td><%=@total_goal_for - @total_goal_against%></td>
-        </tr>
-    </table>
+    <div class="team-stat-div">
+        <table class="team_stat">
+            <tr>
+                <th>Team</th>
+                <th>Game played</th>
+                <th>Total Points</th>
+                <th>Win</th>
+                <th>Win OVT</th>
+                <th>Lose</th>
+                <th>Lose OVT</th>
+                <th>Goals scored</th>
+                <th>Goals received</th>
+                <th>Goal difference</th>
+            </tr>
+            <tr>
+                <td>Texas A&M</td>
+                <td><%=@total_game%></td>
+                <td><%=@total_score%></td>
+                <td><%=@win_game%></td>
+                <td><%=@overtime_win_game%></td>
+                <td><%=@lose_game%></td>
+                <td><%=@overtime_lose_game%></td>
+                <td><%=@total_goal_for%></td>
+                <td><%=@total_goal_against%></td>
+                <td><%=@total_goal_for - @total_goal_against%></td>
+            </tr>
+        </table>
+    </div>
+    
     <div class="graphs">
         <%= goals_for_vs_goals_against %>
     </div>
@@ -57,6 +60,7 @@
     <div class="graphs">
         <%= game_location_by_state %>
     </div>
+  
     <%= render 'shared/footer' %>
 </body>
 </html>

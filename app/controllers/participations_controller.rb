@@ -35,7 +35,8 @@ class ParticipationsController < ApplicationController
   def create
     @participation = Participation.new(participations_params)
     if @participation.save
-      redirect_to playerParticipations_participation_path(Player.find(@participation.player_id)), notice: 'Participation saved'
+	  flash[:success] = 'Statistics Saved!'
+      redirect_to playerParticipations_participation_path(Player.find(@participation.player_id))
     else
       render :new
     end
@@ -50,7 +51,7 @@ class ParticipationsController < ApplicationController
   def destroy
     @participation = Participation.find(params[:id])
     @participation.destroy
-    flash.notice = 'Delete Participation Successfully'
+    flash[:success] = 'Statistics Deleted Successfully'
     redirect_to players_path
   end
 
@@ -63,7 +64,7 @@ class ParticipationsController < ApplicationController
   def update
     @participation = Participation.find(params[:id])
     if @participation.update(participations_params)
-      flash[:update] = 'Participation has been successfully updated!'
+      flash[:success] = 'Statitistics have been successfully updated!'
       redirect_to playerParticipations_participation_path(Player.find(@participation.player_id))
     else
       render 'edit'

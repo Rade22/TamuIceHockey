@@ -82,7 +82,7 @@ class GamesController < ApplicationController
   def update
     @game = Game.find(params[:id])
     if @game.update(gamesedit_params)
-      flash[:update] = 'Your game has been successfully updated!'
+      flash[:notice] = 'Your game has been successfully updated!'
       redirect_to(game_path)
     else
       render 'edit'

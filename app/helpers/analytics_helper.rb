@@ -96,8 +96,8 @@ module AnalyticsHelper
 
   def penalties_vs_powerplays
     line_chart [
-      {name: "Power plays", data: @powerplay_season} ,
-      {name: "Penaltie kills", data: @penalty_season}], 
+      {name: "Powerplays", data: @powerplay_season} ,
+      {name: "Penalty kills", data: @penalty_season}], 
     colors: ["#800000","#000"],
     library: {
       title: {text: 'Power plays vs Penaltie kills per game'},
@@ -112,8 +112,8 @@ module AnalyticsHelper
   
   def powerplays_vs_powerplay_goals
     line_chart [
-      {name: "Power plays", data: @powerplay_season} ,
-      {name: "Power play goals", data: @powerplay_goals_season}],
+      {name: "Powerplays", data: @powerplay_season} ,
+      {name: "Powerplay goals", data: @powerplay_goals_season}],
     colors: ["#800000","#000"],
     library: {
       title: {text: 'Power plays vs Power play goals per game'},

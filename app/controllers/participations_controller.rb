@@ -23,6 +23,7 @@ class ParticipationsController < ApplicationController
     @participation.game_id = params[:id]
     @participation.player_id = params[:player_id]
     @player = (Player.find(params[:player_id]) if params[:player_id].present?)
+    @game = Game.find(@participation.game_id) 
     # end
   end
 

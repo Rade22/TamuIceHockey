@@ -1,0 +1,74 @@
+<html>
+  <%= render 'shared/header', stylesheet_link: 'pages', page_title: "Help" %>
+	<head>
+		<style>
+		
+			table, th, td {
+			border: 1px solid black;
+			}
+			table.center {
+			margin-left: auto;
+			margin-right: auto;
+			}
+			
+			.button {
+				background-color: #4CAF50; /* Green */
+				border: none;
+				color: white;
+				padding: 15px 32px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				margin: 4px 2px;
+				cursor: pointer;
+				border-radius: 12px;
+				box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+			}
+			
+		</style>
+	</head>
+	
+	<body>
+	  <%= render 'shared/navbar' %>
+	  <div class="help-title">
+			
+			<h2>Add Player Statistics:</h2>
+			<p>
+			To add player statistics, you will need to start from the Players page. Next, 
+			you will need to find the specific player that you want to give statistics. 
+			After finding the desired player, you will need to click the blue "Edit/Create Stats"
+			button.
+			</p>
+			
+			
+			<%= image_tag("add_stats1.png", size:"500x250") %>
+			
+			<p>
+			This will direct you to a page similar to the one seen below. It is here where you will need
+			to navigate through the calendar in order to find the game that the player participated in. Next,
+			you will need to click the blue "Select" button on the game card.
+			</p>
+			
+			<%= image_tag("add_stats2.png", size:"500x250") %>
+			
+			<p>
+			You should have been directed to the page seen below where you can add all of the player statistics 
+			for the given game. Once you are finished, click the green "Create Participation" as seen below. 
+			</p>
+			
+			<%= image_tag("add_stats3.png", size:"500x250") %>
+			
+			<p>
+			You should now be on the page seen below where you can confirm your changes.
+			</p>
+			
+			<%= image_tag("add_stats4.png", size:"500x250") %>
+			
+			<br>
+			<br>
+			
+		</div>
+	
+	<%= render 'shared/footer' %>
+<html>

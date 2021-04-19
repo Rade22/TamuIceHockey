@@ -13,11 +13,11 @@ RSpec.describe 'Deleting a game', type: :feature do
     game = Game.create(against_team: 'Clemson', date: '2021-04-20', time: '5:00 PM', ring_name: 'Wolf',
                        city: 'Houston', state: 'TX')
     visit delete_game_path(id: game.id)
-	
-	accept_confirm do
-		click_on 'Delete Game'
-	end
-	
+
+    accept_confirm do
+      click_on 'Delete Game'
+    end
+
     visit games_path
     expect(page).not_to have_content('Clemson')
   end

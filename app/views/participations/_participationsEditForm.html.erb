@@ -38,6 +38,11 @@
 	    <%= form.number_field :powerplay_goals_skater,  min: 0, placeholder: 0 %>
 	  </div>
 
+		<div class="input_field">
+			<%= form.label "Powerplay Minutes" %><br>
+				<%= form.number_field :powerplay_minutes_skater,  min: 0, placeholder: 0 %>
+			</div>
+
 	  <div class="input_field">
 	    <%= form.label "Penalty Minutes" %><br>
 	    <%= form.number_field :penalty_minutes_skater,  min: 0, placeholder: 0 %>
@@ -80,4 +85,8 @@
 	</div>
 
 	<% end %>
+	
+	<div class="btn-div">
+		<%= link_to '<button class="btn btn-danger"> Delete Stats </button>'.html_safe, delete_participation_path(@participation) %>
+	</div>
 	</div>

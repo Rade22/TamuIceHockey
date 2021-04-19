@@ -34,7 +34,7 @@ class ParticipationsController < ApplicationController
   def create
     @participation = Participation.new(participations_params)
     if @participation.save
-      redirect_to participations_path, notice: 'Participation saved'
+      redirect_to playerParticipations_participation_path(Player.find(@participation.player_id)), notice: 'Participation saved'
     else
       render :new
     end
@@ -50,7 +50,7 @@ class ParticipationsController < ApplicationController
     @participation = Participation.find(params[:id])
     @participation.destroy
     flash.notice = 'Delete Participation Successfully'
-    redirect_to participations_path
+    redirect_to players_path
   end
 
   def edit

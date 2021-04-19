@@ -14,7 +14,29 @@
 		</div>
 		<% end %>
 			<% @player.each do |player| %>
-				<%= render 'players/player_tile', player_image: player.image_link , player_firstname: player.first_name, player_lastname: player.last_name, player_number: player.number, player_position: player.position, player_id: player %> 
+				<% if player.position  == "Left Wing"%>
+					<%= render 'shared/player_tile', player_image: player.image_link , player_firstname: player.first_name, player_lastname: player.last_name, player_number: player.number, player_position: player.position, player_id: player %> 
+				<% end %>
+			<% end %>
+			<% @player.each do |player| %>
+				<% if player.position  == "Right Wing"%>
+					<%= render 'shared/player_tile', player_image: player.image_link , player_firstname: player.first_name, player_lastname: player.last_name, player_number: player.number, player_position: player.position, player_id: player %> 
+				<% end %>
+			<% end %>
+			<% @player.each do |player| %>
+				<% if player.position  == "Center"%>
+					<%= render 'shared/player_tile', player_image: player.image_link , player_firstname: player.first_name, player_lastname: player.last_name, player_number: player.number, player_position: player.position, player_id: player %> 
+				<% end %>
+			<% end %>
+			<% @player.each do |player| %>
+				<% if player.position  == "Defenseman"%>
+					<%= render 'shared/player_tile', player_image: player.image_link , player_firstname: player.first_name, player_lastname: player.last_name, player_number: player.number, player_position: player.position, player_id: player %> 
+				<% end %>
+			<% end %>
+			<% @player.each do |player| %>
+				<% if player.position  == "Goalie"%>
+					<%= render 'shared/player_tile', player_image: player.image_link , player_firstname: player.first_name, player_lastname: player.last_name, player_number: player.number, player_position: player.position, player_id: player %> 
+				<% end %>
 			<% end %>
   <%= render 'shared/footer' %>
 </html>

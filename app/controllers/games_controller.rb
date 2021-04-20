@@ -72,8 +72,7 @@ class GamesController < ApplicationController
     @participation = Participation.where(game_id: @game.id)
     @participation.destroy_all
     @game.destroy
-    flash.notice = 'Delete Game Successfully'
-	flash[:success] = 'Your game has been deleted'
+	flash[:success] = 'Game Deleted Successfully!'
     redirect_to games_path
   end
 

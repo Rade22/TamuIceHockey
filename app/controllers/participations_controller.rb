@@ -23,6 +23,7 @@ class ParticipationsController < ApplicationController
     @participation.game_id = params[:id]
     @participation.player_id = params[:player_id]
     @player = (Player.find(params[:player_id]) if params[:player_id].present?)
+    @game = Game.find(@participation.game_id) 
     # end
   end
 
@@ -34,7 +35,8 @@ class ParticipationsController < ApplicationController
   def create
     @participation = Participation.new(participations_params)
     if @participation.save
-      redirect_to participations_path, notice: 'Participation saved'
+	  flash[:success] = 'Statistics Saved!'
+      redirect_to playerParticipations_participation_path(Player.find(@participation.player_id))
     else
       render :new
     end
@@ -49,7 +51,7 @@ class ParticipationsController < ApplicationController
   def destroy
     @participation = Participation.find(params[:id])
     @participation.destroy
-    flash.notice = 'Delete Participation Successfully'
+    flash[:success] = 'Statistics Deleted Successfully'
     redirect_to players_path
   end
 
@@ -62,8 +64,8 @@ class ParticipationsController < ApplicationController
   def update
     @participation = Participation.find(params[:id])
     if @participation.update(participations_params)
-      flash[:update] = 'Participation has been successfully updated!'
-      redirect_to(participation_path)
+      flash[:success] = 'Statitistics have been successfully updated!'
+      redirect_to playerParticipations_participation_path(Player.find(@participation.player_id))
     else
       render 'edit'
     end
@@ -77,7 +79,7 @@ class ParticipationsController < ApplicationController
   def participations_params
     params.require(:participation).permit(:player_id, :game_id, :time_on_ice_goalie,
                                           :shots_against_goalie, :saves_goalie, :goals_against_goalie,
-                                          :goals_skater, :assists_skater, :penalty_minutes_skater,
-                                          :powerplay_minutes_skater, :powerplay_goals_skater)
+                                          :goals_skater, :assists_skater, :penalty_minutes_skater, 
+                                          :powerplay_goals_skater)
   end
 end

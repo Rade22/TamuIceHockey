@@ -4,6 +4,8 @@
 <body>
     <%= render 'shared/navbar' %>
 
+
+   <div class="team-stat-div">
     <table class="team_stat">
         <tr>
             <th>Team</th>
@@ -30,6 +32,7 @@
             <td><%=@total_goal_for - @total_goal_against%></td>
         </tr>
     </table>
+  </div>
     <%if @goal_score_season.size() >0 %>
         <div class="graphs">
             <%= goals_for_vs_goals_against %>
@@ -75,6 +78,7 @@
             <%= game_location_by_state %>
         </div>
     <%end%>
+  
     <%= render 'shared/footer' %>
 </body>
 </html>

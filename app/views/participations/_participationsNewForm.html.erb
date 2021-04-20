@@ -1,87 +1,72 @@
-<div class="participation-add">
+<div class="participations-stats-add">
 	  <div class="title">
 	    <h1>Create Player Statistics</h1>
 	  </div>
 
 
 	<%= form_with model: @participation  do |form| %>
-	  <div class="input_field">
-	    <%= form.label :player_id %><br>
-		<%= form.collection_select :player_id, Player.where(active: true).order(:last_name), :id, ->(player) { full_name(player) }, {prompt: "Select a player"}  %>
-		<% @participation.errors.full_messages_for(:player_id).each do |message| %>
-	      <div><%= message %></div>
-		<% end %>
-	  </div>
-
-	  <div class="input_field">
-        <%= form.label :game_id %><br>
-        <%= form.collection_select :game_id, Game.order(:date), :id, ->(game) { game_identity(game) }, {prompt: "Select a game"} %>
-        <% @participation.errors.full_messages_for(:game_id).each do |message| %>
-          <div><%= message %></div>
-        <% end %>
+	  <div class="edit-title">
+	    <h3><%= full_name(@player) %></h3>
+		<h3>vs.</h3>
+		<h3> <%= game_identity(@game) %></h3>
+		<h3> <%= game_date(@game) %></h3>
       </div>
 	
 	<div class="container-manager">
 	<!--Container for Skater Options-->
 	<% if @player == nil || !@player.position.eql?("Goalie") %>
-	<div class="skater-container">
-	  <div class="subtitle">
-	    <br><strong>Skater Options:</strong>
-      </div>
-	  <div class="input_field">
-	    <%= form.label "Goals" %><br>
-	    <%= form.number_field :goals_skater,  min: 0, placeholder: 0, :value => 0 %>
-	  </div>
-
-	  <div class="input_field">
-	    <%= form.label "Assists" %><br>
- 	   <%= form.number_field :assists_skater,  min: 0, placeholder: 0, :value => 0 %>
-	  </div>
-
-	  <div class="input_field">
-	    <%= form.label "Powerplay Goals" %><br>
-	    <%= form.number_field :powerplay_goals_skater,  min: 0, placeholder: 0, :value => 0 %>
-	  </div>
-
-		<div class="input_field">
-			<%= form.label "Powerplay Minutes" %><br>
-				<%= form.number_field :powerplay_minutes_skater,  min: 0, placeholder: 0, :value => 0 %>
+		<div class="skater-container">
+			<div class="subtitle">
+				<br><strong>Skater Options:</strong>
+			</div>
+			<div class="input_field">
+				<%= form.label "Goals" %><br>
+				<%= form.number_field :goals_skater,  min: 0, placeholder: 0, :value => 0 %>
 			</div>
 
-	  <div class="input_field">
-	    <%= form.label "Penalty Minutes" %><br>
-	    <%= form.number_field :penalty_minutes_skater,  min: 0, placeholder: 0, :value => 0 %>
-	  </div>
-	</div>
+			<div class="input_field">
+				<%= form.label "Assists" %><br>
+			<%= form.number_field :assists_skater,  min: 0, placeholder: 0, :value => 0 %>
+			</div>
+
+			<div class="input_field">
+				<%= form.label "Powerplay Goals" %><br>
+				<%= form.number_field :powerplay_goals_skater,  min: 0, placeholder: 0, :value => 0 %>
+			</div>
+
+			<div class="input_field">
+				<%= form.label "Penalty Minutes" %><br>
+				<%= form.number_field :penalty_minutes_skater,  min: 0, placeholder: 0, :value => 0 %>
+			</div>
+		</div>
 	<% end %>
 
 	<!--Container for Goalie Options-->
 	<% if @player == nil || @player.position.eql?("Goalie") %>
-	<div class="goalie-container">
-	  <div class="subtitle">
-	    <br><strong>Goalie Options:</strong>
-	  </div>
-	  <div class="input_field">
-        <%= form.label "Time on ice (minutes)" %><br>
-        <%= form.number_field :time_on_ice_goalie,  min: 0, placeholder: 0, :value => 0 %>
-      </div>
+		<div class="goalie-container">
+			<div class="subtitle">
+				<br><strong>Goalie Options:</strong>
+			</div>
+			<div class="input_field">
+				<%= form.label "Time on ice (minutes)" %><br>
+				<%= form.number_field :time_on_ice_goalie,  min: 0, placeholder: 0, :value => 0 %>
+			</div>
 
-      <div class="input_field">
-        <%= form.label "Shots against" %><br>
-        <%= form.number_field :shots_against_goalie,  min: 0, placeholder: 0, :value => 0 %>
-      </div>
+			<div class="input_field">
+				<%= form.label "Shots against" %><br>
+				<%= form.number_field :shots_against_goalie,  min: 0, placeholder: 0, :value => 0 %>
+			</div>
 
-      <div class="input_field">
-        <%= form.label "Saves" %><br>
-        <%= form.number_field :saves_goalie,  min: 0, placeholder: 0, :value => 0 %>
-      </div>
+			<div class="input_field">
+				<%= form.label "Saves" %><br>
+				<%= form.number_field :saves_goalie,  min: 0, placeholder: 0, :value => 0 %>
+			</div>
 
-      <div class="input_field">
-        <%= form.label "Goals against" %><br>
-        <%= form.number_field :goals_against_goalie,  min: 0, placeholder: 0 %>
-      </div>
-	</div>
-
+			<div class="input_field">
+				<%= form.label "Goals against" %><br>
+				<%= form.number_field :goals_against_goalie,  min: 0, placeholder: 0 %>
+			</div>
+		</div>
 	<% end %>
 
 	</div>

@@ -54,7 +54,8 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(games_params)
     if @game.save
-      redirect_to games_path, notice: 'Game saved'
+	  flash[:success] = 'Game Saved'
+      redirect_to games_path
     else
       render :new
     end
@@ -71,8 +72,8 @@ class GamesController < ApplicationController
     @participation = Participation.where(game_id: @game.id)
     @participation.destroy_all
     @game.destroy
-    flash.notice = 'Delete Game Successfully'
-    redirect_to games_path, notice: 'Your game has been deleted'
+	flash[:success] = 'Game Deleted Successfully!'
+    redirect_to games_path
   end
 
   def edit
@@ -82,7 +83,7 @@ class GamesController < ApplicationController
   def update
     @game = Game.find(params[:id])
     if @game.update(gamesedit_params)
-      flash[:update] = 'Your game has been successfully updated!'
+      flash[:success] = 'Your game has been successfully updated!'
       redirect_to(game_path)
     else
       render 'edit'

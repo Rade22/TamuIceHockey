@@ -1,20 +1,50 @@
 <html>
+		
   <%= render 'shared/header', stylesheet_link: 'players', page_title: "Players Index" %>
 	<body>
-	  <%= render 'shared/navbar' %>
+	  <%=  render 'shared/navbar' %>
+	  
+	  	</div>
+		<% flash.each do |key, message| %>
+		<div class="alert <%= flash_class(key) %> alert-dismissible fade show text-center" role="alert">
+		<%= flash.discard(key) %>
+		</div>
+		<% end %>
+		
+		
 		<div class="player-title">
 			<h2>Players</h2>
 			<% if admin_signed_in? %>
-			  <%= link_to '<button class="btn btn-success">Add New Player</button>'.html_safe, new_player_path() %><br/>
+			  <%= link_to '<button class="btn btn-success" style="margin-bottom: 10px;">Add New Player</button>'.html_safe, new_player_path() %><br/>
 			<% end %>
-		</div>
-		<% flash.each do |type, msg| %>
-		<div>
-			<%= msg %>
-		</div>
-		<% end %>
+
+		
 			<% @player.each do |player| %>
-				<%= render 'shared/player_tile', player_image: player.image_link , player_firstname: player.first_name, player_lastname: player.last_name, player_number: player.number, player_position: player.position, player_id: player %> 
+				<% if player.position  == "Left Wing"%>
+					<%= render 'player_tile', player_image: player.image_link , player_firstname: player.first_name, player_lastname: player.last_name, player_number: player.number, player_position: player.position, player_id: player %> 
+				<% end %>
 			<% end %>
+			<% @player.each do |player| %>
+				<% if player.position  == "Right Wing"%>
+					<%= render 'player_tile', player_image: player.image_link , player_firstname: player.first_name, player_lastname: player.last_name, player_number: player.number, player_position: player.position, player_id: player %> 
+				<% end %>
+			<% end %>
+			<% @player.each do |player| %>
+				<% if player.position  == "Center"%>
+					<%= render 'player_tile', player_image: player.image_link , player_firstname: player.first_name, player_lastname: player.last_name, player_number: player.number, player_position: player.position, player_id: player %> 
+				<% end %>
+			<% end %>
+			<% @player.each do |player| %>
+				<% if player.position  == "Defenseman"%>
+					<%= render 'player_tile', player_image: player.image_link , player_firstname: player.first_name, player_lastname: player.last_name, player_number: player.number, player_position: player.position, player_id: player %> 
+				<% end %>
+			<% end %>
+			<% @player.each do |player| %>
+				<% if player.position  == "Goalie"%>
+					<%= render 'player_tile', player_image: player.image_link , player_firstname: player.first_name, player_lastname: player.last_name, player_number: player.number, player_position: player.position, player_id: player %> 
+				<% end %>
+			<% end %>
+	
+	</body>
   <%= render 'shared/footer' %>
 </html>

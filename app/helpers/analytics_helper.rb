@@ -100,7 +100,7 @@ module AnalyticsHelper
       {name: "Penalty kills", data: @penalty_season}], 
     colors: ["#800000","#000"],
     library: {
-      title: {text: 'Power plays vs Penaltie kills per game'},
+      title: {text: 'Powerplays vs Penalty kills per game'},
       yAxis: { 
         crosshair: true
       },
@@ -116,7 +116,7 @@ module AnalyticsHelper
       {name: "Powerplay goals", data: @powerplay_goals_season}],
     colors: ["#800000","#000"],
     library: {
-      title: {text: 'Power plays vs Power play goals per game'},
+      title: {text: 'Powerplays vs Powerplay goals per game'},
       yAxis: { 
         crosshair: true
       },

@@ -157,4 +157,31 @@ end
       }
     }
   end
+
+  def time_on_ice_goalie 
+    @player_time_raw = @player_perform.group(:game_id).sum(:time_on_ice_goalie)
+    @player_time = []
+    @player_time_raw.each do |participate|
+      @print_out = participate[0]
+      @print_out_2 = participate[1]
+      @current_game = @game_info.where(id: participate[0]).first
+      team_name = @current_game.against_team
+      game_date = @current_game.date
+      temp = team_name + " " + game_date.strftime('%m/%d/%Y')
+      @player_time.append([temp, participate[1]])
+    end
+    
+    line_chart [{name: "Time on ice", data: @player_time}],
+    colors: ["#800000"], 
+    library: {
+      title: {text: "Time on ice by game"},
+      xAxis: {
+        crosshair: true
+      },
+      yAxis: {
+        crosshair: true,
+        allowDecimals: false
+      }
+    }
+  end
 end

@@ -14,11 +14,11 @@ module ParticipationsHelper
   bootstrap_alert_class[level]
   end
 
-    def game_date(game)
-        "(#{game.date.strftime('%m-%d-%y')})"
-    end
-
-    def game_identity(game)
-        "#{game.against_team}"
-    end
+   # def game_date(game)
+   #     "(#{game.date.strftime('%m-%d-%y')})"
+   # end
+   #
+   # def game_identity(game)
+   #     "#{game.against_team}"
+   # end
 end

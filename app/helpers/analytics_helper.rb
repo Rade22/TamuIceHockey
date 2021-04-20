@@ -1,4 +1,5 @@
 module AnalyticsHelper
+
   def goal_source_powerplay_other
     pie_chart ({"Powerplay goals" => @powerplay_goal, "Other goals" => @normal_goal}),
     colors: ["#000", "#800000"],
@@ -51,6 +52,7 @@ module AnalyticsHelper
       number_cur_player = cur_player.number
       @player_goal_by_game.append([name_cur_player + " " + number_cur_player.to_s, participate[1]])
     end
+
     line_chart [{name: "Total goals", data: @player_goal_by_game}], 
     colors: ["#800000"],
     library: {

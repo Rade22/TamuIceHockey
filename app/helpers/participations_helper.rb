@@ -12,6 +12,7 @@ module ParticipationsHelper
     "warn" => "alert-warning"
   }
   bootstrap_alert_class[level]
+  end
 
     def game_date(game)
         "(#{game.date.strftime('%m-%d-%y')})"

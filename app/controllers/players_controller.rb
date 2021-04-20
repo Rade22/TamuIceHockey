@@ -77,18 +77,7 @@ class PlayersController < ApplicationController
 
   def show
     @player = Player.find(params[:id])
-    @player_perform = Participation.where(player_id: params[:id])
-    #@player_perform_raw = Participation.where(player_id: params[:id])
-    #@temp = []
-    #@player_perform_raw.each do |participation|
-    #  @temp_game = Game.find(participation.game_id)
-    #  @temp.append([@temp_game.date, participation])
-    #end
-    #@temp.sort
-    #@player_perform = []
-    #@temp.each do |e|
-    #  @player_perform.append(e[1])
-    #end
+    @player_perform = Participation.where(player_id: params[:id]).joins(:game)
     @game_info = Game.all
   end
 

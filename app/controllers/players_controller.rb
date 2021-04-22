@@ -77,7 +77,7 @@ class PlayersController < ApplicationController
 
   def show
     @player = Player.find(params[:id])
-    @player_perform = Participation.where(player_id: params[:id])
+    @player_perform = Participation.where(player_id: params[:id]).joins(:game)
     @game_info = Game.all
   end
 

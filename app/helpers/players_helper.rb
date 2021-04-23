@@ -26,10 +26,10 @@ module PlayersHelper
       temp.append([game_date, team_name, participate[1]])
     end
 
-    temp_sort = temp.sort{|a| a.first}
+    temp_sort = temp.sort
     return_array = []
-    temp_sort.each do |temp|
-      return_array.append([temp[1] + "  " + temp[0].strftime('%m/%d/%Y'), temp[2]] )
+    temp_sort.each do |temp_value|
+      return_array.append([ (temp_value[0].strftime('%m/%d/%Y') + " " +temp_value.second + " "), temp_value[2] ] )
     end
     return return_array
   end
@@ -37,7 +37,6 @@ module PlayersHelper
   def goal_score_skater 
     player_goals_raw = @player_perform.group(:game_id).sum(:goals_skater)
     @player_goals = sort_the_array_by_date(player_goals_raw)
-
     line_chart [{name: "Goals", data: @player_goals}],
     colors: ["#800000"], 
     library: {
@@ -136,20 +135,8 @@ module PlayersHelper
 
   def time_on_ice_goalie 
     player_time_raw = @player_perform.group(:game_id).sum(:time_on_ice_goalie)
-    temp_player_time = []
-    player_time_raw.each do |participate|
-      current_game = @game_info.where(id: participate[0]).first
-      team_name = current_game.against_team
-      game_date = current_game.date
-      temp_player_time.append([game_date, team_name, participate[1]])
-    end
-    
-    temp_sort = temp_player_time.sort{|a| a.first}
-    @player_time = []
-    temp_sort.each do |temp|
-      @player_time.append([temp[1] + "  " + temp[0].strftime('%m/%d/%Y'), temp[2]] )
-    end
-    
+    @player_time = sort_the_array_by_date(player_time_raw)
+
     line_chart [{name: "Time on ice", data: @player_time}],
     colors: ["#800000"], 
     library: {

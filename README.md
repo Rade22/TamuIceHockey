@@ -1,9 +1,13 @@
+
+- Documentation:
+  - [TamuIceHockey Stat Tracker Report](https://teams.microsoft.com/l/file/F5003B7A-ABC1-4932-B401-44FDFD6852B9?tenantId=68f381e3-46da-47b9-ba57-6f322b8f0da1&fileType=docx&objectUrl=https%3A%2F%2Ftamucs.sharepoint.com%2Fteams%2FTeam-Team-SP21-CSCE431-SoftwareEngineering-4-Sec501-MW-2.55-12372%2FShared%20Documents%2F4-Sec%20501-MW-2.55-12372%2FFinal%20Report%2FTAMUIH%20Stat%20Tracker%20Project%20Document.docx&baseUrl=https%3A%2F%2Ftamucs.sharepoint.com%2Fteams%2FTeam-Team-SP21-CSCE431-SoftwareEngineering-4-Sec501-MW-2.55-12372&serviceName=teams&threadId=19:73c3f76eaa45495a8468fd24f404c1db@thread.tacv2&groupId=a77ea6a8-5da3-4491-a01f-1a0ba6bfcce7)
+
 - CI/CD:
   - All our continuous integration (CI) and continuous deployment (CD) are handled by three yml files (each handling a different GitHub Action) which can be found in ./github/workflows. The first file, heroku\_main.yml, handles the continuous deployment for the application. It executes anytime a pull request is made into the main branch of the repository. Once a pull request is committed, this action takes the updated code in the main branch and pushes it to Heroku. This action ensures that the website is always using the most stable and up-to-date code. The next file, main.yml, executes anytime there is a pull request to or from the development and main branches. This action takes the code trying to be committed and attempts to build it in a test environment. With this, developers can confirm that the pushed code is stable enough to build and won&#39;t damage the version from the main or development branches. It is also very important to note that for this action to work, the credentials for the test database need to be set to postgres superuser (username: postgres and password: postgres). You can change these credentials in the database.yml in the config folder of the repository. For the third and last file, rubocop.yml, this is a GitHub action solely responsible for style checking. On any attempt to push, this action will run Rubocop on the code and display any styling violations to the developer before the code is finally committed.
 
 - Testing:
   - In the spec folder, you will find various rspec files meant to test the functionality of the application. In order to run these files locally you will need to first have rspec and Capybara installed on your local machine. Then, from a command terminal on the root directory of the project, run the command below.
-    - rspec spec/&quot;name of file&quot;
+    - ```rspec spec/<Name of file>```
   - Brakeman
     - cd into root directory for application
     - ```brakeman```

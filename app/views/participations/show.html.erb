@@ -4,6 +4,13 @@
 
 	<body>
 		<%= render 'shared/navbar' %>
+		
+		</div>
+		<% flash.each do |key, message| %>
+		<div class="alert <%= flash_class(key) %> alert-dismissible fade show text-center" role="alert">
+		<%= flash.discard(key) %>
+		</div>
+		<% end %>
 
 		<div class="body-div-participation-show">
           <div class="title">

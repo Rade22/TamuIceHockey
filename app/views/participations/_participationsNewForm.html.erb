@@ -13,6 +13,8 @@
       </div>
 	
 	<div class="container-manager">
+				<%= form.hidden_field :player_id, :value => @player.id %>
+				<%= form.hidden_field :game_id, :value => @game.id %>
 	<!--Container for Skater Options-->
 	<% if @player == nil || !@player.position.eql?("Goalie") %>
 		<div class="skater-container">

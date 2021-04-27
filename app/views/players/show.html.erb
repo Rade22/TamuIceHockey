@@ -10,27 +10,33 @@
         </div>
 
         <div class="player-analytics">
-          <% if @player.position != "Goalie" %>
-            <div class="graph">
-            <%= goal_score_skater %>
-            </div>
-            <div class="graph">
-            <%= goal_assist_skater %>
-            </div>
-            <div class="graph">
-            <%= penalty_minutes_skater %>
-            </div>
-          <% end %>
-          
-          <% if @player.position == "Goalie" %>
-            <div class="graph">
-              <%= goal_save_goalie %>
-            </div>
-
-            <div class="graph">
+          <%if @player_perform.size() > 0 %>
+            <% if @player.position != "Goalie" && @player_perform.size() > 0%>
+              <div class="graph">
+              <%= goal_score_skater %>
+              </div>
+              <div class="graph">
               <%= goal_assist_skater %>
-            </div>
-          <% end %>
+              </div>
+              <div class="graph">
+              <%= player_score_per_game %>
+              </div>
+              <div class="graph">
+              <%= penalty_minutes_skater %>
+              </div>
+            <% end %>
+            
+            <% if @player.position == "Goalie"%>
+              <div class="graph">
+                <%= goal_save_goalie %>
+              </div>
+              <div class="graph">
+                <%= time_on_ice_goalie %>
+              </div>
+            <% end %>
+          <%else%>
+            <h2> Currently no data for player </h2>
+          <%end%>
         </div>
         
     </div>

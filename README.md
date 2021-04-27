@@ -6,7 +6,7 @@
 
 - Testing:
   - In the spec folder, you will find various rspec files meant to test the functionality of the application. In order to run these files locally you will need to first have rspec and Capybara installed on your local machine. Then, from a command terminal on the root directory of the project, run the command below.
-    - rspec spec/<Name of file>
+    - ```rspec spec/<Name of file>```
   - Brakeman
     - cd into root directory for application
     - ```brakeman```

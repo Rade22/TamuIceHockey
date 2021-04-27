@@ -4,13 +4,21 @@
 
 <body>
     <%= render 'shared/navbar' %>
+	
+	</div>
+		<% flash.each do |key, message| %>
+		<div class="alert <%= flash_class(key) %> alert-dismissible fade show text-center" role="alert">
+		<%= flash.discard(key) %>
+		</div>
+	<% end %>
 
-    <div class="bg-image"></div>
-
-    <div class="bg-text">
-        <h1>Texas A&M Ice Hockey</h1>
-        <h1>Statistics Tracker</h1>
+    <div class="bg-image">
+        <div class="bg-text">
+            <h1>Texas A&M Ice Hockey</h1>
+            <h1>Statistics Tracker</h1>
+        </div>
     </div>
+
     
     <%= render 'shared/footer' %>
 </body>

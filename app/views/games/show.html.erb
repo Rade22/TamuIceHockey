@@ -6,9 +6,9 @@
 	
 		</div>
 		<% flash.each do |key, message| %>
-		<div class="alert <%= flash_class(key) %> alert-dismissible fade show text-center" role="alert">
-		<%= message %>
-		</div>
+		    <div class="alert <%= flash_class(key) %> alert-dismissible fade show text-center" role="alert">
+		        <%= message %>
+		    </div>
 		<% end %>
 
     <div class="body-div-game-show">

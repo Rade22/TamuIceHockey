@@ -23,9 +23,9 @@
   - Nodejs and Yarn
     - ```sudo apt install yarn nodejs```
   - Rails 6.1.3.1
-    - ```gem install rails –v 6.1.3.1```
+    - ```gem install rails -v 6.1.3.1```
   - Postgres 12
-    - ```sudo apt install postgresql postgresql-contrib libpq -dev –y```
+    - ```sudo apt install postgresql postgresql-contrib libpq -dev -y```
 
 - Creating Local Database
   - Create Database specified in app/config/database.yml
@@ -43,7 +43,14 @@
     - ```rails s```
 
 - Google authentication
-  - Joshua&#39;s section
+  - To log in with your @gmail.com or @tamu.edu address, click the "Admin Login" button at the top right of the window
+  - To add an admin to the admins table:
+    - ```sudo -u postgres psql```
+    - ```\c tamuicehockey_production```
+    - ``INSERT INTO admins (email) VALUES ('YourEmailHere@gmail.com');
 
 - Deploy code to Heroku
-  - Joshua&#39;s section
+  - To push code manually to Heroku, first [install the Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli), then follow these steps:
+    - ```heroku login```
+    - ```heroku git:remote -a your-app-here-12345```
+    - ```git push heroku main```

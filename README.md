@@ -23,9 +23,9 @@
   - Nodejs and Yarn
     - ```sudo apt install yarn nodejs```
   - Rails 6.1.3.1
-    - ```gem install rails –v 6.1.3.1```
+    - ```gem install rails -v 6.1.3.1```
   - Postgres 12
-    - ```sudo apt install postgresql postgresql-contrib libpq -dev –y```
+    - ```sudo apt install postgresql postgresql-contrib libpq -dev -y```
 
 - Creating Local Database
   - Create Database specified in app/config/database.yml

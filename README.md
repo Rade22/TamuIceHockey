@@ -44,13 +44,21 @@
 
 - Google authentication
   - To log in with your @gmail.com or @tamu.edu address, click the "Admin Login" button at the top right of the window
-  - To add an admin to the admins table:
+  - To add an admin to the admins table locally:
     - ```sudo -u postgres psql```
     - ```\c tamuicehockey_production```
-    - ``INSERT INTO admins (email) VALUES ('YourEmailHere@gmail.com');
+    - ```INSERT INTO admins (email) VALUES ('YourEmailHere@gmail.com');```
+  - To add an admin on heroku:
+    - Log in with the CLI
+    - ```heroku pg:psgl```
+    - ```INSERT INTO admins (email) VALUES ('YourEmailHere@gmail.com');```
 
 - Deploy code to Heroku
   - To push code manually to Heroku, first [install the Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli), then follow these steps:
+    - ```heroku login```
+    - ```heroku create```
+    - ```git push heroku main```
+  - If you already have a Heroku app:
     - ```heroku login```
     - ```heroku git:remote -a your-app-here-12345```
     - ```git push heroku main```

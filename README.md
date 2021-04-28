@@ -45,7 +45,7 @@
 - Google authentication
   - To log in with your @gmail.com or @tamu.edu address, click the "Admin Login" button at the top right of the window
   - To add an admin to the admins table:
-    - ```sudo -u postgres psql``
+    - ```sudo -u postgres psql```
     - ```\c tamuicehockey_production```
     - ``INSERT INTO admins (email) VALUES ('YourEmailHere@gmail.com');
 

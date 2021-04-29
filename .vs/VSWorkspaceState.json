@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\app",
+    "\\app\\assets",
+    "\\app\\assets\\stylesheets",
+    "\\app\\controllers",
+    "\\app\\helpers",
+    "\\app\\views",
+    "\\app\\views\\analytics",
+    "\\app\\views\\layouts",
+    "\\app\\views\\simple_calendar"
+  ],
+  "SelectedNode": "\\app\\assets\\stylesheets\\games.scss",
+  "PreviewInSolutionExplorer": false
+}
